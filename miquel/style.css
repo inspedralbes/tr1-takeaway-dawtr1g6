@@ -1,0 +1,124 @@
+.prods {
+    margin-left: 10px;
+    grid-area: prods;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 5%;
+}
+
+.checkout {
+    overflow: scroll;
+    position: sticky;
+    top: 20px;
+    grid-area: checkout;
+    align-self: start;
+    margin-top: 10%;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    grid-area: checkout;
+    height: 100vh;
+}
+
+.prod {
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 10%;
+}
+
+.check {
+    grid-area: checkout;
+}
+
+.cont {
+    display: grid;
+    grid-template-areas:
+        "prods prods checkout";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn-group {
+    margin-right: 10%;
+}
+
+.card-text {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stock {
+    margin-left: 10%;
+    margin-bottom: 5px;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+.unitats {
+    background-color: rgb(255, 237, 77);
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(248, 248, 248);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.nav>* {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.buscar {
+    border: 0.5px solid rgb(182, 182, 182);
+    border-radius: 5px;
+    margin-right: 10px;
+    height: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.buscar-btn {
+    background-color: rgb(248, 248, 248);
+    border-radius: 5px;
+    margin-right: 20px;
+    width: fit-content;
+    height: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: justify;
+}
+
+.navA {
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+
+.carro {
+    display: grid;
+    grid-template-columns: 10% 1fr 20% 10% 12%;
+    align-items: center;
+    margin-right: 30px;
+
+}
+
+.carro p {
+    margin-top: 15px;
+}
+
+.centrat {
+    text-align: center;
+}
