@@ -2,7 +2,7 @@
     "productes": [
         {
             "id": 1,
-            "nombre": "iPhone 13 Pro",
+            "nombre": "Toyota Camry",
             "precio": 1099.00,
             "imagen": "#",
             "stock": 15,
@@ -10,7 +10,7 @@
         },
         {
             "id": 2,
-            "nombre": "Samsung Galaxy S21",
+            "nombre": "Honda Civic",
             "precio": 899.99,
             "imagen": "#",
             "stock": 20,
@@ -18,7 +18,7 @@
         },
         {
             "id": 3,
-            "nombre": "MacBook Air",
+            "nombre": "Ford Mustang",
             "precio": 999.00,
             "imagen": "#",
             "stock": 10,
@@ -26,7 +26,7 @@
         },
         {
             "id": 4,
-            "nombre": "Sony PlayStation 5",
+            "nombre": "Chevrolet Corvette",
             "precio": 499.99,
             "imagen": "#",
             "stock": 5,
@@ -34,7 +34,7 @@
         },
         {
             "id": 5,
-            "nombre": "Samsung 55-inch 4K Smart TV",
+            "nombre": "BMW X5",
             "precio": 699.99,
             "imagen": "#",
             "stock": 8,
@@ -42,7 +42,7 @@
         },
         {
             "id": 6,
-            "nombre": "Bose QuietComfort 35 II",
+            "nombre": "Audi A4",
             "precio": 299.00,
             "imagen": "#",
             "stock": 12,
@@ -50,7 +50,7 @@
         },
         {
             "id": 7,
-            "nombre": "Apple Watch Series 7",
+            "nombre": "Mercedes-Benz S-Class",
             "precio": 399.00,
             "imagen": "#",
             "stock": 18,
@@ -58,7 +58,7 @@
         },
         {
             "id": 8,
-            "nombre": "DJI Mavic Air 2 Drone",
+            "nombre": "Nissan Altima",
             "precio": 799.00,
             "imagen": "#",
             "stock": 7,
@@ -66,7 +66,7 @@
         },
         {
             "id": 9,
-            "nombre": "Lenovo ThinkPad X1 Carbon",
+            "nombre": "Volkswagen Golf",
             "precio": 1499.00,
             "imagen": "#",
             "stock": 9,
@@ -74,7 +74,7 @@
         },
         {
             "id": 10,
-            "nombre": "Logitech MX Master 3 Mouse",
+            "nombre": "Subaru Outback",
             "precio": 99.99,
             "imagen": "#",
             "stock": 25,
@@ -82,7 +82,7 @@
         },
         {
             "id": 11,
-            "nombre": "Google Pixel 6 Pro",
+            "nombre": "Tesla Model 3",
             "precio": 899.00,
             "imagen": "#",
             "stock": 15,
@@ -90,7 +90,7 @@
         },
         {
             "id": 12,
-            "nombre": "LG OLED 65-inch 4K Smart TV",
+            "nombre": "Porsche 911",
             "precio": 1299.99,
             "imagen": "#",
             "stock": 10,
@@ -98,7 +98,7 @@
         },
         {
             "id": 13,
-            "nombre": "Microsoft Surface Laptop 4",
+            "nombre": "Jaguar F-PACE",
             "precio": 1099.00,
             "imagen": "#",
             "stock": 12,
@@ -106,7 +106,7 @@
         },
         {
             "id": 14,
-            "nombre": "Sony WH-1000XM4 Headphones",
+            "nombre": "Lamborghini Huracan",
             "precio": 299.99,
             "imagen": "#",
             "stock": 20,
@@ -114,7 +114,7 @@
         },
         {
             "id": 15,
-            "nombre": "Nintendo Switch OLED",
+            "nombre": "Ferrari 488 GTB",
             "precio": 349.00,
             "imagen": "#",
             "stock": 10,
@@ -122,7 +122,7 @@
         },
         {
             "id": 16,
-            "nombre": "Canon EOS 5D Mark IV",
+            "nombre": "Aston Martin Vantage",
             "precio": 2499.00,
             "imagen": "#",
             "stock": 5,
@@ -130,7 +130,7 @@
         },
         {
             "id": 17,
-            "nombre": "Amazon Echo Show 10",
+            "nombre": "Lexus ES",
             "precio": 249.99,
             "imagen": "#",
             "stock": 15,
@@ -138,7 +138,7 @@
         },
         {
             "id": 18,
-            "nombre": "Samsung 27-inch Curved Gaming Monitor",
+            "nombre": "Kia Optima",
             "precio": 399.00,
             "imagen": "#",
             "stock": 8,
@@ -146,7 +146,7 @@
         },
         {
             "id": 19,
-            "nombre": "Xbox Series X",
+            "nombre": "Hyundai Elantra",
             "precio": 499.00,
             "imagen": "#",
             "stock": 10,
@@ -154,7 +154,7 @@
         },
         {
             "id": 20,
-            "nombre": "Sony 65-inch 4K OLED TV",
+            "nombre": "Jeep Grand Cherokee",
             "precio": 1699.99,
             "imagen": "#",
             "stock": 7,
@@ -162,7 +162,7 @@
         },
         {
             "id": 21,
-            "nombre": "GoPro Hero 10",
+            "nombre": "Dodge Charger",
             "precio": 399.00,
             "imagen": "#",
             "stock": 15,
@@ -170,7 +170,7 @@
         },
         {
             "id": 22,
-            "nombre": "Canon EOS R5",
+            "nombre": "Chrysler 300",
             "precio": 3499.00,
             "imagen": "#",
             "stock": 3,
@@ -178,7 +178,7 @@
         },
         {
             "id": 23,
-            "nombre": "Dell XPS 13 Laptop",
+            "nombre": "Cadillac Escalade",
             "precio": 1199.00,
             "imagen": "#",
             "stock": 8,
@@ -186,7 +186,7 @@
         },
         {
             "id": 24,
-            "nombre": "Nintendo Switch Lite",
+            "nombre": "Buick Encore",
             "precio": 199.00,
             "imagen": "#",
             "stock": 15,
@@ -194,7 +194,7 @@
         },
         {
             "id": 25,
-            "nombre": "Sony 75-inch 8K Smart TV",
+            "nombre": "Acura MDX",
             "precio": 3499.99,
             "imagen": "#",
             "stock": 5,
@@ -202,15 +202,15 @@
         },
         {
             "id": 26,
-            "nombre": "Bose SoundLink Revolve+ Speaker",
+            "nombre": "Alfa Romeo Giulia",
             "precio": 249.00,
             "imagen": "#",
-            "stock": 12,
+            "stock": 20,
             "carro": 0
         },
         {
             "id": 27,
-            "nombre": "HP Spectre x360 Laptop",
+            "nombre": "Maserati Levante",
             "precio": 1299.00,
             "imagen": "#",
             "stock": 9,
@@ -218,7 +218,7 @@
         },
         {
             "id": 28,
-            "nombre": "Amazon Fire TV Stick 4K",
+            "nombre": "McLaren 720S",
             "precio": 49.99,
             "imagen": "#",
             "stock": 20,
@@ -226,7 +226,7 @@
         },
         {
             "id": 29,
-            "nombre": "Sony Cyber-shot DSC-RX100 VII",
+            "nombre": "Rolls-Royce Phantom",
             "precio": 1199.00,
             "imagen": "#",
             "stock": 6,
@@ -234,7 +234,7 @@
         },
         {
             "id": 30,
-            "nombre": "LG Gram 17 Laptop",
+            "nombre": "Land Rover Range Rover",
             "precio": 1499.00,
             "imagen": "#",
             "stock": 4,
@@ -242,7 +242,7 @@
         },
         {
             "id": 31,
-            "nombre": "Sony PlayStation 6",
+            "nombre": "Bentley Continental GT",
             "precio": 599.99,
             "imagen": "#",
             "stock": 10,
@@ -250,7 +250,7 @@
         },
         {
             "id": 32,
-            "nombre": "LG 32-inch 4K Smart TV",
+            "nombre": "Audi RS 7",
             "precio": 449.99,
             "imagen": "#",
             "stock": 15,
@@ -258,7 +258,7 @@
         },
         {
             "id": 33,
-            "nombre": "Sony WF-1000XM4 Earbuds",
+            "nombre": "Infiniti Q50",
             "precio": 249.00,
             "imagen": "#",
             "stock": 20,
@@ -266,7 +266,7 @@
         },
         {
             "id": 34,
-            "nombre": "Lenovo Yoga C940 Laptop",
+            "nombre": "Porsche Cayenne",
             "precio": 1299.00,
             "imagen": "#",
             "stock": 8,
@@ -274,7 +274,7 @@
         },
         {
             "id": 35,
-            "nombre": "Razer BlackWidow Elite Keyboard",
+            "nombre": "Jaguar XJ",
             "precio": 149.99,
             "imagen": "#",
             "stock": 12,
@@ -282,7 +282,7 @@
         },
         {
             "id": 36,
-            "nombre": "Fitbit Versa 4 Smartwatch",
+            "nombre": "Mini Cooper",
             "precio": 199.00,
             "imagen": "#",
             "stock": 15,
@@ -290,7 +290,7 @@
         },
         {
             "id": 37,
-            "nombre": "Nikon D850 DSLR Camera",
+            "nombre": "Volvo XC90",
             "precio": 2999.00,
             "imagen": "#",
             "stock": 5,
@@ -298,7 +298,7 @@
         },
         {
             "id": 38,
-            "nombre": "Google Nest Hub 2nd Gen",
+            "nombre": "Mazda CX-5",
             "precio": 99.99,
             "imagen": "#",
             "stock": 10,
@@ -306,7 +306,7 @@
         },
         {
             "id": 39,
-            "nombre": "Samsung Galaxy Tab S7",
+            "nombre": "Lexus RX",
             "precio": 599.00,
             "imagen": "#",
             "stock": 8,
@@ -314,26 +314,26 @@
         },
         {
             "id": 40,
-            "nombre": "Corsair HS70 Wireless Headset",
+            "nombre": "Subaru Impreza",
             "precio": 79.99,
-            "imagen": "#",
-            "stock": 10,
-            "carro": 0
-        },
-        {
-            "id": 41,
-            "nombre": "Anker PowerCore 26800 Power Bank",
-            "precio": 49.99,
             "imagen": "#",
             "stock": 7,
             "carro": 0
         },
         {
-            "id": 42,
-            "nombre": "Dell Ultrasharp 27-inch Monitor",
+            "id": 41,
+            "nombre": "Hyundai Sonata",
             "precio": 499.00,
             "imagen": "#",
             "stock": 12,
+            "carro": 0
+        },
+        {
+            "id": 42,
+            "nombre": "Kia Sorento",
+            "precio": 49.99,
+            "imagen": "#",
+            "stock": 6,
             "carro": 0
         }
     ]

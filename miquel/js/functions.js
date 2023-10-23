@@ -5,6 +5,7 @@ createApp({
 
     data() {
         return {
+            totalCarret: 0,
             carret: [],
             productes: []
         }
@@ -20,11 +21,11 @@ createApp({
             if (this.productes[id].stock > this.productes[id].carro) {
                 if (this.productes[id].carro < 1) {
                     this.carret.push(this.productes[id]);
-                    // this.carret.push(Object.assign({}, this.productes[id]));
                 }
                 this.productes[id].carro++;
             }
             console.log(this.carret);
+            this.calTotal();
         },
         restar(id) {
             if (this.productes[id].carro > 0) {
@@ -34,12 +35,14 @@ createApp({
                 }
             }
             console.log(this.carret);
+            this.calTotal();
         },
         sumarC(id) {
             if (this.carret[id].stock > this.carret[id].carro) {
                 this.carret[id].carro++;
             }
             console.log(this.carret);
+            this.calTotal();
         },
         restarC(id) {
             if (this.carret[id].carro > 0) {
@@ -49,6 +52,13 @@ createApp({
                 }
             }
             console.log(this.carret);
+            this.calTotal();
+        },
+        calTotal() {
+
+            this.carret.forEach(element => {
+                this.totalCarret += element.precio * element.carro;
+            });
         }
     },
     created() {

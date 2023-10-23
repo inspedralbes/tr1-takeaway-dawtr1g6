@@ -7,7 +7,6 @@
 }
 
 .checkout {
-    overflow: scroll;
     position: sticky;
     top: 20px;
     grid-area: checkout;
@@ -16,7 +15,34 @@
     margin-right: 20px;
     margin-bottom: 5px;
     grid-area: checkout;
-    height: 100vh;
+    height: 85vh;
+    max-height: 85vh;
+}
+
+.prodGrid{
+    margin-left: 3px;
+    margin-right: 3px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+}
+
+.over {
+    overflow: auto;
+    height: auto;
+    max-height: 70vh;
+}
+
+.carro {
+    display: grid;
+    grid-template-columns: 10% 1fr 20% 10% 12%;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.total {
+    position: sticky;
+    bottom: 0px;
 }
 
 .prod {
@@ -48,7 +74,7 @@
 }
 
 .stock {
-    margin-left: 10%;
+    /* margin-left: 10%; */
     margin-bottom: 5px;
 }
 
@@ -107,18 +133,25 @@ button {
     font-size: larger;
 }
 
-.carro {
-    display: grid;
-    grid-template-columns: 10% 1fr 20% 10% 12%;
-    align-items: center;
-    margin-right: 30px;
-
-}
-
 .carro p {
     margin-top: 15px;
 }
 
 .centrat {
     text-align: center;
+}
+
+
+
+
+
+
+
+.botoAfegir{
+    padding: 0;
+}
+
+.btn-group{
+    padding: 0;
+    margin-right: 0;
 }
