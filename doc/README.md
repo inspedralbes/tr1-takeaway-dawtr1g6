@@ -1,9 +1,20 @@
-# Documentació bàsica del projecte
-Ha d'incloure, com a mínim
+# Documentació del projecte
+
 ## Instruccions per crear un entorn de desenvolupament
-  - eines
-  - plugins
-  - ...
+  ### eines
+        - Visual Studio Code
+        - XAMPP
+        - Hestia
+
+  ### plugins
+        - Composer
+        - Laravel Blade formatter
+        - Miscrosfot Live Preview
+        - mdoc -MarkDown Documentation Viewer
+        - Thunderclient
+        - MySQL Jun Han
+        - PHP DEVSENSE
+  ### ...
 
 ## Instruccions per desplegar el projecte a producció
 Quins fitxers s'han d'editar i com (típicament per connectar la BD etc...)
