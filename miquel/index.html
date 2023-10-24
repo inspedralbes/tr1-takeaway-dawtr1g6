@@ -13,81 +13,85 @@
 </head>
 
 <body>
-    <nav class="nav">
-        <a class="navA">AutoPlanet</a>
-        <form class="" role="search">
-            <input class="buscar" type="search" placeholder="Search" aria-label="Search">
-            <button class="buscar-btn" type="submit">Search</button>
-        </form>
-    </nav>
+    <div id="main">
+        <nav class="nav">
+            <a class="navA">AutoPlanet</a>
+            <form class="buscar-form" role="search">
+                <input class="buscar" type="search" placeholder="Buscar" aria-label="Search" v-model="searchTerm">
+                <button class="buscar-btn" id="btn-buscar" type="submit"><img class="buscar-ico"
+                        src="https://cdn-icons-png.flaticon.com/256/3917/3917132.png"><!-- Search --></button>
+            </form>
+            <button class="btn-carret" @click="toggle()">
+                <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="40" height="40">
+            </button>
+        </nav>
 
-    <div class="cont" id="cont">
-        <div class="prods">
-            <div v-for="(actual,index) in productes" class="prod card shadow-sm">
-                <img :src="actual.imagen" width="90%" height="225">
+        <div :class="{'cont':visible}">
+            <div :class="{'prods':visible, 'prods1':!visible}">
+                <div v-for="(actual,index) in productes" class="prod card shadow-sm" :class="{'selected': actual.carro > 0}">
+                    <img :src="actual.imatge">
 
-                <p class="card-text">
-                    {{actual.nombre}}
-                </p>
+                    <p class="card-text">
+                        {{actual.nom}}
+                    </p>
 
-                <div class="stock prodGrid"> <!--d-flex justify-content-between align-items-center -->
-                    <span>
-                        <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
-                    </span>
-                    <span>
-                        <p>
-                            {{actual.precio}}€
-                        </p>
-                    </span>
-                    <div class="btn-group">
-                        <!-- <button class="btn btn-sm btn-outline-secondary" @click="restar(index)">
-                            -
-                        </button> -->
-                        <button class="btn btn-sm btn-outline-secondary botoAfegir" @click="sumar(index)">
-                            Afegir al carro
-                        </button>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="checkout">
-            <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="100" height="100">
-            <div class="card shadow-sm">
-                <div class="over">
-                    <div v-for="(actual,index) in carret" class="carro">
+                    <div class="stock prodGrid">
                         <span>
-                            <p><img :src="actual.imagen" width="50" height="50"></p>
+                            <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
                         </span>
                         <span>
-                            <p>{{actual.nombre}}</p>
+                            <p>
+                                {{actual.price}}€
+                            </p>
                         </span>
-                        <div class="btn-group">
-                            <button class="btn btn-sm btn-outline-secondary" @click="restarC(index)">
-                                -
-                            </button>
-
-                            <button class="btn btn-sm btn-outline-secondary" @click="sumarC(index)">
-                                +
+                        <div>
+                            <button class="btn btn-sm btn-outline-secondary botoAfegir" @click="sumar(index)">
+                                Afegir al carro
                             </button>
                         </div>
-                        <span class="centrat">
-                            <p>X{{actual.carro}}</p>
-                        </span>
-                        <span>
-                            <p>{{parseFloat((actual.precio*actual.carro).toFixed(2))}}€</p>
-                        </span>
+
                     </div>
+
                 </div>
-                <div class="total">
-                    <h4>Total: {{parseFloat((totalCarret).toFixed(2))}}</h4>
+            </div>
+
+            <div class="checkout" :class="{amagat:!visible}">
+                <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="100" height="100">
+                <div class="card shadow-sm">
+                    <div class="over">
+                        <div v-for="(actual,index) in carret" class="carro">
+                            <span>
+                                <p><img :src="actual.imatge" width="50" height="50"></p>
+                            </span>
+                            <span>
+                                <p>{{actual.nom}}</p>
+                            </span>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-secondary" @click="restarC(index)">
+                                    -
+                                </button>
+
+                                <button class="btn btn-sm btn-outline-secondary" @click="sumarC(index)">
+                                    +
+                                </button>
+                            </div>
+                            <span class="centrat">
+                                <p>X{{actual.carro}}</p>
+                            </span>
+                            <span>
+                                <p>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <h4>Total: {{parseFloat((totalCarret).toFixed(2))}}</h4>
+                        <button class="btn btn-outline-secondary">
+                            Veure carret
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 </body>

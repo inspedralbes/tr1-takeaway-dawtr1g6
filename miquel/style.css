@@ -1,25 +1,56 @@
+:root{
+    --color1: rgba(242, 33, 51, 1);
+    --color2: rgba(3, 119, 191, 1);
+    --color3: rgba(3, 191, 69, 1);
+    --color4:  rgba(242, 202, 4, 1);
+    --color5: rgba(242, 115, 4, 1);
+}
+
+
+
+.cont {
+    display: grid;
+    grid-template-areas:
+        "prods prods checkout";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .prods {
     margin-left: 10px;
     grid-area: prods;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 5%;
+    width: 100%;
+}
+
+.prods1 {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 5%;
+    width: 90vw;
 }
 
 .checkout {
+    visibility: visible;
     position: sticky;
-    top: 20px;
+    top: 13%;
     grid-area: checkout;
     align-self: start;
     margin-top: 10%;
     margin-right: 20px;
     margin-bottom: 5px;
-    grid-area: checkout;
     height: 85vh;
     max-height: 85vh;
 }
 
-.prodGrid{
+.amagat{
+    visibility: hidden;
+}
+
+.prodGrid {
     margin-left: 3px;
     margin-right: 3px;
     text-align: center;
@@ -42,25 +73,47 @@
 
 .total {
     position: sticky;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
     bottom: 0px;
+    width: 100%;
+}
+
+.total * {
+    display: inline;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.total>button {
+    margin-right: 5px;
+    margin-left: auto;
+}
+
+.total>h4{
+    margin-left: 5px;
 }
 
 .prod {
-    width: 80%;
+    width: 90%;
     border: 1px solid black;
     border-radius: 10px;
     margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: fit-content;
+}
+
+.prod img{
+    width: 100%;
+    height: 225px;
 }
 
 .check {
     grid-area: checkout;
-}
-
-.cont {
-    display: grid;
-    grid-template-areas:
-        "prods prods checkout";
-    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .btn-group {
@@ -78,11 +131,6 @@
     margin-bottom: 5px;
 }
 
-button {
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
 
 .unitats {
     background-color: rgb(255, 237, 77);
@@ -92,10 +140,13 @@ button {
 }
 
 .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(248, 248, 248);
+    background-color: var(--color1);
     padding-top: 8px;
     padding-bottom: 8px;
 }
@@ -110,20 +161,33 @@ button {
     border: 0.5px solid rgb(182, 182, 182);
     border-radius: 5px;
     margin-right: 10px;
+    width: 100%;
     height: 100%;
     padding-left: 16px;
     padding-right: 16px;
 }
 
+.buscar-ico {
+    height: 20px;
+    width: 20px;
+    background-color: inherit;
+}
+
+
 .buscar-btn {
-    background-color: rgb(248, 248, 248);
-    border-radius: 5px;
-    margin-right: 20px;
-    width: fit-content;
+    position: absolute;
+    right: 5%;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    border: 0;
     height: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-    text-align: justify;
+}
+
+.buscar-form{
+    width: 20%;
+    position: relative;
 }
 
 .navA {
@@ -141,17 +205,29 @@ button {
     text-align: center;
 }
 
-
-
-
-
-
-
-.botoAfegir{
+.botoAfegir {
     padding: 0;
+    margin-left: auto;
+    margin-right: 0;
 }
 
-.btn-group{
+.btn-group {
     padding: 0;
     margin-right: 0;
+    height: fit-content;
+    width: fit-content;
+}
+
+.btn-carret {
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    margin-right: 5%;
+}
+
+.selected button{
+    background-color: var(--color3) !important;
 }
