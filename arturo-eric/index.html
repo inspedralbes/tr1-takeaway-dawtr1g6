@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estils.css">
+    <link rel="stylesheet" href="estils_landing.css">
     <link rel="stylesheet" href="normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
 
         <nav>
             <div class="nav__Logo">
-            <img id="logo" src="img/logo/logo.png" alt="logo">
+            <a href="landing.html"><img id="logo" src="img/logo/logo.png" alt="logo"></a>
             </div>
 
             <div class="nav__buscar">
@@ -24,14 +24,22 @@
             </div>
 
             <div class="nav__botones">
-            <img class="barraSuperior" src="img/iconos/volante.png" alt="">
-            <img class="barraSuperior" src="img/iconos/camion.png" alt="">
-            <img class="barraSuperior" src="img/iconos/carrito.png" alt="">
+                <div class="dropdown">
+                    <img onclick="myFunction()" class="barraSuperior" src="img/iconos/volante.png" alt="">
+                    <div id="myDropdown" class="dropdown-content">
+                    <a href="login.html">Log in</a>
+                    <a href="#about">Administració</a>
+                </div>
+                </div>
+           <a href="comandes.html"><img class="barraSuperior" src="img/iconos/camion.png" alt=""></a>
+            <a href="#"><img class="barraSuperior" src="img/iconos/carrito.png" alt=""></a>
         </div>
         </nav>
+        
+        <div id="anarCataleg">
+            <button class="boton_interactivo" id="verCatalogo">Veure Catàleg</button>
 
-
-        <button class="boton_interactivo" id="verCatalogo">Veure Catàleg</button>
+        </div>
         
         <div class="mesVenuts">
             
@@ -46,12 +54,12 @@
                 <h4>PREU€</h4>
             </div>
             <div class="producte">
-                <img class="producte__img" src="img/productos/1.jpg" alt="">
+                <img class="producte__img" src="img/productos/2.jpg"  alt="">
                 <h2>Producte2</h2>
                 <h4>PREU€</h4>
             </div>
             <div class="producte">
-                <img class="producte__img" src="img/productos/1.jpg" alt="">
+                <img class="producte__img" src="img/productos/3.jpg" alt="">
                 <h2>Producte3</h2>
                 <h4>PREU€</h4>
             </div>
@@ -78,9 +86,8 @@
                     <h3>Síguenos</h3>
                     <p>Síguenos en redes sociales para obtener las últimas actualizaciones y ofertas.</p>
                     <div class="social-icons">
-                        <a href="#"><img src="img/iconos/facebook.png" alt="Facebook"></a>
-                        <a href="#"><img src="img/iconos/twitter.png" alt="Twitter"></a>
-                        <a href="#"><img src="img/iconos/instagram.png" alt="Instagram"></a>
+                        <a href="#"><img class="social-icons__logos" src="img/logo/facebook.png" alt="Facebook"></a>
+                        <a href="#"><img class="social-icons__logos" src="img/logo/instagram.png" alt="Instagram"></a>
                     </div>
                 </div>
             </div>
@@ -89,7 +96,27 @@
 
     </div>
 
-
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.barraSuperior')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
 
 </body>
 </html>

@@ -257,3 +257,103 @@ ul li a {
   .show {display: block;}    
 
 
+
+   /*------------- DESKTOP --------------------*/
+
+   @media only screen and (min-width: 768px) {
+    .pantalla_producte {
+        width: 100%;
+    }
+
+
+    nav{
+        display: grid;
+        grid-template-columns: 0fr 2.5fr 1fr;
+        background-color: var(--rojo);
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .nav__buscar{
+        margin-top: 33px;
+        margin-right: 555px;
+    
+    }
+    
+    .producte{
+        width: 700px;
+        margin: auto;
+    }
+
+    #producte__title{
+        text-align: center;
+        margin-left: 50px;
+        margin-top: 60px;
+    }
+    
+    .producte__img{
+        width: 625px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+    
+    .producte__container{
+        width: 625px;
+        text-align: left;
+        margin: auto;
+    }
+
+
+    .producte__afegir{
+        width: 720px;
+        text-align: left;
+        margin-top: 100px;
+        position: sticky;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding-top: 5px;
+        border-radius: 10px;
+        
+    }
+
+    .producte__afegir button{
+        width: 720px;
+        background-color: var(--amarillo);
+        height: 100px;
+        font-size: 25px;
+        font-weight: bolder;
+        border: none;
+        border-radius: 0 0 10px 10px;
+
+    }
+    footer {
+        margin-top: 50px;
+    }
+
+    .boton_interactivo{
+        position: relative;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+        overflow: hidden;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--amarillo);
+    }
+    
+    
+    .boton_interactivo::before {
+        content: "";
+        background-color: var(--rojo);
+        width: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: width 700ms ease-in-out;
+        display: inline-block;
+    }
+      
+    
+    .boton_interactivo:hover::before {
+        width: 100%;
+    }
+}
