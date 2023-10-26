@@ -34,7 +34,7 @@
 }
 
 .checkout {
-    visibility: visible;
+    /* visibility: visible; */
     position: sticky;
     top: 13%;
     grid-area: checkout;
@@ -44,10 +44,17 @@
     margin-bottom: 5px;
     height: 85vh;
     max-height: 85vh;
+    transition: transform 0.5s;
 }
 
 .amagat{
-    visibility: hidden;
+    /* visibility: hidden; */
+    transform: translateX(100%);
+    pointer-events: none;
+}
+
+.amagat *{
+    display: none;
 }
 
 .prodGrid {
@@ -80,6 +87,7 @@
     align-items: center;
     bottom: 0px;
     width: 100%;
+    background-color: white;
 }
 
 .total * {
@@ -230,4 +238,21 @@
 
 .selected button{
     background-color: var(--color3) !important;
+}
+
+.slide-carro-enter-active, .slide-carro-leave-active {
+    transition: transform 0.5s;
+    
+}
+
+.slide-carro-leave-to {
+    transform: translateX(-100%);
+}
+
+.slide-carro-enter-from{
+    transform: translateX(-100%);
+}
+
+.slide-carro-enter-to{
+    transform: translateX(0);
 }

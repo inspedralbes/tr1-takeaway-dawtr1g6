@@ -10,22 +10,22 @@ createApp({
             amagar: false,
             totalCarret: 0,
             carret: [],
-            productes: []
+            productos: []
         }
     },
 
     methods: {
 
         trobarProd(id) {
-            const carretIndex = this.carret.findIndex(item => item.nom === this.productes[id].nom);
+            const carretIndex = this.carret.findIndex(item => item.name === this.productos[id].name);
             return carretIndex;
         },
         sumar(id) {
-            if (this.productes[id].stock > this.productes[id].carro) {
-                if (this.productes[id].carro < 1) {
-                    this.carret.push(this.productes[id]);
+            if (this.productos[id].stock > this.productos[id].carro) {
+                if (this.productos[id].carro < 1) {
+                    this.carret.push(this.productos[id]);
                 }
-                this.productes[id].carro++;
+                this.productos[id].carro++;
             }
             console.log(this.carret);
             this.calTotal();
@@ -34,9 +34,9 @@ createApp({
             }
         },
         restar(id) {
-            if (this.productes[id].carro > 0) {
-                this.productes[id].carro--;
-                if (this.productes[id].carro === 0) {
+            if (this.productos[id].carro > 0) {
+                this.productos[id].carro--;
+                if (this.productos[id].carro === 0) {
                     this.carret.splice(this.trobarProd(id), 1);
                 }
             }
@@ -61,12 +61,13 @@ createApp({
             this.calTotal();
             if (this.carret.length < 1) {
                 this.visible = false;
+                this.amagar = false;
             }
         },
         calTotal() {
             this.totalCarret = 0;
             this.carret.forEach(element => {
-                this.totalCarret += element.precio * element.carro;
+                this.totalCarret += element.price * element.carro;
             });
         },
         toggle() {
@@ -86,15 +87,15 @@ createApp({
         },
         search() {
             if (this.searchTerm.trim() !== "") {
-                this.productes = this.productes.filter((product) => {
-                    return product.nom.toLowerCase().includes(this.searchTerm.toLowerCase());
+                this.productos = this.productos.filter((product) => {
+                    return product.name.toLowerCase().includes(this.searchTerm.toLowerCase());
                 });
             }
         }
     },
     created() {
         getDades().then(data => {
-            this.productes = data
+            this.productos = data
         });
     }
 }).mount('#main')
