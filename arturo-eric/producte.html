@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estils_producte.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pantalla_producte">
+
+        <nav>
+            <div class="nav__Logo">
+            <a href="landing.html"><img id="logo" src="img/logo/logo.png" alt="logo"></a>
+            </div>
+
+            <div class="nav__buscar">
+                <input type="text" id="buscar__texto">
+                <button id="buscar__boton" class="boton_interactivo">Buscar</button>
+            </div>
+
+            <div class="nav__botones">
+                <div class="dropdown">
+                    <img onclick="myFunction()" class="barraSuperior" src="img/iconos/volante.png" alt="">
+                    <div id="myDropdown" class="dropdown-content">
+                    <a href="#home">Log in</a>
+                    <a href="#about">Administració</a>
+                </div>
+                </div>
+           <a href="comandes.html"><img class="barraSuperior" src="img/iconos/camion.png" alt=""></a>
+            <a href="#"><img class="barraSuperior" src="img/iconos/carrito.png" alt=""></a>
+        </div>
+        </nav>
+        
+
+        
+        <div class="producte">
+            
+            <div>
+                <h1 id="producte__title">Producte1</h1>
+            </div>
+            
+            <img class="producte__img" src="img/banner.jpg" alt="">
+            <div class="producte__container">
+                <h3>Producte1</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                </p>
+
+                
+            </div>
+
+            <div class="producte__afegir">
+                <h1>PREU€</h1>
+                <button>Afegir al carret</button>
+            </div>
+
+            
+            
+        </div>
+
+        <footer>
+            <div class="footer">
+                <div class="footer__contacto">
+                    <h3>Contacto</h3>
+                    <p>Dirección: Calle Auto, Ciudad</p>
+                    <p>Email: info@autoplanet.com</p>
+                    <p>Teléfono: +123 456 7890</p>
+                </div>
+    
+                    
+                <div class="footer__section">
+                    <h3>Síguenos</h3>
+                    <p>Síguenos en redes sociales para obtener las últimas actualizaciones y ofertas.</p>
+                    <div class="social-icons">
+                        <a href="#"><img class="social-icons__logos" src="img/logo/facebook.png" alt="Facebook"></a>
+                        <a href="#"><img class="social-icons__logos" src="img/logo/instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+   
+
+    </div>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.barraSuperior')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+
+</body>
+</html>
