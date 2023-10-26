@@ -17,12 +17,15 @@
         <nav class="nav">
             <a class="navA">AutoPlanet</a>
             <form class="buscar-form" role="search">
-                <input class="buscar" type="search" placeholder="Buscar" aria-label="Search" v-model="searchTerm">
+                <input class="buscar" id="searchInput" type="search" placeholder="Buscar" aria-label="Search" v-model="searchTerm" @input="onSearchInput">
                 <button class="buscar-btn" id="btn-buscar" type="submit"><img class="buscar-ico"
-                        src="https://cdn-icons-png.flaticon.com/256/3917/3917132.png"><!-- Search --></button>
+                        src="https://cdn-icons-png.flaticon.com/256/3917/3917132.png"><!-- Search -->
+                </button>
             </form>
             <button class="btn-carret" @click="toggle()">
-                <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="40" height="40">
+                
+                <img v-if="!carrEstat" src="./js/img/shopping-cart.png" width="40" height="40">
+                <img v-else="carrEstat" src="./js/img/shopping-cart-exclamation.png" width="40" height="40">
             </button>
         </nav>
 
@@ -56,35 +59,37 @@
                 </div>
             </div>
 
-            <div class="checkout" :class="{amagat:!visible}">
-                <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="100" height="100">
+            <div class="checkout" id="cart" :class="{amagat:!visible}">
+                <!-- <button class="btn-carret" @click="toggle()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="100" height="100">
+                </button> -->
                 <div class="card shadow-sm">
                     <div class="over">
                         <transition-group name="slide-carro">
-                        <div v-for="(actual,index) in carret" :key="index" class="carro">
+                            <div v-for="(actual,index) in carret" :key="index" class="carro">
 
-                            <span>
-                                <p><img :src="actual.image_url" width="50" height="50"></p>
-                            </span>
-                            <span>
-                                <p>{{actual.name}}</p>
-                            </span>
-                            <div class="btn-group">
-                                <button class="btn btn-sm btn-outline-secondary" @click="restarC(index)">
-                                    -
-                                </button>
+                                <span>
+                                    <p><img :src="actual.image_url" width="50" height="50"></p>
+                                </span>
+                                <span>
+                                    <p>{{actual.name}}</p>
+                                </span>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-outline-secondary" @click="restarC(index)">
+                                        -
+                                    </button>
 
-                                <button class="btn btn-sm btn-outline-secondary" @click="sumarC(index)">
-                                    +
-                                </button>
+                                    <button class="btn btn-sm btn-outline-secondary" @click="sumarC(index)">
+                                        +
+                                    </button>
+                                </div>
+                                <span class="centrat">
+                                    <p>X{{actual.carro}}</p>
+                                </span>
+                                <span>
+                                    <p>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
+                                </span>
                             </div>
-                            <span class="centrat">
-                                <p>X{{actual.carro}}</p>
-                            </span>
-                            <span>
-                                <p>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
-                            </span>
-                        </div>
                         </transition-group>
                     </div>
                     <div class="total">
