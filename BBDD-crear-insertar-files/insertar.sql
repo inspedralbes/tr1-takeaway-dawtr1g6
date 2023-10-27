@@ -1,332 +1,250 @@
--- Sample INSERT statements for table_productes
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Hyper Realistic Ferrari Figurine',
-        150,
-        'ferrari_figurine.jpg'
-    );
+--inserts a la tabla productos
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Limited Edition Lamborghini Model',
-        180,
-        'lamborghini_model.jpg'
-    );
+-- Insert 1
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 1', 50, 20, 'image1.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Porsche 911 Collectible',
-        120,
-        'porsche_911_collectible.jpg'
-    );
+-- Insert 2
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 2', 30, 25, 'image2.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Classic Mustang Sculpture',
-        95,
-        'mustang_sculpture.jpg'
-    );
+-- Insert 3
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 3', 70, 18, 'image3.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Hyper Realistic Bugatti Veyron',
-        200,
-        'bugatti_veyron.jpg'
-    );
+-- Insert 4
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 4', 90, 15, 'image4.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Mercedes-Benz S-Class Replica',
-        170,
-        'mercedes_sclass_replica.jpg'
-    );
+-- Insert 5
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 5', 60, 22, 'image5.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Aston Martin DB5 Model',
-        110,
-        'aston_martin_db5_model.jpg'
-    );
+-- Insert 6
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 6', 40, 30, 'image6.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Vintage Chevrolet Bel Air Figurine',
-        95,
-        'chevrolet_belair_figurine.jpg'
-    );
+-- Insert 7
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 7', 55, 28, 'image7.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Hyper Realistic Audi R8 Sculpture',
-        190,
-        'audi_r8_sculpture.jpg'
-    );
+-- Insert 8
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 8', 75, 23, 'image8.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'F1 Racing Car Collectible',
-        130,
-        'f1_racing_car_collectible.jpg'
-    );
+-- Insert 9
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 9', 65, 19, 'image9.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Tesla Model S Miniature',
-        100,
-        'tesla_model_s_miniature.jpg'
-    );
+-- Insert 10
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 10', 85, 17, 'image10.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Rolls-Royce Phantom Replica',
-        250,
-        'rolls_royce_phantom_replica.jpg'
-    );
+-- Insert 11
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 11', 95, 21, 'image11.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Hyper Realistic Pagani Zonda Figurine',
-        220,
-        'pagani_zonda_figurine.jpg'
-    );
+-- Insert 12
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 12', 75, 26, 'image12.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Vintage VW Beetle Model',
-        95,
-        'vw_beetle_model.jpg'
-    );
+-- Insert 13
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 13', 55, 24, 'image13.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Maserati GranTurismo Collectible',
-        180,
-        'maserati_granturismo_collectible.jpg'
-    );
+-- Insert 14
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 14', 45, 27, 'image14.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'McLaren P1 Hypercar Sculpture',
-        210,
-        'mclaren_p1_sculpture.jpg'
-    );
+-- Insert 15
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 15', 35, 29, 'image15.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Classic Corvette Stingray Figurine',
-        110,
-        'corvette_stingray_figurine.jpg'
-    );
+-- Insert 16
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 16', 25, 32, 'image16.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Hyper Realistic Jaguar F-Type',
-        160,
-        'jaguar_ftype.jpg'
-    );
+-- Insert 17
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 17', 80, 14, 'image17.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'BMW M Series Collectible',
-        140,
-        'bmw_m_series_collectible.jpg'
-    );
+-- Insert 18
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 18', 70, 16, 'image18.jpg');
 
-INSERT INTO
-    table_productes (nom, preu, imatge)
-VALUES
-    (
-        'Ford Mustang GT Replica',
-        120,
-        'ford_mustang_gt_replica.jpg'
-    );
+-- Insert 19
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 19', 60, 31, 'image19.jpg');
 
--- Sample INSERT statements for table_usuaris
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user1@example.com', 'password123', NULL);
+-- Insert 20
+INSERT INTO productos (name, stock, price, image_url) VALUES ('Product 20', 50, 33, 'image20.jpg');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user2@example.com', 'securepass', NULL);
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user3@example.com', 'letmein', NULL);
+--inserts tabla users
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user4@example.com', 'changeme', NULL);
+-- Insert 1
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 1', 'user1@example.com', 'password1', 'token1');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user5@example.com', 'qwerty', NULL);
+-- Insert 2
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 2', 'user2@example.com', 'password2', 'token2');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user6@example.com', 'password123', NULL);
+-- Insert 3
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 3', 'user3@example.com', 'password3', 'token3');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user7@example.com', 'securepass', NULL);
+-- Insert 4
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 4', 'user4@example.com', 'password4', 'token4');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user8@example.com', 'letmein', NULL);
+-- Insert 5
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 5', 'user5@example.com', 'password5', 'token5');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user9@example.com', 'changeme', NULL);
+-- Insert 6
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 6', 'user6@example.com', 'password6', 'token6');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user10@example.com', 'qwerty', NULL);
+-- Insert 7
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 7', 'user7@example.com', 'password7', 'token7');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user11@example.com', 'password123', NULL);
+-- Insert 8
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 8', 'user8@example.com', 'password8', 'token8');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user12@example.com', 'securepass', NULL);
+-- Insert 9
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 9', 'user9@example.com', 'password9', 'token9');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user13@example.com', 'letmein', NULL);
+-- Insert 10
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 10', 'user10@example.com', 'password10', 'token10');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user14@example.com', 'changeme', NULL);
+-- Insert 11
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 11', 'user11@example.com', 'password11', 'token11');
 
-INSERT INTO
-    table_usuaris (email, password, remember_token)
-VALUES
-    ('user15@example.com', 'qwerty', NULL);
+-- Insert 12
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 12', 'user12@example.com', 'password12', 'token12');
 
--- Sample INSERT statements for table_comandes with varied product and user IDs
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (1, 5);
+-- Insert 13
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 13', 'user13@example.com', 'password13', 'token13');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (2, 8);
+-- Insert 14
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 14', 'user14@example.com', 'password14', 'token14');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (3, 2);
+-- Insert 15
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 15', 'user15@example.com', 'password15', 'token15');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (4, 10);
+-- Insert 16
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 16', 'user16@example.com', 'password16', 'token16');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (5, 12);
+-- Insert 17
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 17', 'user17@example.com', 'password17', 'token17');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (6, 3);
+-- Insert 18
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 18', 'user18@example.com', 'password18', 'token18');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (7, 9);
+-- Insert 19
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 19', 'user19@example.com', 'password19', 'token19');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (8, 6);
+-- Insert 20
+INSERT INTO users (name, email, password, remember_token) VALUES ('User 20', 'user20@example.com', 'password20', 'token20');
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (9, 14);
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (10, 7);
+--inserts tabla pedidos
+-- Insert 1
+INSERT INTO pedidos (status, sumatori) VALUES ('Pendiente', 100);
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (11, 11);
+-- Insert 2
+INSERT INTO pedidos (status, sumatori) VALUES ('En proceso', 150);
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (12, 4);
+-- Insert 3
+INSERT INTO pedidos (status, sumatori) VALUES ('Completado', 200);
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (13, 13);
+-- Insert 4
+INSERT INTO pedidos (status, sumatori) VALUES ('Pendiente', 120);
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (14, 15);
+-- Insert 5
+INSERT INTO pedidos (status, sumatori) VALUES ('En proceso', 180);
 
-INSERT INTO
-    table_comandes (id_producte, id_usuari)
-VALUES
-    (15, 1);
+-- Insert 6
+INSERT INTO pedidos (status, sumatori) VALUES ('Completado', 250);
+
+-- Insert 7
+INSERT INTO pedidos (status, sumatori) VALUES ('Pendiente', 90);
+
+-- Insert 8
+INSERT INTO pedidos (status, sumatori) VALUES ('En proceso', 200);
+
+-- Insert 9
+INSERT INTO pedidos (status, sumatori) VALUES ('Completado', 300);
+
+-- Insert 10
+INSERT INTO pedidos (status, sumatori) VALUES ('Pendiente', 110);
+
+-- Insert 11
+INSERT INTO pedidos (status, sumatori) VALUES ('En proceso', 160);
+
+-- Insert 12
+INSERT INTO pedidos (status, sumatori) VALUES ('Completado', 220);
+
+-- Insert 13
+INSERT INTO pedidos (status, sumatori) VALUES ('Pendiente', 130);
+
+-- Insert 14
+INSERT INTO pedidos (status, sumatori) VALUES ('En proceso', 170);
+
+-- Insert 15
+INSERT INTO pedidos (status, sumatori) VALUES ('Completado', 240);
+
+-- Insert 16
+INSERT INTO pedidos (status, sumatori) VALUES ('Pendiente', 95);
+
+-- Insert 17
+INSERT INTO pedidos (status, sumatori) VALUES ('En proceso', 185);
+
+-- Insert 18
+INSERT INTO pedidos (status, sumatori) VALUES ('Completado', 270);
+
+-- Insert 19
+INSERT INTO pedidos (status, sumatori) VALUES ('Pendiente', 140);
+
+-- Insert 20
+INSERT INTO pedidos (status, sumatori) VALUES ('En proceso', 210);
+
+
+--inserts tabla linia_de_pedidos
+
+-- Insert 1
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (15.99, 2, 31.98, 1, 1);
+
+-- Insert 2
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (12.50, 3, 37.50, 2, 2);
+
+-- Insert 3
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (20.75, 1, 20.75, 3, 3);
+
+-- Insert 4
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (8.99, 5, 44.95, 1, 4);
+
+-- Insert 5
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (6.75, 7, 47.25, 2, 5);
+
+-- Insert 6
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (14.25, 4, 57.00, 3, 6);
+
+-- Insert 7
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (18.50, 2, 37.00, 1, 7);
+
+-- Insert 8
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (9.99, 6, 59.94, 2, 8);
+
+-- Insert 9
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (22.75, 3, 68.25, 3, 9);
+
+-- Insert 10
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (11.49, 5, 57.45, 1, 10);
+
+-- Insert 11
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (16.75, 2, 33.50, 2, 11);
+
+-- Insert 12
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (19.99, 1, 19.99, 3, 12);
+
+-- Insert 13
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (7.25, 4, 29.00, 1, 13);
+
+-- Insert 14
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (14.99, 3, 44.97, 2, 14);
+
+-- Insert 15
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (21.50, 2, 43.00, 3, 15);
+
+-- Insert 16
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (10.75, 6, 64.50, 1, 16);
+
+-- Insert 17
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (13.49, 3, 40.47, 2, 17);
+
+-- Insert 18
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (17.25, 1, 17.25, 3, 18);
+
+-- Insert 19
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (8.99, 5, 44.95, 1, 19);
+
+-- Insert 20
+INSERT INTO linia_de_pedidos (unit_price, quantitat, sumatori, pedido_id, user_id) VALUES (11.75, 2, 23.50, 2, 20);
+
