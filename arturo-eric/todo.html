@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estils.css">
+    <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav__Logo">
+        <a href="landing.html"><img id="logo" src="img/logo/logo.png" alt="logo"></a>
+        </div>
+
+        <div class="nav__buscar">
+            <input type="text" id="buscar__texto">
+            <button id="buscar__boton" class="boton_interactivo">Buscar</button>
+        </div>
+
+        <div class="nav__botones">
+            <div class="dropdown">
+                <img onclick="myFunction()" class="barraSuperior" src="img/iconos/volante.png" alt="">
+                <div id="myDropdown" class="dropdown-content">
+                <a href="login.html">Log in</a>
+                <a href="#about">Administració</a>
+            </div>
+            </div>
+       <a href="comandes.html"><img class="barraSuperior" src="img/iconos/camion.png" alt=""></a>
+        <a href="#"><img class="barraSuperior" src="img/iconos/carrito.png" alt=""></a>
+    </div>
+    </nav>
+
+
+    <div class="landing">
+
+        
+        
+        <div id="anarCataleg">
+            <button class="boton_interactivo" id="verCatalogo">Veure Catàleg</button>
+
+        </div>
+        
+        <div class="mesVenuts">
+            
+            <div>
+                <h1 id="mesVenuts__title">Més Venuts</h1>
+            </div>
+            
+        <div class="mesVenuts__productes">
+            <div class="landing__producte">
+                <img class="landing__producte__img" src="img/productos/1.jpg" alt="">
+                <h2>Producte1</h2>
+                <h4>PREU€</h4>
+            </div>
+            <div class="landing__producte">
+                <img class="landing__producte__img" src="img/productos/2.jpg"  alt="">
+                <h2>Producte2</h2>
+                <h4>PREU€</h4>
+            </div>
+            <div class="landing__producte">
+                <img class="landing__producte__img" src="img/productos/3.jpg" alt="">
+                <h2>Producte3</h2>
+                <h4>PREU€</h4>
+            </div>
+            <div class="landing__producte">
+                <img class="landing__producte__img" src="img/productos/1.jpg" alt="">
+                <h2>Producte4</h2>
+                <h4>PREU€</h4>
+            </div>
+        </div>
+            
+        </div>
+
+        
+   
+
+    </div>
+
+    <div class="login">
+        
+    
+        <div class="login-container">
+            <h2>Iniciar Sessió</h2>
+            <form action="/tu-ruta-de-autenticacion" method="post">
+                <label for="username">Usuari:</label>
+                <input type="text" id="username" name="username" required>
+    
+                <label for="password">Contrassenya:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <button id="login-container__button" type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    
+
+
+        <div class="pantalla_producte">
+
+                   
+    
+            
+            <div class="producte">
+                
+                <div>
+                    <h1 id="producte__title">Producte1</h1>
+                </div>
+                
+                <img class="producte__img" src="img/productos/1.jpg" alt="">
+                <div class="producte__container">
+                    <h3>Producte1</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    </p>
+    
+                    
+                </div>
+    
+                <div class="producte__afegir">
+                    <h1>PREU€</h1>
+                    <button class="boton_interactivo">Afegir al carret</button>
+                </div>
+    
+                
+                
+            </div>
+    
+                
+    
+        </div>
+
+
+        <div class="cart">
+
+           
+    
+            <div class="carrito__comanda">
+    
+                <div>
+                    <h1 id="comanda__title">Comanda 01</h1>
+                </div>
+    
+                <div class="comanda__productes">
+                    <div class="comanda__producte">
+                        <div><img class="comanda__producte__img" src="img/productos/1.jpg" alt=""></div>
+                        <div class="producte__nom">
+                            <h2>Producte1</h2>
+                            <h4>PREU€</h4>
+                        </div>
+                        <div class="producte__quantitat">
+                            <div class="quantitat__unitat">
+                                <h3>Unitats: 1</h3>
+                            </div>
+                            <div class="quantitat__buttons">
+                                <button class="boton_interactivo" id="menys">-</button>
+                                <button class="boton_interactivo" id="mes" class>+</button>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                    <div class="comanda__producte">
+                        <div><img class="comanda__producte__img" src="img/productos/1.jpg" alt=""></div>
+                        <div class="producte__nom">
+                            <h2>Producte1</h2>
+                            <h4>PREU€</h4>
+                        </div>
+                        <div class="producte__quantitat">
+                            <div class="quantitat__unitat">
+                                <h3>Unitats: 1</h3>
+                            </div>
+                            <div class="quantitat__buttons">
+                                <button class="boton_interactivo" id="menys">-</button>
+                                <button class="boton_interactivo" id="mes" class>+</button>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="progress-bar">
+                <div class="step pedido-recibido">Pedido recibido</div>
+                <div class="step en-preparacion">En preparación</div>
+                <div class="step en-almacen">En almacén</div>
+                <div class="step en-reparto">En reparto</div>
+                <div class="step en-reparto">Entregado</div>
+              </div>
+            
+         
+                   
+        
+        
+            </div>
+
+
+            <div class="pantalla_comandes">
+
+                                
+                <div class="comandes">
+                 <a href=""></a>   <div class="comanda">
+                        <div class="info_comanda">
+                        <h1>ID COMANDA: 01</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                        </div>
+                        
+                        <div class="estat_actual"><h2>Comanda Rebuda</h2></div>
+                    </div>
+        
+                    <div class="comanda">
+                        <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                        </div>
+                        
+                        <div class="estat_actual"><h2>Comanda Rebuda</h2></div>
+                    </div>
+        
+                    <div class="comanda">
+                        <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                        </div>
+                        <div class="estat_actual"><h2>Comanda Rebuda</h2></div>
+                    </div>
+        
+                    <div class="comanda">
+                        <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                        </div>
+                        
+                        <div class="estat_actual"><h2>Comanda Rebuda</h2></div>
+                    </div>
+                    <div class="comanda">
+                        <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                        </div>
+                        
+                        <div class="estat_actual"><h2>Comanda Rebuda</h2></div>
+                    </div>
+        
+        
+                </div>
+        
+                <div class="pantalla_tramitar_comandes">
+
+                             
+            
+                    <h1 id="titol_comanda">Comanda 01</h1>
+                    <div class="comandes__tramitar">
+                        <div class="comanda__tramitar">
+                            <div class="info_comanda">
+                            <h1>ID COMANDA: 01</h1>
+                            <h1 id="info_comanda__total">TOTAL €</h1>
+                            <h4>Data: 23/10/2023</h4>
+                            
+                        </div>
+                        <div class="articles_comanda">
+                            <h3>Producte 1</h3>
+                            <h3>Unitats: <strong>1</strong></h3>
+                            <h3><strong>Preu€</strong></h3>
+                        </div>
+                            
+                        </div>
+                    </div>
+            
+                    <div class="formulari">
+                        <form action="/procesar_envio" method="post">
+                            <h1>Dades d'enviament</h1>
+                    
+                            <label for="nombre">Nom:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                    
+                            <label for="direccion">Direcció:</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                    
+                            <label for="ciudad">Ciutat:</label>
+                            <input type="text" id="ciudad" name="ciudad" required>
+                    
+                            <label for="codigo_postal">Codi Postal:</label>
+                            <input type="text" id="codigo_postal" name="codigo_postal" required>
+                    
+                            <label for="pais">País:</label>
+                            <select id="pais" name="pais" required>
+                                <option value="">Selecciona tu país</option>
+                                <option value="espana">España</option>
+                                <option value="mexico">México</option>
+                            </select>
+                            <button id="confirmar" type="submit">Confirmar Comanda</button>
+                            <button id="cancelar" type="button" class="btn-cancel" onclick="window.history.back()">Cancelar</button>
+            
+                            
+                        </form>
+            
+            
+                    </div>
+            
+                             
+                               
+            
+                </div>
+        
+                       
+    <footer>
+        <div class="footer">
+            <div class="footer__contacto">
+                <h3>Contacto</h3>
+                <p>Dirección: Calle Auto, Ciudad</p>
+                <p>Email: info@autoplanet.com</p>
+                <p>Teléfono: +123 456 7890</p>
+            </div>
+
+                
+            <div class="footer__section">
+                <h3>Síguenos</h3>
+                <p>Síguenos en redes sociales para obtener las últimas actualizaciones y ofertas.</p>
+                <div class="social-icons">
+                    <a href="#"><img class="social-icons__logos" src="img/logo/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img class="social-icons__logos" src="img/logo/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.barraSuperior')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+</body>
+</html>
