@@ -253,6 +253,15 @@ button:not(:disabled) {
     background-color: transparent;
     border: 0;
     margin-right: 5%;
+    height: 100%;
+}
+
+.nav__botones {
+    margin-right: 5%;
+}
+
+#logo {
+    margin-left: 15px;
 }
 
 .selected button {
@@ -275,4 +284,92 @@ button:not(:disabled) {
 
 .slide-carro-enter-to {
     transform: translateX(0);
+}
+
+@media screen and (max-width: 600px) {
+
+    .cont {
+        display: grid;
+        grid-template-areas:
+            "prods checkout";
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .prods {
+        margin-left: 10px;
+        grid-area: prods;
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 5%;
+        width: 99%;
+    }
+
+    .prods1 {
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 5%;
+        width: 90vw;
+    }
+
+    .prodGrid {
+        margin-left: 3px;
+        margin-right: 3px;
+        text-align: center;
+        display: flex;
+        vertical-align: top;
+        /* flex-wrap: wrap; */
+        justify-content: center space-around;
+        align-items: center;
+        max-height: min-content;
+    }
+
+    .checkout {
+        margin-top: 10%;
+        margin-right: 5px;
+        margin-left: auto;
+        width: 99%;
+        max-width: 99%;
+    }
+
+    .ultimesU {
+        display: none;
+    }
+
+    .preu {
+        grid-area: preu;
+    }
+
+    .afe {
+        grid-area: afe;
+    }
+
+    .total {
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        bottom: 0px;
+        width: 100%;
+        background-color: white;
+    }
+
+    .prod img {
+        width: 100%;
+        height: 100px;
+        background-color: white !important;
+    }
+
+    .carro{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        border: 0.5px solid black;
+        border-radius: 5px;
+        width: 99%;
+    }
 }
