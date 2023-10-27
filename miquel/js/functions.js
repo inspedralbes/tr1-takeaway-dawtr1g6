@@ -2,7 +2,6 @@ import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 import { getDades } from './modules.js'
 
 createApp({
-
     data() {
         return {
             carrEstat: false,
@@ -11,22 +10,21 @@ createApp({
             amagar: false,
             totalCarret: 0,
             carret: [],
-            productos: []
+            productes: []
         }
     },
 
     methods: {
-
         trobarProd(id) {
-            const carretIndex = this.carret.findIndex(item => item.name === this.productos[id].name);
+            const carretIndex = this.carret.findIndex(item => item.name === this.productes[id].name);
             return carretIndex;
         },
         sumar(id) {
-            if (this.productos[id].stock > this.productos[id].carro) {
-                if (this.productos[id].carro < 1) {
-                    this.carret.push(this.productos[id]);
+            if (this.productes[id].stock > this.productes[id].carro) {
+                if (this.productes[id].carro < 1) {
+                    this.carret.push(this.productes[id]);
                 }
-                this.productos[id].carro++;
+                this.productes[id].carro++;
             }
             console.log(this.carret);
             this.calTotal();
@@ -37,9 +35,9 @@ createApp({
             }
         },
         restar(id) {
-            if (this.productos[id].carro > 0) {
-                this.productos[id].carro--;
-                if (this.productos[id].carro === 0) {
+            if (this.productes[id].carro > 0) {
+                this.productes[id].carro--;
+                if (this.productes[id].carro === 0) {
                     this.carret.splice(this.trobarProd(id), 1);
                 }
             }
@@ -80,10 +78,8 @@ createApp({
             }
             if (this.visible) {
                 this.visible = false;
-                document.getElementById("cart").style.display = "none";
             } else if (!this.visible) {
                 this.visible = true;
-                document.getElementById("cart").style.removeProperty("display");
                 this.carrEstat = false;
             }
             console.log(this.visible);
@@ -93,7 +89,7 @@ createApp({
         },
         search() {
             if (this.searchTerm.trim() !== "") {
-                this.productos = this.productos.filter((product) => {
+                this.productes = this.productes.filter((product) => {
                     return product.name.toLowerCase().includes(this.searchTerm.toLowerCase());
                 });
             }
@@ -112,17 +108,17 @@ createApp({
             }
 
             // Configura un nuevo temporizador para realizar la búsqueda después de 300 ms (ajusta el valor según tus necesidades)
-            this.searchTimer = setTimeout(this.search, 3000);
+            this.searchTimer = setTimeout(this.search, 500);
         },
         search() {
             if (this.searchTerm.trim() !== "") {
-                this.productos = this.productos.filter((product) => {
+                this.productes = this.productes.filter((product) => {
                     return product.name.toLowerCase().includes(this.searchTerm.toLowerCase());
                 });
             } else {
-                // Cuando el campo de búsqueda está vacío, muestra todos los productos nuevamente
+                // Cuando el campo de búsqueda está vacío, muestra todos los productes nuevamente
                 getDades().then(data => {
-                    this.productos = data;
+                    this.productes = data;
                 });
             }
         },
@@ -132,7 +128,7 @@ createApp({
     },
     created() {
         getDades().then(data => {
-            this.productos = data;
+            this.productes = data;
             this.search();
         });
     }

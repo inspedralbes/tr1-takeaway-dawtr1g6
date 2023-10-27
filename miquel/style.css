@@ -1,12 +1,18 @@
-:root{
+:root {
     --color1: rgba(242, 33, 51, 1);
     --color2: rgba(3, 119, 191, 1);
     --color3: rgba(3, 191, 69, 1);
-    --color4:  rgba(242, 202, 4, 1);
+    --color4: rgba(242, 202, 4, 1);
     --color5: rgba(242, 115, 4, 1);
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
+button:not(:disabled) {
+    cursor: pointer;
+}
 
 .cont {
     display: grid;
@@ -45,16 +51,18 @@
     height: 85vh;
     max-height: 85vh;
     transition: transform 0.5s;
+    transform-origin: right;
+    transform: scaleX(1);
+    visibility: visible;
+    pointer-events: auto;
 }
 
-.amagat{
-    /* visibility: hidden; */
-    transform: translateX(150%);
+.amagat {
+    transform-origin: right;
+    transform: scaleX(0);
+    height: 0;
+    visibility: hidden;
     pointer-events: none;
-}
-
-.amagat *{
-    display: none;
 }
 
 .prodGrid {
@@ -101,7 +109,7 @@
     margin-left: auto;
 }
 
-.total>h4{
+.total>h4 {
     margin-left: 5px;
 }
 
@@ -116,7 +124,7 @@
     background-color: lightgray !important;
 }
 
-.prod img{
+.prod img {
     width: 100%;
     height: 225px;
     background-color: white !important;
@@ -139,6 +147,7 @@
 .stock {
     /* margin-left: 10%; */
     margin-bottom: 5px;
+    align-items: center;
 }
 
 
@@ -195,15 +204,21 @@
     height: 100%;
 }
 
-.btn{
+.btn {
     background-color: white !important;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: var(--color5) !important;
 }
 
-.buscar-form{
+.buscar-form {
     width: 20%;
     position: relative;
 }
@@ -223,12 +238,6 @@
     text-align: center;
 }
 
-.botoAfegir {
-    padding: 0;
-    margin-left: auto;
-    margin-right: 0;
-}
-
 .btn-group {
     padding: 0;
     margin-right: 0;
@@ -246,23 +255,24 @@
     margin-right: 5%;
 }
 
-.selected button{
+.selected button {
     background-color: var(--color3) !important;
 }
 
-.slide-carro-enter-active, .slide-carro-leave-active {
+.slide-carro-enter-active,
+.slide-carro-leave-active {
     transition: transform 0.5s;
-    
+
 }
 
 .slide-carro-leave-to {
     transform: translateX(-100%);
 }
 
-.slide-carro-enter-from{
+.slide-carro-enter-from {
     transform: translateX(-100%);
 }
 
-.slide-carro-enter-to{
+.slide-carro-enter-to {
     transform: translateX(0);
 }
