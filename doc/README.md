@@ -70,7 +70,7 @@
       
 
 
-
+Fitcher .htpasswd -> xampp htdocs josu .htpasswd + Apache vhost.conf + autoplanet.local
 ## 4. Instruccions per seguir codificant el projecte
 FALTA POR HACER
 
