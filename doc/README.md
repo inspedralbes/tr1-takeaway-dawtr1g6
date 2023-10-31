@@ -1,30 +1,78 @@
-# Documentació del projecte
+# Documentació bàsica del projecte
 
-## Instruccions per crear un entorn de desenvolupament
-  ### eines
-        - Visual Studio Code
-        - XAMPP
-        - Hestia
+## 1. Instruccions per crear un entorn de desenvolupament
 
-  ### plugins
-        - Composer
-        - Laravel Blade formatter
-        - Miscrosfot Live Preview
-        - mdoc -MarkDown Documentation Viewer
-        - Thunderclient
-        - MySQL Jun Han
-        - PHP DEVSENSE
-  ### ...
+### (FALTA POR HACER)
+
+## 2. Misc
+
+### 2.1 Eines
+
+    Visual Studio Code
+    Laravel
+    Xammp
+    Phpmyadmin
+    Github
+
+### 2.2 Plugins (VSC)
+
+    Miscrosoft Preview
+    Postman
+
+## 3. Instruccions per desplegar el projecte a producció
+
+### 3.1 Laravel, conexions
+
+    .env (Conexió amb el labs)
+
+    DB_HOST=daw.inspedralbes.cat
+    DB_PORT=3306
+    DB_DATABASE=a20artreymor_autoplanet
+    DB_USERNAME=a20artreymor_autoplanet
+    DB_PASSWORD=Autoplanet1
+
+    .env (Conexió a localhost)
+
+    DB_HOST=localhost
+    DB_PORT=3306
+    DB_DATABASE=dawtr1g6_db
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+### 3.1.2 Laravel, enviar informació a la DB
+
+    A través de PostMan + un json, les funcions agafen el json y els seus atributs, i, per cada item, genera una nova instància adequada.
+
+    PRODUCTES (json dins d'array "productos"):
+    Route::post("/getProductos" , [ProductoController::class,"getProductos"]);
+
+    COMANDES (json dins d'array "pedidos"):
+    Route::post("/getPedidos" , [PedidoController::class,"getPedidos"]);
+    
+    USUARIS (json dins d'array "users"):
+    Route::post("/getUsers", [UserController::class, "getUsers"]);
+
+    LINIA DE COMANDES: (json dins d'array "liniaPedido"):
+    Route::post("/getLiniaPedidos", [LiniaPedidoController::class,"getLiniaPedidos"])
+    
+
+### 3.2 API / ENDPOINTS
+
+    Per agafar tots els productes de la BD:
+        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonProductos
+
+    Per agafar totes les comandes de la BD
+        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonPedidos
+      
+    Per agafar tots els usuaris de la BD
+        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonUsers
 
 
-## Enllaç penpot :
-### https://design.penpot.app/#/view/3e6de94f-2e83-80a3-8003-522e46aebd03?page-id=3e6de94f-2e83-80a3-8003-522e46aebd04&section=interactions&index=0&share-id=3e6de94f-2e83-80a3-8003-5252015ddace
+## 4. Instruccions per seguir codificant el projecte
+FALTA POR HACER
 
-## Instruccions per desplegar el projecte a producció
-Quins fitxers s'han d'editar i com (típicament per connectar la BD etc...)
 
-## Instruccions per seguir codificant el projecte
-eines necessaries i com es crea l'entorn per que algú us ajudi en el vostre projecte.
 
-## API / Endpoints / punts de comunicació
-Heu d'indicar quins són els punts d'entrada de la API i quins són els JSON que s'envien i es reben a cada endpoint
+
+
+
