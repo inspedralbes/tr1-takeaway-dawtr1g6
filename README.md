@@ -1,16 +1,18 @@
 # Projectes finals curs 2022 2023
 
-**Tota** la informació del vostre projecte ha de ser accessible a partir d'aquí
+* Nom del projecte : Autoplanet
+* Descripció : Som una botiga que ven productes de figurines hiper realistes de models de cotxes
+  
+Integrants del projecte:
+  * Josu Largo Fernandez - Laravel - Backend
+  * Miquel Moreno Chouciño - Vue - Frontend
+  * Eric Rodriguez Nos - CSS+Desplegament - Frontend
+  * Arturo Rey Moreno - CSS+Desplegament - Frontend
 
-Teniu la carpeta /doc per deixar-hi tota la documentació que genereu, en format __markdown__
-
-HEU DE MODIFICAR AQUEST DOCUMENT AMB LA VOSTRA INFORMACIÖ:
-* Nom del projecte
-* Petita descripció
-* Nom (o inicials) dels integrants del grup i si tenen algun rol
-* URL del prototip de penpod (penseu a deixar el prototip públic)
-* URL del taiga.io
-* URL de preproducció 
-* URL de producció (amb un domini registrat)
+* URL del prototip de penpot : https://design.penpot.app/#/view/3e6de94f-2e83-80a3-8003-522e46aebd03?page-id=3e6de94f-2e83-80a3-8003-522e46aebd04&section=interactions&index=0&share-id=3e6de94f-2e83-80a3-8003-5252015ddace
+* URL del taiga.io : https://tree.taiga.io/project/mmm3mmm-dawtr1g6autoplanet/timeline
+* URL github :  https://github.com/inspedralbes/tr1-takeaway-dawtr1g6
+* URL de preproducció : https://github.com/inspedralbes/tr1-takeaway-dawtr1g6/tree/pre
+* URL de producció : https://github.com/inspedralbes/tr1-takeaway-dawtr1g6/tree/pro + autoplanet.daw.inspedralbes.cat
 
 
