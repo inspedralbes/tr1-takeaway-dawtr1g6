@@ -980,3 +980,8 @@ button:hover {
 .boton_interactivo:hover::before {
     width: 100%;
 }
+
+
+.amagatD{
+    display: none;
+}

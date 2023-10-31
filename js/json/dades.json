@@ -1,0 +1,298 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "name": "Toyota Camry",
+            "price": 1099.00,
+            "image_url": "./img/productos/1.png",
+            "stock": 15
+        },
+        {
+            "id": 2,
+            "name": "Honda Civic",
+            "price": 899.99,
+            "image_url": "./img/productos/2.png",
+            "stock": 20
+        },
+        {
+            "id": 3,
+            "name": "Ford Mustang",
+            "price": 999.00,
+            "image_url": "./img/productos/3.png",
+            "stock": 10
+        },
+        {
+            "id": 4,
+            "name": "Chevrolet Corvette",
+            "price": 499.99,
+            "image_url": "./img/productos/4.png",
+            "stock": 5
+        },
+        {
+            "id": 5,
+            "name": "BMW X5",
+            "price": 699.99,
+            "image_url": "./img/productos/5.png",
+            "stock": 8
+        },
+        {
+            "id": 6,
+            "name": "Audi A4",
+            "price": 299.00,
+            "image_url": "./img/productos/6.png",
+            "stock": 12
+        },
+        {
+            "id": 7,
+            "name": "Mercedes-Benz S-Class",
+            "price": 399.00,
+            "image_url": "./img/productos/7.png",
+            "stock": 18
+        },
+        {
+            "id": 8,
+            "name": "Nissan Altima",
+            "price": 799.00,
+            "image_url": "./img/productos/8.png",
+            "stock": 7
+        },
+        {
+            "id": 9,
+            "name": "Volkswagen Golf",
+            "price": 1499.00,
+            "image_url": "./img/productos/9.png",
+            "stock": 9
+        },
+        {
+            "id": 10,
+            "name": "Subaru Outback",
+            "price": 99.99,
+            "image_url": "./img/productos/10.png",
+            "stock": 25
+        },
+        {
+            "id": 11,
+            "name": "Tesla Model 3",
+            "price": 899.00,
+            "image_url": "./img/productos/11.png",
+            "stock": 15
+        },
+        {
+            "id": 12,
+            "name": "Porsche 911",
+            "price": 1299.99,
+            "image_url": "./img/productos/12.png",
+            "stock": 10
+        },
+        {
+            "id": 13,
+            "name": "Jaguar F-PACE",
+            "price": 1099.00,
+            "image_url": "./img/productos/13.png",
+            "stock": 12
+        },
+        {
+            "id": 14,
+            "name": "Lamborghini Huracan",
+            "price": 299.99,
+            "image_url": "./img/productos/14.png",
+            "stock": 20
+        },
+        {
+            "id": 15,
+            "name": "Ferrari 488 GTB",
+            "price": 349.00,
+            "image_url": "./img/productos/15.png",
+            "stock": 10
+        },
+        {
+            "id": 16,
+            "name": "Aston Martin Vantage",
+            "price": 2499.00,
+            "image_url": "./img/productos/16.png",
+            "stock": 5
+        },
+        {
+            "id": 17,
+            "name": "Lexus ES",
+            "price": 249.99,
+            "image_url": "./img/productos/17.png",
+            "stock": 15
+        },
+        {
+            "id": 18,
+            "name": "Kia Optima",
+            "price": 399.00,
+            "image_url": "./img/productos/18.png",
+            "stock": 8
+        },
+        {
+            "id": 19,
+            "name": "Hyundai Elantra",
+            "price": 499.00,
+            "image_url": "./img/productos/19.png",
+            "stock": 10
+        },
+        {
+            "id": 20,
+            "name": "Jeep Grand Cherokee",
+            "price": 1699.99,
+            "image_url": "./img/productos/20.png",
+            "stock": 7
+        },
+        {
+            "id": 21,
+            "name": "Dodge Charger",
+            "price": 399.00,
+            "image_url": "./img/productos/21.png",
+            "stock": 15
+        },
+        {
+            "id": 22,
+            "name": "Chrysler 300",
+            "price": 3499.00,
+            "image_url": "./img/productos/22.png",
+            "stock": 3
+        },
+        {
+            "id": 23,
+            "name": "Cadillac Escalade",
+            "price": 1199.00,
+            "image_url": "./img/productos/23.png",
+            "stock": 8
+        },
+        {
+            "id": 24,
+            "name": "Buick Encore",
+            "price": 199.00,
+            "image_url": "./img/productos/24.png",
+            "stock": 15
+        },
+        {
+            "id": 25,
+            "name": "Acura MDX",
+            "price": 3499.99,
+            "image_url": "./img/productos/25.webp",
+            "stock": 5
+        },
+        {
+            "id": 26,
+            "name": "Alfa Romeo Giulia",
+            "price": 249.00,
+            "image_url": "./img/productos/26.png",
+            "stock": 20
+        },
+        {
+            "id": 27,
+            "name": "Maserati Levante",
+            "price": 1299.00,
+            "image_url": "./img/productos/27.png",
+            "stock": 9
+        },
+        {
+            "id": 28,
+            "name": "McLaren 720S",
+            "price": 49.99,
+            "image_url": "./img/productos/28.png",
+            "stock": 20
+        },
+        {
+            "id": 29,
+            "name": "Rolls-Royce Phantom",
+            "price": 1199.00,
+            "image_url": "./img/productos/29.webp",
+            "stock": 6
+        },
+        {
+            "id": 30,
+            "name": "Land Rover Range Rover",
+            "price": 1499.00,
+            "image_url": "./img/productos/30.png",
+            "stock": 4
+        },
+        {
+            "id": 31,
+            "name": "Bentley Continental GT",
+            "price": 599.99,
+            "image_url": "./img/productos/31.png",
+            "stock": 10
+        },
+        {
+            "id": 32,
+            "name": "Audi RS 7",
+            "price": 449.99,
+            "image_url": "./img/productos/32.webp",
+            "stock": 15
+        },
+        {
+            "id": 33,
+            "name": "Infiniti Q50",
+            "price": 249.00,
+            "image_url": "./img/productos/33.webp",
+            "stock": 20
+        },
+        {
+            "id": 34,
+            "name": "Porsche Cayenne",
+            "price": 1299.00,
+            "image_url": "./img/productos/34.png",
+            "stock": 8
+        },
+        {
+            "id": 35,
+            "name": "Jaguar XJ",
+            "price": 149.99,
+            "image_url": "./img/productos/35.png",
+            "stock": 12
+        },
+        {
+            "id": 36,
+            "name": "Mini Cooper",
+            "price": 199.00,
+            "image_url": "./img/productos/36.png",
+            "stock": 15
+        },
+        {
+            "id": 37,
+            "name": "Volvo XC90",
+            "price": 2999.00,
+            "image_url": "./img/productos/37.png",
+            "stock": 5
+        },
+        {
+            "id": 38,
+            "name": "Mazda CX-5",
+            "price": 99.99,
+            "image_url": "./img/productos/38.png",
+            "stock": 10
+        },
+        {
+            "id": 39,
+            "name": "Lexus RX",
+            "price": 599.00,
+            "image_url": "./img/productos/39.png",
+            "stock": 8
+        },
+        {
+            "id": 40,
+            "name": "Subaru Impreza",
+            "price": 79.99,
+            "image_url": "./img/productos/40.png",
+            "stock": 7
+        },
+        {
+            "id": 41,
+            "name": "Hyundai Sonata",
+            "price": 499.00,
+            "image_url": "./img/productos/41.webp",
+            "stock": 12
+        },
+        {
+            "id": 42,
+            "name": "Kia Sorento",
+            "price": 49.99,
+            "image_url": "./img/productos/42.png",
+            "stock": 6
+        }
+    ]
+}

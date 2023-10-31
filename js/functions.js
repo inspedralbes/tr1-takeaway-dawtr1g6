@@ -10,12 +10,92 @@ createApp({
             amagar: false,
             totalCarret: 0,
             carret: [],
-            productes: []
+            productes: [],
+            main: false,
+            landing: true,
+            cart: false,
+            login: false,
+            comandes: false,
+            tramitarComandes: false,
+            prod: false,
+            prodAct: 1
         }
     },
 
     methods: {
-        trobarProd(id) {
+
+        //controlador
+        setMostrar(claseAct, claseGo) {
+            console.log("hola");
+            switch (claseAct) {
+                case "all":
+                    this.tramitarComandes = false;
+                    this.comandes = false;
+                    this.login = false;
+                    this.cart = false;
+                    this.landing = false;
+                    this.main = false;
+                    this.prod = false;
+                    break;
+                case "main":
+                    this.main = false;
+                    break;
+                case "landing":
+                    this.landing = false;
+                    break;
+                case "cart":
+                    this.cart = false;
+                    break;
+                case "login":
+                    this.login = false;
+                    break;
+                case "comandes":
+                    this.comandes = false;
+                    break;
+                case "tramitarComandes":
+                    this.tramitarComandes = false;
+                    break;
+                case "prod":
+                    this.prod = false;
+                    break;
+                default:
+                    break;
+            }
+
+
+            switch (claseGo) {
+                case "main":
+                    this.main = true;
+                    break;
+                case "landing":
+                    this.landing = true;
+                    break;
+                case "cart":
+                    this.cart = true;
+                    break;
+                case "login":
+                    this.login = true;
+                    break;
+                case "comandes":
+                    this.comandes = true;
+                    break;
+                case "tramitarComandes":
+                    this.tramitarComandes = true;
+                    break;
+                case "prod":
+                    this.prod = true;
+                    break;
+                default:
+                    break;
+            }
+        },
+
+        trobarProdID(id) {
+            const carretIndex = this.productes.findIndex(producto => producto.id === id);
+            console.log(carretIndex);
+            this.prodAct = carretIndex;
+        },
+        trobarProdCart(id) {
             const carretIndex = this.carret.findIndex(item => item.name === this.productes[id].name);
             return carretIndex;
         },
@@ -38,7 +118,7 @@ createApp({
             if (this.productes[id].carro > 0) {
                 this.productes[id].carro--;
                 if (this.productes[id].carro === 0) {
-                    this.carret.splice(this.trobarProd(id), 1);
+                    this.carret.splice(this.trobarProdCart(id), 1);
                 }
             }
             console.log(this.carret);
@@ -120,6 +200,7 @@ createApp({
                 });
             }
         },
+
     },
     watch: {
         searchTerm: "search"
@@ -127,7 +208,14 @@ createApp({
     created() {
         getDades().then(data => {
             this.productes = data;
+            console.log(this.productes);
             this.search();
         });
+    },
+    computed: {
+        productesMesVenuts() {
+            const filteredProductes = this.productes.filter(product => product.stock <= 10);
+            return filteredProductes.slice(0, 12);
+        }
     }
-}).mount('#main')
+}).mount('#app')
