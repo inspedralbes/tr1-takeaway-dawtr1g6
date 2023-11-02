@@ -50,8 +50,8 @@ button:not(:disabled) {
 .checkout {
     /* visibility: visible; */
     position: sticky;
-    top: 60px;
-    width: 30%;
+    top: 65px;
+    width: 60%;
     grid-area: checkout;
     align-self: start;
     margin-top: 10px;
@@ -65,8 +65,7 @@ button:not(:disabled) {
     pointer-events: auto;
     background-color: white;
     border-radius: 10px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    padding: 20px;
 
 
 }
@@ -105,6 +104,7 @@ button:not(:disabled) {
     overflow: auto;
     height: auto;
     max-height: 70vh;
+    text-align: right;
 }
 
 .carro {
@@ -215,12 +215,11 @@ button:not(:disabled) {
     padding-top: 10px;
     padding-bottom: 10px;
     position: sticky;
-    top: 0;
-
+    top: 10;
 }
 
 .nav img{
-    max-width: 35px;
+    max-width: 30px;
 }
 
 .nav>* {
@@ -306,14 +305,25 @@ text-align: center;
     width: 5px
 }
 
-
+.nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: .2fr 1fr .4fr;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 
 
 .nav__botones {
     margin-right: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
 }
 
 #logo {
@@ -427,6 +437,20 @@ ul li a {
 
     }
 
+    .nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: .2fr 1fr .5fr;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color1);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: sticky;
+        top: 10;
+    }
+    
+
     .prods1 {
         margin-left: auto;
         margin-right: auto;
@@ -435,27 +459,6 @@ ul li a {
         margin-top: 5%;
         width: 80%;
         font-size: .6em;
-    }
-
-    .btn-carret {
-        text-align: center;
-        text-decoration: none;
-        vertical-align: middle;
-        padding: 0;
-        background-color: transparent;
-        border: 0;
-        margin-right: 5%;
-        width: 5%;
-    }
-    
-    
-    
-    
-    
-    .nav__botones {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        
     }
 
 
@@ -476,14 +479,13 @@ ul li a {
         border-radius: 10px;
         padding: 20px;
         position: sticky;
-        top: 0;
+        top: 20;
         width: 70%;
         background-color: #fff;
         font-size: .6em;
         margin-right: 5px;
         margin-left: auto;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
 
     #restar_carret{
@@ -501,6 +503,13 @@ ul li a {
         padding-left: 6px;
     }
     
+
+    .over {
+        overflow: auto;
+        height: auto;
+        max-height: 70vh;
+        text-align: left;
+    }
         
 
     .ultimesU {
@@ -526,7 +535,7 @@ ul li a {
 
     .carro{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr .1fr .5fr;
+        grid-template-columns: 1fr 1fr .2fr 1fr;
         grid-gap: 20px;
         justify-content: space-evenly;
         border-bottom: 0.5px solid lightgray;
@@ -534,8 +543,6 @@ ul li a {
         height: 50px;
         text-align: left;
     }
-
-   
 
     
 footer {
