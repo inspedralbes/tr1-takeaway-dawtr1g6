@@ -16,5 +16,6 @@ class LiniaPedido extends Model
         "pedido_id",
         "user_id",
         "sumatori",
+        
     ];
 }

@@ -32,6 +32,16 @@ class LiniaPedidoController extends Controller
         return ($response);
     }
 
+    public function storeLp (Request $request){
+
+        $liniaPedido = new LiniaPedido();
+        $liniaPedido->user_id = request()->user_id;
+        $liniaPedido->email = request()->email;
+        $liniaPedido->pedido_id = request()->pedido_id;
+        $liniaPedido->sumatori = request()->sumatori;
+        $liniaPedido->save();
+    }
+
     public function giveJsonLiniaPedidoData()
     {
         $liniapedidos = LiniaPedido::all();

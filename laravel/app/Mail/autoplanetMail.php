@@ -2,23 +2,31 @@
 
 namespace App\Mail;
 
+use App\Models\LiniaPedido;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use App\Models\User;
 
-class autoplanetMail extends Mailable
+class autoplanetMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    protected $user;
+    protected $lp;
+
+    public function __construct(User $user, LiniaPedido $liniapedido)
     {
-        //
+        
+        $this->user = $user;
+        $this->lp = $liniapedido;
+     
     }
 
     /**
@@ -30,16 +38,27 @@ class autoplanetMail extends Mailable
             subject: 'Autoplanet Mail',
         );
     }
+    public function build()
+    {
+        return $this->view('mail.email', [
+            'user' => $this->user,
+            'lp' => $this->lp,
+        ]);
+    }
 
-    /**
-     * Get the message content definition.
-     */
+
+
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view('mail.email', [
+                'user' => $this->user,
+                'lp' => $this->lp,
+            ])
         );
     }
+
+  
 
     /**
      * Get the attachments for the message.

@@ -1,12 +1,10 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\SendMailController;
-use App\Http\Controllers\LiniaPedidoController;
-use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 
 
@@ -42,7 +40,7 @@ Route::get('/showProductosAdmin', [ProductoController::class, 'showProductosAdmi
 
 
 // ruta email
-
+Route::get("/showTicket/{id}", [EmailController::class,"email_after_buying"]);
 
 
 
