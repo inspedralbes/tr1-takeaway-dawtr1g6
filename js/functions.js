@@ -11,20 +11,18 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
-            main: false,
-            landing: true,
+            main: true,
+            landing: false,
             cart: false,
             login: false,
             comandes: false,
             tramitarComandes: false,
             prod: false,
-            prodAct: 1
+            prodAct: -1
         }
     },
 
     methods: {
-
-        //controlador
         setMostrar(claseAct, claseGo) {
             console.log("hola");
             switch (claseAct) {
@@ -89,7 +87,24 @@ createApp({
                     break;
             }
         },
+        sumarIn(id) {
+            if (this.productes[id].stock > this.productes[id].carro) {
+                if (this.productes[id].carro < 1) {
+                    this.carret.push(this.productes[id]);
+                }
+                this.productes[id].carro++;
+            }
+        },
+        mostrarData() {
+            const fechaActual = new Date();
 
+            const día = fechaActual.getDate().toString().padStart(2, '0');
+            const mes = (fechaActual.getMonth() + 1).toString().padStart(2, '0');
+            const año = fechaActual.getFullYear();
+
+            const fechaFormateada = `${día}/${mes}/${año}`;
+            return fechaFormateada;
+        },
         trobarProdID(id) {
             const carretIndex = this.productes.findIndex(producto => producto.id === id);
             console.log(carretIndex);
