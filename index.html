@@ -19,31 +19,6 @@
 <body>
 
     <div id="app">
-        <!-- <nav class="nav">
-            <button class="btn-carret">
-                <img id="logo" src="img/logo/logo.png" alt="logo">
-            </button>
-            <form class="buscar-form" role="search">
-                <input class="buscar" id="searchInput" type="search" placeholder="Buscar" aria-label="Search"
-                    v-model="searchTerm" @input="onSearchInput">
-                <button class="buscar-btn" id="btn-buscar" type="submit"><img class="buscar-ico"
-                        src="https://cdn-icons-png.flaticon.com/256/3917/3917132.png">
-                </button>
-            </form>
-            <div class="nav__botones">
-                <button class="btn-carret">
-                    <img class="barraSuperior" src="img/iconos/volante.png">
-                </button>
-                <button class="btn-carret">
-                    <img class="barraSuperior" src="img/iconos/camion.png">
-                </button>
-                <button class="btn-carret" @click="toggle()">
-                    <img v-if="!carrEstat" src="./img/iconos/shopping-cart.png">
-                    <img v-else="carrEstat" src="./img/iconos/shopping-cart-exclamation.png">
-                </button>
-            </div>
-        </nav> -->
-
         <nav class="nav">
             <button @click="setMostrar('all', 'landing')" class="btn-carret">
                 <img id="logo" src="img/logo/logo.png" alt="logo" width="40" height="40">
