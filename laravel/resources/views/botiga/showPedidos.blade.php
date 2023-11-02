@@ -18,7 +18,7 @@
             <div class="detalle-pedido">
                 <p><strong>Estado del Pedido:</strong> {{ $pedido->status }}</p>
                 <p><strong>Total:</strong> ${{ $pedido->sumatori }}</p>
-                <a class="btn" href ="{{ url('showPedido-item/' . $pedido->id) }} ">Ver detalles</a>
+                <a class="btn" href ="{{ url('showPedido-itemNA/' . $pedido->id) }} ">Ver detalles</a>
             </div>
 
         </div>

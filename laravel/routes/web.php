@@ -4,7 +4,7 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
-
+use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\LiniaPedidoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -25,18 +25,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/showPedidosAdmin', [PedidoController::class, 'showPedidosAdmin']);
-Route::get('/showProductosAdmin', [ProductoController::class, 'showProductosAdmin']);
 
 
 
+// rutas de pedidos
 Route::get("/showPedidos", [PedidoController::class, "showPedidos"]);
 Route::get("/showPedido-item/{id}", [PedidoController::class, "showPedido_item"]);
-Route::get("/showPedido-itemNA/{id}", [ProductoController::class, "showPedido_itemNA"]);
+Route::get("/showPedido-itemNA/{id}", [PedidoController::class, "showPedido_itemNA"]);
+Route::get('/showPedidosAdmin', [PedidoController::class, 'showPedidosAdmin']);
 
+// rutas de productos
 Route::get("/showProductos", [ProductoController::class, "showProductos"]);
 Route::get("/showProducto-item/{id}", [ProductoController::class, "showProducto_item"]);
 Route::get("/showProducto-itemNA/{id}", [ProductoController::class, "showProducto_itemNA"]);
+Route::get('/showProductosAdmin', [ProductoController::class, 'showProductosAdmin']);
+
+
+// ruta email
 
 
 
