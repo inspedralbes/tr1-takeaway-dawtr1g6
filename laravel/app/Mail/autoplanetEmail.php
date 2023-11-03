@@ -38,24 +38,22 @@ class autoplanetMail extends Mailable implements ShouldQueue
             subject: 'Autoplanet Mail',
         );
     }
-    public function build()
+   public function build()
     {
-        return $this->view('mail.email', [
-            'user' => $this->user,
-            'lp' => $this->lp,
-        ]);
+        return $this->view('mail.email') // Assuming you have an email template named autoplanet.blade.php in the "resources/views/emails" directory.
+                    ->subject('Comanda Autoplanet') // Specify the subject of the email
+                    ->with([
+                        'user' => $this->user,
+                        'lp' => $this->lp,
+                    ]);
     }
+
 
 
 
     public function content(): Content
     {
-        return new Content(
-            view('mail.email', [
-                'user' => $this->user,
-                'lp' => $this->lp,
-            ])
-        );
+      
     }
 
   

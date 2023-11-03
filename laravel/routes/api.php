@@ -29,9 +29,9 @@ Route::post("/getProductos", [ProductoController::class, "getProductos"]);
 
 Route::post("/getPedidos", [PedidoController::class, "getPedidos"]);
 
-Route::post("/getUsers", [UserController::class, "getUsers"]);
+Route::post("/getUsers", [UserController::class, "getusers"]);
 
-Route::post("/getLiniaPedidos", [LiniaPedidoController::class, "getLiniaPedidos"]);
+Route::post("/getLiniaPedidos", [LiniaPedidoController::class, "giveJsonLiniaPedidoData"]);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     
@@ -47,5 +47,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::get('/getJsonProductos', [ProductoController::class, 'giveJsonProductosData']);
 // retorna un json de todos los pedidos de la bd en phpmyadmin
 Route::get('/getJsonPedidos', [PedidoController::class, 'giveJsonPedidosData']);
-
+// retorna u njson de todos los usuaris de la bd en phpmyadmin
+Route::post("/getJsonUsers", [UserController::class, "giveJsonUsers"]);
 

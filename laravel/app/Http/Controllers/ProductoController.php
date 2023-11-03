@@ -17,10 +17,10 @@ class ProductoController extends Controller
         foreach ($jsonData['productos'] as $item) {
             $producto = new Producto();
             $producto->name = $item['name'];
-            $producto->stock = $item['stock'];
             $producto->price = $item['price'];
            // $producto->desc = $item['desc'];
             $producto->image_url = $item['image_url'];
+            $producto->stock = $item['stock'];
             $producto->save();
         }
 

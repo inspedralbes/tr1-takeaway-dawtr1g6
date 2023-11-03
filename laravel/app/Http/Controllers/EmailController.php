@@ -31,8 +31,13 @@ class EmailController extends Controller
 
     $latestLiniapedido->fill($request->all());
    
+    // dd($user->email); // "carlos.sanchez@example.com"
+    // dd($user); 
+    // dd($latestLiniapedido);
+    $latestLiniapedido->save();
+
     
-    Mail::to($userEmail)->send(new autoplanetMail($user, $latestLiniapedido));
+    Mail::to($user->email)->send(new autoplanetMail($user, $latestLiniapedido));
 
     return redirect()->back()->with('success', 'Email sent successfully');
 }

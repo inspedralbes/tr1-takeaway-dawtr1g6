@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
+use App\Mail\autoplanetMail;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
