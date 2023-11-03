@@ -29,7 +29,7 @@ Route::post("/getProductos", [ProductoController::class, "getProductos"]);
 
 Route::post("/getPedidos", [PedidoController::class, "getPedidos"]);
 
-Route::post("/getUsers", [UserController::class, "getusers"]);
+Route::post("/getUsers", [UserController::class, "getUsers"]);
 
 Route::post("/getLiniaPedidos", [LiniaPedidoController::class, "giveJsonLiniaPedidoData"]);
 
