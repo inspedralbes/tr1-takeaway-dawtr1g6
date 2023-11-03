@@ -122,6 +122,15 @@ createApp({
                 });
             }
         },
+        
+
+        filterByCategory() {
+            if (!this.selectedCategory) {
+              return this.productos; // Si no hay categoría seleccionada, muestra todos los productos
+            }
+        
+            return this.productes.filter(producto => producto.categoria.toLowerCase() === this.selectedCategory.toLowerCase());
+        },
     },
     watch: {
         searchTerm: "search"

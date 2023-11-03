@@ -32,6 +32,8 @@
                     <button class="buscar-btn" id="btn-buscar" type="submit"><img class="buscar-ico"
                             src="https://cdn-icons-png.flaticon.com/256/3917/3917132.png"><!-- Search -->
                     </button>
+                    
+                      
                 </form>
                 <div class="nav__botones">
                     <button class="btn-carret">
@@ -51,11 +53,22 @@
                     <div :class="{'prods':visible, 'prods1':!visible}">
                         <div v-for="(actual,index) in productes" class="prod card shadow-sm"
                             :class="{'selected': actual.carro > 0}">
-                            <img :src="actual.image_url">
+                            
+                            <div class="imatgeProducte">
+                                <img :src="actual.image_url">
+
+                                <span class="ultimesU">
+                                    <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
+                                </span>
+                            </div>
+                            
+                            
 
                             <h1 class="card-text">
                                 {{actual.name}}
                             </h1>
+
+                            
 
                             <div class="stock_prodGrid">
                                 
@@ -71,9 +84,7 @@
                                 </div>
 
                             </div>
-                            <span class="ultimesU">
-                                <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
-                            </span>
+                            
 
                         </div>
                     </div>

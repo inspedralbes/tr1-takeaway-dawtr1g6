@@ -198,11 +198,21 @@ button:not(:disabled) {
 }
 
 
+.imatgeProducte{
+    position: relative;
+}
+
+.ultimesU{
+    position: absolute;
+    bottom: -10px;
+    right: 0%;
+    width: 100%;
+    margin: 0;
+}
+
 .unitats {
     background-color: rgb(255, 237, 77);
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 5px;
+    
 }
 
 .nav {
@@ -461,6 +471,24 @@ ul li a {
         font-size: .6em;
     }
 
+    .imatgeProducte{
+        position: relative;
+    }
+
+    .ultimesU{
+        position: absolute;
+        bottom: 2px;
+        right: .5%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .unitats {
+        background-color: rgb(255, 237, 77);
+        margin: 0;
+        
+    }
+    
 
 
     .prodGrid {
@@ -512,10 +540,7 @@ ul li a {
     }
         
 
-    .ultimesU {
-        display: none;
-    }
-
+   
     .total {
         position: sticky;
         display: flex;
