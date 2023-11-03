@@ -100,6 +100,7 @@ createApp({
                     this.carret.push(this.productes[id]);
                 }
                 this.productes[id].carro++;
+                this.canviCarrEstat(1);
             }
         },
         mostrarData() {
@@ -223,25 +224,23 @@ createApp({
             }
         },
         enviarComanda() {
+            console.log(JSON.stringify(this.comanda, this.carret));
             // Realiza una solicitud POST al backend con los datos
-            fetch('/procesar_envio', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(this.comanda),
-            })
-                .then(response => {
-                    if (response.ok) {
-                        // La solicitud se completó con éxito
-                        // Puedes realizar acciones adicionales aquí, como mostrar un mensaje de confirmación.
-                        alert('Comanda enviada exitosamente');
-                        this.cancelar(); // Limpiar el formulario después del envío
-                    } else {
-                        // La solicitud falló, maneja el error aquí
-                        alert('Error al enviar la comanda');
-                    }
-                });
+            // fetch('/procesar_envio', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(this.comanda, this.carret),
+            // })
+            //     .then(response => {
+            //         if (response.ok) {
+            //             alert('Comanda enviada exitosamente');
+            //             this.cancelar();
+            //         } else {
+            //             alert('Error al enviar la comanda');
+            //         }
+            //     });
         },
         cancelar() {
             // Limpia el formulario

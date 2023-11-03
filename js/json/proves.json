@@ -1,0 +1,33 @@
+{
+    "pedido": [
+        {
+            "nombre": "",
+            "direccion": "",
+            "ciudad": "",
+            "codigo_postal": "",
+            "pais": ""
+        }
+    ],
+    "productos": [
+        {
+            "id": 1,
+            "name": "Toyota Camry",
+            "price": 1099.00,
+            "unit": 3
+        },
+        {
+            "id": 2,
+            "name": "Honda Civic",
+            "price": 899.99,
+            "image_url": "./img/productos/2.png",
+            "unit": 3
+        },
+        {
+            "id": 3,
+            "name": "Ford Mustang",
+            "price": 999.00,
+            "image_url": "./img/productos/3.png",
+            "unit": 3
+        }
+    ]
+}
