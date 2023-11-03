@@ -225,7 +225,6 @@ createApp({
         },
         enviarComanda() {
             console.log(JSON.stringify(this.comanda, this.carret));
-            // Realiza una solicitud POST al backend con los datos
             // fetch('/procesar_envio', {
             //     method: 'POST',
             //     headers: {
