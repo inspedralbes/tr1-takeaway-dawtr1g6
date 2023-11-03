@@ -13,6 +13,12 @@ class Pedido extends Model
     protected $table = 'pedidos';
     protected $fillable = [
         "status",
-        "sumatori"
+        "sumatori",
+        "codi_postal",
+        "direccio",
+        "ciutat",
+        "pais",
+        "namecli",
+        "user_id",
     ];
 }

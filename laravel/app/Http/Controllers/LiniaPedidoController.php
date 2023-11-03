@@ -19,8 +19,9 @@ class LiniaPedidoController extends Controller
             $liniaPedido->unit_price = $item['unit_price'];
             $liniaPedido->quantitat = $item['quantitat'];
             $liniaPedido->pedido_id = $item['pedido_id'];
+            $liniaPedido->producto_id= $item['producto_id'];
             $liniaPedido->user_id = $item['user_id'];
-            $liniaPedido->sumatori = $item['sumatori'];
+            $liniaPedido->name_producto = $item['name_producto'];
             $liniaPedido->save();
         }
 

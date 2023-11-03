@@ -14,8 +14,7 @@ class LiniaPedido extends Model
         "unit_price",
         "quantitat",
         "pedido_id",
-        "user_id",
-        "sumatori",
-        
+        "name_producto",
+        "producto_id"
     ];
 }

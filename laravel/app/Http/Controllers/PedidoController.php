@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
 use App\Models\Producto;
+use App\Models\LiniaPedido;
 
 
 
@@ -17,20 +18,36 @@ class PedidoController extends Controller
         $jsonData = $request->json()->all();
 
         foreach ($jsonData['pedidos'] as $item) {
+
             $pedidos = new Pedido();
             $pedidos->status = $item['status'];
             $pedidos->sumatori = $item['sumatori'];
+            $pedidos->codi_postal = $item['codi_postal'];
+            $pedidos->direccio = $item['direccio'];
+            $pedidos->ciutat = $item['ciutat'];
+            $pedidos->pais = $item['pais'];
+            $pedidos->namecli = $item['namecli'];
             $pedidos->save();
         }
 
+        foreach ($jsonData['productos'] as $item) {
+            $lp = new LiniaPedido();
+            $lp->unit_price= $item['unit_price'];
+            $lp->quantitat=$item['quantitat'];
+            $lp->pedido_id= $pedidos->id;
+            $lp->name_producto=$item['name_producto'];
+            $lp->producto_id=$item['producto_id'];
+            $lp->save();
+        }
+
+
         $response = [
             'success' => true,
-            'message' => 'Pedidos guardados correctamente.'
+            'message' => 'Pedidos y liniaP guardados correctamente.'
         ];
 
+
         return ($response);
-
-
     }
     public function showPedidos()
     {
@@ -90,15 +107,15 @@ class PedidoController extends Controller
     public function update_pedido(Request $request, $id)
     {
         $pedido = Pedido::find($id);
-            $request->validate([
-                'status' => 'required',
-                'sumatori' => 'required',
-            ]);
-          
-            $pedido->update($request->all());
+        $request->validate([
+            'status' => 'required',
+            'sumatori' => 'required',
+        ]);
 
-            return redirect('showPedidosAdmin');
-        
+        $pedido->update($request->all());
+
+        return redirect('showPedidosAdmin');
+
     }
 
     public function destroy_pedido($id)
