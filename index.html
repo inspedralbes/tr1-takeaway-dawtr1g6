@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estils.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="app">
+        <nav class="nav">
+            <button @click="setMostrar('all', 'landing')" class="btn-carret">
+                <img id="logo" src="img/logo/logo.png" alt="logo" width="40" height="40">
+            </button>
+            <form class="buscar-form" role="search">
+                <input class="buscar" id="searchInput" type="search" placeholder="Buscar" aria-label="Search"
+                    v-model="searchTerm" @input="onSearchInput">
+                <button class="buscar-btn" id="btn-buscar" type="submit"><img class="buscar-ico"
+                        src="https://cdn-icons-png.flaticon.com/256/3917/3917132.png">
+                </button>
+            </form>
+            <div class="nav__botones">
+                <button @click="setMostrar('all', 'login')" class="btn-carret">
+                    <img class="barraSuperior" src="img/iconos/volante.png" width="40" height="40">
+                </button>
+                <button @click="setMostrar('all', 'comandes')" class="btn-carret">
+                    <img class="barraSuperior" src="img/iconos/camion.png" width="40" height="40">
+                </button>
+                <button v-if="!main" class="btn-carret" @click="setMostrar('all', 'tramitarComandes')">
+                    <img v-if="!carrEstat" src="../img/iconos/shopping-cart.png" width="40" height="40">
+                    <img v-else="carrEstat" src="../img/iconos/shopping-cart-exclamation.png" width="40" height="40">
+                </button>
+                <button v-else class="btn-carret" @click="toggle()">
+                    <img v-if="!carrEstat" src="../img/iconos/shopping-cart.png" width="40" height="40">
+                    <img v-else="carrEstat" src="../img/iconos/shopping-cart-exclamation.png" width="40" height="40">
+                </button>
+            </div>
+        </nav>
+
+        <div id="main" :class="{'amagatD':!main}">
+            <div id="productes">
+                <div :class="{'cont':visible}">
+                    <div :class="{'prods':visible, 'prods1':!visible}">
+                        <div v-for="(actual,index) in productes" class="prod card shadow-sm"
+                            :class="{'selected': actual.carro > 0}">
+                            <img @click="setMostrar('main', 'prod');trobarProdID(actual.id)" :src="actual.image_url">
+
+                            <h1 @click="setMostrar('main', 'prod');trobarProdID(actual.id)" class="card-text">
+                                {{actual.name}}
+                            </h1>
+
+                            <div class="stock_prodGrid">
+
+                                <div @click="setMostrar('main', 'prod');trobarProdID(actual.id)" class="preu">
+                                    <h2>
+                                        {{actual.price}}€
+                                    </h2>
+                                </div>
+                                <div class="afe">
+                                    <button class="btn" @click="sumar(index)">
+                                        Afegir al carro
+                                    </button>
+                                </div>
+
+                            </div>
+                            <span @click="setMostrar('main', 'prod');trobarProdID(actual.id)" class="ultimesU">
+                                <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="checkout" :class="{amagat:!visible}">
+                        <div class="card shadow-sm">
+                            <div class="over">
+                                <transition-group name="slide-carro">
+                                    <div v-for="(actual,index) in carret" :key="index" class="carro">
+
+
+                                        <span>
+                                            <p>{{actual.name}}</p>
+                                        </span>
+                                        <div class="btn-group">
+                                            <button id="restar_carret" class="btn  " @click="restarC(index)">
+                                                -
+                                            </button>
+
+                                            <button id="sumar_carret" class="btn  " @click="sumarC(index)">
+                                                +
+                                            </button>
+                                        </div>
+                                        <span class="centrat">
+                                            <p>x{{actual.carro}}</p>
+                                        </span>
+                                        <span>
+                                            <h4>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
+                                        </span>
+                                    </div>
+                                </transition-group>
+                            </div>
+                            <div class="total">
+                                <h2>Total: {{parseFloat((totalCarret).toFixed(2))}}€</h4>
+                                    <button @click="setMostrar('main', 'tramitarComandes')" class="btn ">
+                                        Veure carret
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="landing" :class="{'amagatD':!landing}">
+            <div id="anarCataleg">
+                <button class="boton_interactivo" id="verCatalogo" @click="setMostrar('landing', 'main')">
+                    Veure Catàleg
+                </button>
+            </div>
+
+            <div class="mesVenuts">
+
+                <div>
+                    <h1 id="mesVenuts__title">Més Venuts</h1>
+                </div>
+
+                <div class="mesVenuts__productes">
+                    <div v-for="product in productesMesVenuts" :key="product.id" class="landing__producte"
+                        @click="setMostrar('landing', 'prod');trobarProdID(product.id)">
+                        <img class="landing__producte__img" :src="product.image_url" alt="">
+                        <h2>{{product.name}}</h2>
+                        <h4>{{product.price}}€</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login" :class="{'amagatD':!login}">
+
+            <div class="login-container">
+                <h2>Iniciar Sessió</h2>
+                <form action="/tu-ruta-de-autenticacion" method="post">
+                    <label for="username">Usuari:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password">Contrassenya:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button id="login-container__button" type="submit">Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="producte" :class="{'amagatD':!prod}">
+
+            <div class="pantalla_producte">
+
+                <div class="producte">
+
+                    <div>
+                        <button @click="setMostrar('all', 'main')" class="boton_interactivo tornar-ctlg">
+                            Tornar al catàleg
+                            <br>
+                        </button>
+                    </div>
+
+                    <div>
+                        <h1 v-if="prodAct!=-1" id="producte__title">{{productes[prodAct].name}}</h1>
+                        <h1 v-else id="producte__title">error</h1>
+                    </div>
+
+                    <img v-if="prodAct!=-1" class="producte__img" :src="productes[prodAct].image_url" alt="">
+                    <img v-else src="#">
+                    <div class="producte__container">
+                        <h3 v-if="prodAct!=-1">{{productes[prodAct].name}}</h3>
+                        <h3 v-else>error</h3>
+                        <p v-if="prodAct!=-1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum
+                            has
+                            been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley
+                            of type and scrambled it to make a type specimen book.
+                        </p>
+                        <p v-else>
+                            error
+                        </p>
+
+                    </div>
+
+                    <div class="producte__afegir">
+                        <h1 v-if="prodAct!=-1">{{productes[prodAct].price}}€</h1>
+                        <h1 v-else>error</h1>
+                        <button @click="sumarIn(prodAct);setMostrar('all', 'main')" class="boton_interactivo">Afegir al carret</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="cart" :class="{'amagatD':!cart}">
+
+            <div class="carrito__comanda">
+
+                <div>
+                    <h1 id="comanda__title">Comanda</h1>
+                </div>
+
+                <div class="comanda__productes">
+                    <div class="comanda__producte">
+                        <div><img class="comanda__producte__img" src="img/productos/1.png" alt=""></div>
+                        <div class="producte__nom">
+                            <h2>Producte1</h2>
+                            <h4>PREU€</h4>
+                        </div>
+                        <div class="producte__quantitat">
+                            <div class="quantitat__unitat">
+                                <h3>Unitats: 1</h3>
+                            </div>
+                            <div class="quantitat__buttons">
+                                <button class="boton_interactivo" id="menys">-</button>
+                                <button class="boton_interactivo" id="mes" class>+</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="comanda__producte">
+                        <div><img class="comanda__producte__img" src="img/productos/1.png" alt=""></div>
+                        <div class="producte__nom">
+                            <h2>Producte1</h2>
+                            <h4>PREU€</h4>
+                        </div>
+                        <div class="producte__quantitat">
+                            <div class="quantitat__unitat">
+                                <h3>Unitats: 1</h3>
+                            </div>
+                            <div class="quantitat__buttons">
+                                <button class="boton_interactivo" id="menys">-</button>
+                                <button class="boton_interactivo" id="mes" class>+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="step pedido-recibido">Pedido recibido</div>
+                <div class="step en-preparacion">En preparación</div>
+                <div class="step en-almacen">En almacén</div>
+                <div class="step en-reparto">En reparto</div>
+                <div class="step en-reparto">Entregado</div>
+            </div>
+        </div>
+
+
+        <div class="pantalla_comandes" :class="{'amagatD':!comandes}">
+            <div class="comandes">
+                <a href=""></a>
+                <div class="comanda">
+                    <div class="info_comanda">
+                        <h1>ID COMANDA: 01</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                    </div>
+
+                    <div class="estat_actual">
+                        <h2>Comanda Rebuda</h2>
+                    </div>
+                </div>
+
+                <div class="comanda">
+                    <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                    </div>
+
+                    <div class="estat_actual">
+                        <h2>Comanda Rebuda</h2>
+                    </div>
+                </div>
+
+                <div class="comanda">
+                    <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                    </div>
+                    <div class="estat_actual">
+                        <h2>Comanda Rebuda</h2>
+                    </div>
+                </div>
+
+                <div class="comanda">
+                    <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                    </div>
+
+                    <div class="estat_actual">
+                        <h2>Comanda Rebuda</h2>
+                    </div>
+                </div>
+                <div class="comanda">
+                    <div class="info_comanda">
+                        <h1>ID COMANDA: 02</h1>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h4>Data: 23/10/2023</h4>
+                    </div>
+
+                    <div class="estat_actual">
+                        <h2>Comanda Rebuda</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pantalla_tramitar_comandes" :class="{'amagatD':!tramitarComandes}">
+            <h1 id="titol_comanda">Tramitar Comanda</h1>
+            <div class="comandes__tramitar">
+                <div class="comanda__tramitar">
+                    <div v-for="(actual,index) in carret" :key="index" class="articles_comanda">
+                        <h3 class="primer-list">{{actual.name}}</h3>
+                        <h3>Unitats: <strong>{{actual.carro}}</strong></h3>
+                        <div class="btn-group btn-group-tram">
+                            <button id="restar_carret" class="btn-tram" @click="restarC(index)">
+                                -
+                            </button>
+
+                            <button id="sumar_carret" class="btn-tram" @click="sumarC(index)">
+                                +
+                            </button>
+                        </div>
+                        <h3><strong>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</strong></h3>
+                    </div>
+                    <div class="info_comanda">
+                        <h4>Data: {{mostrarData()}}</h4>
+                        <h1 id="info_comanda__total">TOTAL: {{parseFloat((totalCarret).toFixed(2))}}€</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formulari">
+                <form @submit.prevent="enviarComanda">
+                    <h1>Dades d'enviament</h1>
+            
+                    <label for="nombre">Nom:</label>
+                    <input v-model="comanda.nombre" type="text" id="nombre" name="nombre" required>
+            
+                    <label for="direccion">Direcció:</label>
+                    <input v-model="comanda.direccion" type="text" id="direccion" name="direccion" required>
+            
+                    <label for="ciudad">Ciutat:</label>
+                    <input v-model="comanda.ciudad" type="text" id="ciudad" name="ciudad" required>
+            
+                    <label for="codigo_postal">Codi Postal:</label>
+                    <input v-model="comanda.codigo_postal" type="text" id="codigo_postal" name="codigo_postal" required>
+            
+                    <label for="pais">País:</label>
+                    <select v-model="comanda.pais" id="pais" name="pais" required>
+                        <option value="">Selecciona el teu país</option>
+                        <option value="espana">España</option>
+                        <option value="mexico">México</option>
+                    </select>
+                    <button type="submit">Confirmar Comanda</button>
+                    <button type="button" @click="cancelar">Cancelar</button>
+                </form>
+            </div>
+            
+        </div>
+
+
+        <footer>
+            <div class="footer">
+                <div class="footer__contacto">
+                    <h3>Contacto</h3>
+                    <p>Dirección: Calle Auto, Ciudad</p>
+                    <p>Email: info@autoplanet.com</p>
+                    <p>Teléfono: +123 456 7890</p>
+                </div>
+
+
+                <div class="footer__section">
+                    <h3>Síguenos</h3>
+                    <p>Síguenos en redes sociales para obtener las últimas actualizaciones y ofertas.</p>
+                    <div class="social-icons">
+                        <a href="#">
+                            <img class="social-icons__logos" src="img/logo/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="#">
+                            <img class="social-icons__logos" src="img/logo/instagram.png" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+<script src="./js/functions.js" type="module"></script>
+
+</html>

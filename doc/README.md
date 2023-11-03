@@ -42,41 +42,36 @@
 
     A través de PostMan + un json, les funcions agafen el json y els seus atributs, i, per cada item, genera una nova instància adequada.
 
-    Per a crear productes (json dins d'array "productos"):
+    PRODUCTES (json dins d'array "productos"):
     Route::post("/getProductos" , [ProductoController::class,"getProductos"]);
 
-    Per a crear comandes (json dins d'array "pedidos"):
+    COMANDES (json dins d'array "pedidos"):
     Route::post("/getPedidos" , [PedidoController::class,"getPedidos"]);
-
-
-    Per a crear usuaris: (json dins d'array "users"):
+    
+    USUARIS (json dins d'array "users"):
     Route::post("/getUsers", [UserController::class, "getUsers"]);
 
-    Per a crear linias de comandes: (json dins d'array "liniaPedido"):
+    LINIA DE COMANDES: (json dins d'array "liniaPedido"):
     Route::post("/getLiniaPedidos", [LiniaPedidoController::class,"getLiniaPedidos"])
     
 
-### 3.2 Vue Fetchs's
-
+### 3.2 API / ENDPOINTS
 
     Per agafar tots els productes de la BD:
-        hhtp://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonProductos
+        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonProductos
 
     Per agafar totes les comandes de la BD
-        hhtp://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonPedidos
+        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonPedidos
       
     Per agafar tots els usuaris de la BD
-        hhtp://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonUsers
-      
+        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonUsers
 
 
-Fitcher .htpasswd -> xampp htdocs josu .htpasswd + Apache vhost.conf + autoplanet.local
 ## 4. Instruccions per seguir codificant el projecte
 FALTA POR HACER
 
-eines necessaries i com es crea l'entorn per que algú us ajudi en el vostre projecte.
 
-## 5. API / Endpoints / punts de comunicació
-FALTA POR HACER
 
-Heu d'indicar quins són els punts d'entrada de la API i quins són els JSON que s'envien i es reben a cada endpoint
+
+
+
