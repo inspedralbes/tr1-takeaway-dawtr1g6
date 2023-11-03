@@ -4,6 +4,13 @@ import { getDades } from './modules.js'
 createApp({
     data() {
         return {
+            comanda: {
+                nombre: '',
+                direccion: '',
+                ciudad: '',
+                codigo_postal: '',
+                pais: '',
+            },
             carrEstat: false,
             searchTerm: "",
             visible: false,
@@ -11,8 +18,8 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
-            main: true,
-            landing: false,
+            main: false,
+            landing: true,
             cart: false,
             login: false,
             comandes: false,
@@ -215,7 +222,37 @@ createApp({
                 });
             }
         },
-
+        enviarComanda() {
+            // Realiza una solicitud POST al backend con los datos
+            fetch('/procesar_envio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(this.comanda),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // La solicitud se completó con éxito
+                        // Puedes realizar acciones adicionales aquí, como mostrar un mensaje de confirmación.
+                        alert('Comanda enviada exitosamente');
+                        this.cancelar(); // Limpiar el formulario después del envío
+                    } else {
+                        // La solicitud falló, maneja el error aquí
+                        alert('Error al enviar la comanda');
+                    }
+                });
+        },
+        cancelar() {
+            // Limpia el formulario
+            this.comanda = {
+                nombre: '',
+                direccion: '',
+                ciudad: '',
+                codigo_postal: '',
+                pais: '',
+            };
+        }
     },
     watch: {
         searchTerm: "search"
