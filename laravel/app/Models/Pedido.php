@@ -20,5 +20,6 @@ class Pedido extends Model
         "pais",
         "namecli",
         "user_id",
+        
     ];
 }

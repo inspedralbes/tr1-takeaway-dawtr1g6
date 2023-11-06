@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pedido;
 use App\Models\Producto;
 use App\Models\LiniaPedido;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -15,43 +16,54 @@ class PedidoController extends Controller
 
     public function getPedidos(Request $request)
     {
+
         $jsonData = $request->json()->all();
 
-        foreach ($jsonData['pedidos'] as $item) {
+        DB::beginTransaction();
 
-            $pedidos = new Pedido();
-            $pedidos->status = $item['status'];
-            $pedidos->sumatori = $item['sumatori'];
-            $pedidos->codi_postal = $item['codi_postal'];
-            $pedidos->direccio = $item['direccio'];
-            $pedidos->ciutat = $item['ciutat'];
-            $pedidos->pais = $item['pais'];
-            $pedidos->namecli = $item['namecli'];
-            $pedidos->save();
-        }
+        try {
+            foreach ($jsonData['comanda'] as $item) {
+                $pedidos = new Pedido();
+                $pedidos->status = "En preparación";
+                $pedidos->codi_postal = $item['codi_postal'];
+                $pedidos->direccio = $item['direccio'];
+                $pedidos->ciutat = $item['ciutat'];
+                $pedidos->pais = $item['pais'];
+                $pedidos->namecli = $item['namecli'];
+                $pedidos->save();
 
-        foreach ($jsonData['productos'] as $item) {
-            $lp = new LiniaPedido();
-            $producto = Producto::find($item['producto_id']);
-            $lp->unit_price= $item['unit_price'];
-            $lp->quantitat=$item['quantitat'];
-            if($item['quantitat']<0){
-                $item['quantitat'] = abs($item['quantitat']);
+                // Obtener el ID del pedido recién creado
+                $pedidoId = $pedidos->id;
+
+                foreach ($jsonData['carret'] as $item) {
+                    $lp = new LiniaPedido();
+                    $producto = Producto::find($item['producto_id']);
+                    $lp->unit_price = $producto->price;
+                    $lp->quantitat = abs($item['quantitat']); // Garantizar que la cantidad sea positiva
+                    $lp->pedido_id = $pedidoId; // Usar el ID del pedido recién creado
+                    $lp->name_producto = $producto->name;
+                    $lp->producto_id = $item['producto_id'];
+                    $lp->save();
+                }
+                DB::commit();
             }
-            $lp->pedido_id= $pedidos->id;
-            $lp->name_producto=$producto->name;
-            $lp->producto_id=$item['producto_id'];
-            $lp->save();
+
+            $response = [
+                'success' => true,
+                'message' => 'Ticket y pedidos guardados correctamente.'
+            ];
+
+        } catch (\Exception $e) {
+            // Si ocurre alguna excepción, revertimos la transacción
+            DB::rollback();
+
+            $response = [
+                'success' => false,
+                'message' => 'Error al procesar el pedido. Por favor, inténtelo de nuevo.'
+            ];
         }
 
-
-        $response = [
-            'success' => true,
-            'message' => 'Ticket y pedidos guardados correctamente.'
-        ];
-
-
-        return ($response);
+        return response()->json($response);
     }
     public function showPedidos()
     {

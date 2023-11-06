@@ -48,6 +48,6 @@ Route::get('/getJsonProductos', [ProductoController::class, 'giveJsonProductosDa
 // retorna un json de todos los pedidos de la bd en phpmyadmin
 Route::get('/getJsonPedidos', [PedidoController::class, 'giveJsonPedidosData']);
 // retorna u njson de todos los usuaris de la bd en phpmyadmin
-Route::post("/getJsonUsers", [UserController::class, "giveJsonUsersData"]);
+Route::get("/getJsonUsers", [UserController::class, "giveJsonUsersData"]);
 // retorna un json de todos los linia de pedidos de la bd en phpmyadmin
-Route::post("/getJsonLiniaPedidos", [LiniaPedidoController::class, "giveJsonLiniaPedidoData"]);
+Route::get("/getJsonLiniaPedidos", [LiniaPedidoController::class, "giveJsonLiniaPedidoData"]);

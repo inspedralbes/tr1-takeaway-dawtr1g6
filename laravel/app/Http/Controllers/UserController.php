@@ -94,7 +94,7 @@ class UserController extends Controller
         return ($response);
     }
 
-    public function giveJsonUsers()
+    public function giveJsonUsersData()
     {
         $user = User::all();
         return json_encode($user, JSON_PRETTY_PRINT);
