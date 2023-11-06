@@ -32,10 +32,14 @@ class PedidoController extends Controller
 
         foreach ($jsonData['productos'] as $item) {
             $lp = new LiniaPedido();
+            $producto = Producto::find($item['producto_id']);
             $lp->unit_price= $item['unit_price'];
             $lp->quantitat=$item['quantitat'];
+            if($item['quantitat']<0){
+                $item['quantitat'] = abs($item['quantitat']);
+            }
             $lp->pedido_id= $pedidos->id;
-            $lp->name_producto=$item['name_producto'];
+            $lp->name_producto=$producto->name;
             $lp->producto_id=$item['producto_id'];
             $lp->save();
         }
@@ -43,7 +47,7 @@ class PedidoController extends Controller
 
         $response = [
             'success' => true,
-            'message' => 'Pedidos y liniaP guardados correctamente.'
+            'message' => 'Ticket y pedidos guardados correctamente.'
         ];
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LiniaPedido;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class LiniaPedidoController extends Controller
@@ -16,12 +17,17 @@ class LiniaPedidoController extends Controller
 
         foreach ($jsonData['liniaPedido'] as $item) {
             $liniaPedido = new LiniaPedido();
-            $liniaPedido->unit_price = $item['unit_price'];
+            $producto = Producto::find($item['producto_id']);
+
+            $liniaPedido->unit_price = $producto->price;
             $liniaPedido->quantitat = $item['quantitat'];
+            if($item['quantitat']<0){
+                $item['quantitat'] = abs($item['quantitat']);
+            }
             $liniaPedido->pedido_id = $item['pedido_id'];
             $liniaPedido->producto_id= $item['producto_id'];
             $liniaPedido->user_id = $item['user_id'];
-            $liniaPedido->name_producto = $item['name_producto'];
+            $liniaPedido->name_producto = $producto->name;
             $liniaPedido->save();
         }
 
