@@ -14,7 +14,7 @@
             "price": 899.99,
             "image_url": "./js/img/2.png",
             "stock": 20,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 3,
@@ -22,7 +22,7 @@
             "price": 999.00,
             "image_url": "./js/img/3.png",
             "stock": 10,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 4,
@@ -30,7 +30,7 @@
             "price": 499.99,
             "image_url": "./js/img/4.png",
             "stock": 5,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 5,
@@ -70,7 +70,7 @@
             "price": 1499.00,
             "image_url": "./js/img/9.png",
             "stock": 9,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 10,
@@ -94,7 +94,7 @@
             "price": 1299.99,
             "image_url": "./js/img/12.png",
             "stock": 10,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 13,
@@ -110,7 +110,7 @@
             "price": 299.99,
             "image_url": "./js/img/14.png",
             "stock": 20,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 15,
@@ -118,7 +118,7 @@
             "price": 349.00,
             "image_url": "./js/img/15.png",
             "stock": 10,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 16,
@@ -126,7 +126,7 @@
             "price": 2499.00,
             "image_url": "./js/img/16.png",
             "stock": 5,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 17,
@@ -166,7 +166,7 @@
             "price": 399.00,
             "image_url": "./js/img/21.png",
             "stock": 15,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 22,
@@ -206,7 +206,7 @@
             "price": 249.00,
             "image_url": "./js/img/26.png",
             "stock": 20,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 27,
@@ -222,7 +222,7 @@
             "price": 49.99,
             "image_url": "./js/img/28.png",
             "stock": 20,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 29,
@@ -254,7 +254,7 @@
             "price": 449.99,
             "image_url": "./js/img/32.png",
             "stock": 15,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 33,
@@ -318,7 +318,7 @@
             "price": 79.99,
             "image_url": "./js/img/40.png",
             "stock": 7,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 41,
@@ -342,7 +342,7 @@
             "price": 999.00,
             "image_url": "./js/img/43.png",
             "stock": 10,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 44,
@@ -350,7 +350,7 @@
             "price": 1299.99,
             "image_url": "./js/img/44.png",
             "stock": 5,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 45,
@@ -358,7 +358,7 @@
             "price": 399.00,
             "image_url": "./js/img/45.png",
             "stock": 15,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 46,
@@ -366,7 +366,7 @@
             "price": 599.99,
             "image_url": "./js/img/46.png",
             "stock": 10,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 47,
@@ -374,7 +374,7 @@
             "price": 299.00,
             "image_url": "./js/img/47.png",
             "stock": 12,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 48,
@@ -382,7 +382,7 @@
             "price": 799.00,
             "image_url": "./js/img/48.png",
             "stock": 8,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 49,
@@ -390,7 +390,7 @@
             "price": 1499.00,
             "image_url": "./js/img/49.png",
             "stock": 6,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 50,
@@ -398,7 +398,7 @@
             "price": 1299.00,
             "image_url": "./js/img/50.png",
             "stock": 8,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 51,
@@ -406,7 +406,7 @@
             "price": 1999.99,
             "image_url": "./js/img/51.png",
             "stock": 5,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 52,
@@ -414,7 +414,7 @@
             "price": 899.00,
             "image_url": "./js/img/52.png",
             "stock": 10,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 53,
@@ -422,7 +422,7 @@
             "price": 2599.00,
             "image_url": "./js/img/53.png",
             "stock": 7,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         },
         {
             "id": 54,
@@ -430,7 +430,7 @@
             "price": 999.99,
             "image_url": "./js/img/54.png",
             "stock": 12,
-            "categoria": "deportivo"
+            "categoria": "esportiu"
         }
     ]
 }

@@ -11,7 +11,7 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
-            categorias: ['Berlina', 'Deportivo', 'SUV', 'Compacto'],
+            categorias: ['Berlina', 'Esportiu', 'SUV'],
             selectedCategoria: 'todos'
         }
     },
