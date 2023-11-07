@@ -68,7 +68,6 @@
                 <div id="filtreCategories">
                     <label for="categoria">Filtrar per categoria:</label>
                     <select id="categoria" v-model="selectedCategoria">
-                        <option value="todos">Totes</option>
                         <option v-for="categoria in categorias" :value="categoria">{{ categoria }}</option>
                     </select>
                 </div>
