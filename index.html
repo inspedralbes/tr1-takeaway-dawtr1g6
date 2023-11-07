@@ -80,7 +80,6 @@
 
                         </div>
                     </div>
-
                     <div class="checkout" :class="{amagat:!visible}">
                         <div class="card shadow-sm">
                             <div class="over">
@@ -202,7 +201,8 @@
                     <div class="producte__afegir">
                         <h1 v-if="prodAct!=-1">{{productes[prodAct].price}}€</h1>
                         <h1 v-else>error</h1>
-                        <button @click="sumarIn(prodAct);setMostrar('all', 'main')" class="boton_interactivo">Afegir al carret</button>
+                        <button @click="sumarIn(prodAct);setMostrar('all', 'main')" class="boton_interactivo">Afegir al
+                            carret</button>
                     </div>
 
                 </div>
@@ -358,19 +358,19 @@
             <div class="formulari">
                 <form @submit.prevent="enviarComanda">
                     <h1>Dades d'enviament</h1>
-            
+
                     <label for="nombre">Nom:</label>
-                    <input v-model="comanda.nombre" type="text" id="nombre" name="nombre" required>
-            
+                    <input v-model="comanda.namecli" type="text" id="nombre" name="nombre" required>
+
                     <label for="direccion">Direcció:</label>
-                    <input v-model="comanda.direccion" type="text" id="direccion" name="direccion" required>
-            
+                    <input v-model="comanda.direccio" type="text" id="direccion" name="direccion" required>
+
                     <label for="ciudad">Ciutat:</label>
-                    <input v-model="comanda.ciudad" type="text" id="ciudad" name="ciudad" required>
-            
+                    <input v-model="comanda.ciutat" type="text" id="ciudad" name="ciudad" required>
+
                     <label for="codigo_postal">Codi Postal:</label>
-                    <input v-model="comanda.codigo_postal" type="text" id="codigo_postal" name="codigo_postal" required>
-            
+                    <input v-model="comanda.codi_postal" type="text" id="codigo_postal" name="codigo_postal" required>
+
                     <label for="pais">País:</label>
                     <select v-model="comanda.pais" id="pais" name="pais" required>
                         <option value="">Selecciona el teu país</option>
@@ -381,7 +381,7 @@
                     <button type="button" @click="cancelar">Cancelar</button>
                 </form>
             </div>
-            
+
         </div>
 
 

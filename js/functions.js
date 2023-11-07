@@ -5,11 +5,11 @@ createApp({
     data() {
         return {
             comanda: {
-                nombre: '',
-                direccion: '',
-                ciudad: '',
-                codigo_postal: '',
-                pais: '',
+                namecli: "",
+                direccio: "",
+                ciutat: "",
+                codi_postal: "",
+                pais: "",
             },
             carrEstat: false,
             searchTerm: "",
@@ -224,30 +224,30 @@ createApp({
             }
         },
         enviarComanda() {
-            console.log(JSON.stringify(this.comanda, this.carret));
-            // fetch('/procesar_envio', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(this.comanda, this.carret),
-            // })
-            //     .then(response => {
-            //         if (response.ok) {
-            //             alert('Comanda enviada exitosamente');
-            //             this.cancelar();
-            //         } else {
-            //             alert('Error al enviar la comanda');
-            //         }
-            //     });
+            let dades=JSON.stringify({'comanda': this.comanda, 'carret' : this.carret});
+            console.log(dades);
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/public/api/getPedidos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: dades,
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Comanda enviada exitosamente');
+                        this.cancelar();
+                    } else {
+                        alert('Error al enviar la comanda');
+                    }
+                });
         },
         cancelar() {
-            // Limpia el formulario
             this.comanda = {
-                nombre: '',
-                direccion: '',
-                ciudad: '',
-                codigo_postal: '',
+                namecli: '',
+                direccio: '',
+                ciutat: '',
+                codi_postal: '',
                 pais: '',
             };
         }

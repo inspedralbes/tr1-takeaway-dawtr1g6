@@ -20,16 +20,13 @@ button:not(:disabled) {
 
 .cont {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: auto;
     width: 100%;
 }
 
-
-
 .prods {
     grid-area: prods;
-    display: grid;
+    display: g-rid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 5%;
     width: 85%;
@@ -67,7 +64,6 @@ button:not(:disabled) {
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 20px;
-
 
 }
 
@@ -468,7 +464,7 @@ ul li a {
         border-radius: 10px;
         padding: 20px;
         position: sticky;
-        top: 20%;
+        top: 10%;
         width: 70%;
         background-color: #fff;
         font-size: .6em;
@@ -588,6 +584,4 @@ ul li a {
         height: 30px;
         border-radius: 50%;
     }
-
-
 }
