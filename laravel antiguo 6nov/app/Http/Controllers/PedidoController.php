@@ -10,44 +10,40 @@ use Illuminate\Support\Facades\DB;
 
 
 
+
 class PedidoController extends Controller
 {
     //
 
-
-    public function ddgetpedidos(Request $request){
-        $jsonData = $request->json()->all();
-        return response()->json(dd($jsonData));
-    }
-
-    public function getPedidos(Request $request)
+     public function getPedidos(Request $request)
     {
+
         $jsonData = $request->json()->all();
 
         DB::beginTransaction();
+
         try {
-            foreach ($jsonData['comanda'] as $itemComanda) {
+            foreach ($jsonData['comanda'] as $item) {
                 $pedidos = new Pedido();
-                $pedidos->status = "En preparaciÃ³n";
-                $pedidos->codi_postal = $itemComanda['codi_postal'];
-                $pedidos->direccio = $itemComanda['direccio'];
-                $pedidos->ciutat = $itemComanda['ciutat'];
-                $pedidos->pais = $itemComanda['pais'];
-                $pedidos->namecli = $itemComanda['namecli'];
+                $pedidos->status = "En preparación";
+                $pedidos->codi_postal = $item['codi_postal'];
+                $pedidos->direccio = $item['direccio'];
+                $pedidos->ciutat = $item['ciutat'];
+                $pedidos->pais = $item['pais'];
+                $pedidos->namecli = $item['namecli'];
                 $pedidos->save();
 
-             
-                // Obtener el ID del pedido reciÃ©n creado
+                // Obtener el ID del pedido recién creado
                 $pedidoId = $pedidos->id;
 
-                foreach ($jsonData['carret'] as $itemCarret) {
+                foreach ($jsonData['carret'] as $item) {
                     $lp = new LiniaPedido();
-                    $producto = Producto::find($itemCarret['id']);
+                    $producto = Producto::find($item['producto_id']);
                     $lp->unit_price = $producto->price;
-                    $lp->quantitat = abs($itemCarret['carro']); // Garantizar que la cantidad sea positiva
-                    $lp->pedido_id = $pedidoId; // Usar el ID del pedido reciÃ©n creado
+                    $lp->quantitat = abs($item['quantitat']); // Garantizar que la cantidad sea positiva
+                    $lp->pedido_id = $pedidoId; // Usar el ID del pedido recién creado
                     $lp->name_producto = $producto->name;
-                    $lp->producto_id = $itemCarret['id'];
+                    $lp->producto_id = $item['producto_id'];
                     $lp->save();
                 }
                 DB::commit();
@@ -59,18 +55,17 @@ class PedidoController extends Controller
             ];
 
         } catch (\Exception $e) {
-            // Si ocurre alguna excepciÃ³n, revertimos la transacciÃ³n
+            // Si ocurre alguna excepción, revertimos la transacción
             DB::rollback();
 
             $response = [
                 'success' => false,
-                'message' => 'Error al procesar el pedido. Por favor, intÃ©ntelo de nuevo.'
+                'message' => 'Error al procesar el pedido. Por favor, inténtelo de nuevo.'
             ];
         }
 
         return response()->json($response);
-    }
-    public function showPedidos()
+    }    public function showPedidos()
     {
         $pedidos = Pedido::all();
         return view('botiga.showPedidos', compact('pedidos'));

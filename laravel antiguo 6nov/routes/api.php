@@ -28,9 +28,6 @@ Route::post("/login", [UserController::class, "login"]);
 Route::post("/getProductos", [ProductoController::class, "getProductos"]);
 
 Route::post("/getPedidos", [PedidoController::class, "getPedidos"]);
-Route::post("/ddgetpedidos", [PedidoController::class, "ddgetpedidos"]);
-Route::get("/ddgetpedidoss", [PedidoController::class, "ddgetpedidoss"]);
-
 
 Route::post("/getUsers", [UserController::class, "getUsers"]);
 
@@ -42,8 +39,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 
 });
-
-
 
 
 
