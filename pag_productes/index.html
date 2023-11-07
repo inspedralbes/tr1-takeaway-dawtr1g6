@@ -51,7 +51,14 @@
 
 
 
-
+<div>
+    <label for="orden">Ordenar por precio:</label>
+    <select id="orden" v-model="orden">
+        <option value="null">Sin orden</option>
+        <option value="asc">Menor a Mayor</option>
+        <option value="desc">Mayor a Menor</option>
+    </select>
+  </div>
 
 
 
@@ -63,7 +70,6 @@
                 <div class="filtre">
                     <label for="categoria">Filtrar per categoria:</label>
                     <select id="categoria" v-model="selectedCategoria">
-                        <option value="todos">Totes</option>
                         <option v-for="categoria in categorias" :value="categoria">{{ categoria }}</option>
                     </select>
                 </div>
