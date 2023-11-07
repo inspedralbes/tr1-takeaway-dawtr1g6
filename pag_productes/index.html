@@ -20,11 +20,11 @@
     <body>
         <div id="main">
 
-            
-            
+
+
             <nav class="nav">
                 <button class="btn-carret">
-                    <img id="logo" src="img/logo/logo.png" alt="logo" >
+                    <img id="logo" src="img/logo/logo.png" alt="logo">
                 </button>
                 <form class="buscar-form" role="search">
                     <input class="buscar" id="searchInput" type="search" placeholder="Buscar" aria-label="Search"
@@ -32,29 +32,24 @@
                     <button class="buscar-btn" id="btn-buscar" type="submit"><img class="buscar-ico"
                             src="https://cdn-icons-png.flaticon.com/256/3917/3917132.png"><!-- Search -->
                     </button>
-                    
-                      
-                    
+
+
+
                 </form>
                 <div class="nav__botones">
                     <button class="btn-carret">
-                        <img class="barraSuperior" src="img/iconos/volante.png" >
+                        <img class="barraSuperior" src="img/iconos/volante.png">
                     </button>
                     <button class="btn-carret">
-                        <img class="barraSuperior" src="img/iconos/camion.png" >
+                        <img class="barraSuperior" src="img/iconos/camion.png">
                     </button>
                     <button class="btn-carret" @click="toggle()">
                         <img v-if="!carrEstat" src="./img/iconos/shopping-cart.png">
-                        <img v-else="carrEstat" src="./img/iconos/shopping-cart-exclamation.png" >
+                        <img v-else="carrEstat" src="./img/iconos/shopping-cart-exclamation.png">
                     </button>
                 </div>
 
 
-                <label for="categoria">Filtrar por categoría:</label>
-<select id="categoria" v-model="selectedCategoria">
-    <option value="todos">Todos</option>
-    <option v-for="categoria in categorias" :value="categoria">{{ categoria }}</option>
-</select>
 
 <div>
     <label for="orden">Ordenar por precio:</label>
@@ -66,14 +61,23 @@
   </div>
 
 
-  
+
+
             </nav>
             <div id="productes">
+                <div id="filtreCategories">
+                    <label for="categoria">Filtrar per categoria:</label>
+                    <select id="categoria" v-model="selectedCategoria">
+                        <option value="todos">Totes</option>
+                        <option v-for="categoria in categorias" :value="categoria">{{ categoria }}</option>
+                    </select>
+                </div>
+
                 <div :class="{'cont':visible}">
                     <div :class="{'prods':visible, 'prods1':!visible}">
                         <div v-for="(actual,index) in filteredProductes()" class="prod card shadow-sm"
                             :class="{'selected': actual.carro > 0}">
-                            
+
                             <div class="imatgeProducte">
                                 <img :src="actual.image_url">
 
@@ -81,17 +85,17 @@
                                     <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
                                 </span>
                             </div>
-                            
-                            
+
+
 
                             <h1 class="card-text">
                                 {{actual.name}}
                             </h1>
 
-                            
+
 
                             <div class="stock_prodGrid">
-                                
+
                                 <div class="preu">
                                     <h2>
                                         {{actual.price}}€
@@ -104,7 +108,7 @@
                                 </div>
 
                             </div>
-                            
+
 
                         </div>
                     </div>
@@ -115,16 +119,18 @@
                                 <transition-group name="slide-carro">
                                     <div v-for="(actual,index) in carret" :key="index" class="carro">
 
-                                       
+
                                         <span>
                                             <p>{{actual.name}}</p>
                                         </span>
                                         <div class="btn-group">
-                                            <button id="restar_carret" class="btn btn-sm btn-outline-secondary" @click="restarC(index)">
+                                            <button id="restar_carret" class="btn btn-sm btn-outline-secondary"
+                                                @click="restarC(index)">
                                                 -
                                             </button>
 
-                                            <button id="sumar_carret" class="btn btn-sm btn-outline-secondary" @click="sumarC(index)">
+                                            <button id="sumar_carret" class="btn btn-sm btn-outline-secondary"
+                                                @click="sumarC(index)">
                                                 +
                                             </button>
                                         </div>
@@ -139,9 +145,9 @@
                             </div>
                             <div class="total">
                                 <h2>Total: {{parseFloat((totalCarret).toFixed(2))}}€</h4>
-                                <button class="btn btn-outline-secondary">
-                                    Veure carret
-                                </button>
+                                    <button class="btn btn-outline-secondary">
+                                        Veure carret
+                                    </button>
                             </div>
                         </div>
                     </div>
@@ -149,20 +155,21 @@
             </div>
             <footer>
                 <div class="footer">
-                    <div class="footer__contacto">
+                    <div class="footer__section">
                         <h3>Contacto</h3>
                         <p>Dirección: Calle Auto, Ciudad</p>
                         <p>Email: info@autoplanet.com</p>
                         <p>Teléfono: +123 456 7890</p>
                     </div>
-        
-                        
+
+
                     <div class="footer__section">
                         <h3>Síguenos</h3>
                         <p>Síguenos en redes sociales para obtener las últimas actualizaciones y ofertas.</p>
                         <div class="social-icons">
                             <a href="#"><img class="social-icons__logos" src="img/logo/facebook.png" alt="Facebook"></a>
-                            <a href="#"><img class="social-icons__logos" src="img/logo/instagram.png" alt="Instagram"></a>
+                            <a href="#"><img class="social-icons__logos" src="img/logo/instagram.png"
+                                    alt="Instagram"></a>
                         </div>
                     </div>
                 </div>

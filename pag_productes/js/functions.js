@@ -127,6 +127,7 @@ createApp({
         },
         
 
+        //Filtre categories
         filteredProductes() {
             if (this.selectedCategoria === 'todos') {
                 this.ordenarProductos();
