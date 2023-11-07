@@ -39,11 +39,11 @@ button:not(:disabled) {
 
 }
 .prods1 {
+    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 5%;
     width: 85%;
 }
 
@@ -229,7 +229,7 @@ button:not(:disabled) {
 }
 
 .nav img{
-    max-width: 30px;
+    max-width: 40px;
 }
 
 .nav>* {
@@ -238,7 +238,17 @@ button:not(:disabled) {
     align-items: center;
 }
 
+#filtreCategories{
+    width: 80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+}
 
+#categoria{
+    margin-left: 10px;
+}
 
 .buscar {
     border: 0.5px solid rgb(182, 182, 182);
@@ -373,7 +383,6 @@ footer {
 }
 
 .footer {
-    max-width: 100%;
     margin: 10px;
     display: grid;
     padding: 40px;
@@ -460,6 +469,15 @@ ul li a {
         top: 10;
     }
     
+    .nav img{
+        max-width: 30px;
+    }
+
+    #filtreCategories{
+        font-size: .75em;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     .prods1 {
         margin-left: auto;
@@ -575,17 +593,24 @@ footer {
     color: #fff;
     padding: 20px;
     margin-top: 100px;
-    font-size: .75em;
+    font-size: .65em;
 }
 
 .footer {
-    max-width: 720px;
-    margin: 0 auto;
+    margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+
     
 }
 
+
+.footer__section{
+    padding-bottom: 20px;
+    border-bottom: .2px solid rgba(255, 255, 255, 0.5);
+
+}
 
 .footer__section h3 {
     color: #fff;
@@ -626,8 +651,8 @@ ul li a {
    
    /* Estilos para los iconos, puedes reemplazar con tus propias imágenes */
    .social-icons img {
-       width: 30px;
-       height: 30px;
+       width: 20px;
+       height: 20px;
        border-radius: 50%;
    }
 
