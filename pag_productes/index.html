@@ -57,8 +57,10 @@
 
 
             </nav>
-            <div id="productes">
-                <div id="filtreCategories">
+
+            <div id="filtres">
+
+                <div class="filtre">
                     <label for="categoria">Filtrar per categoria:</label>
                     <select id="categoria" v-model="selectedCategoria">
                         <option value="todos">Totes</option>
@@ -66,7 +68,35 @@
                     </select>
                 </div>
 
+
+                <div class="filtre">
+                    <label for="orden">Ordenar per preu:</label>
+                    <select id="orden" v-model="orden">
+                        <option value="null">Ordre per defecte</option>
+                        <option value="asc">Menor a Major</option>
+                        <option value="desc">Major a Menor</option>
+                    </select>
+                  </div>
+
+
+                  
+
+            </div>
+
+            
+
+
+            
+
+            <div id="productes">
+                
+        
+             
+
+           
+
                 <div :class="{'cont':visible}">
+                    
                     <div :class="{'prods':visible, 'prods1':!visible}">
                         <div v-for="(actual,index) in filteredProductes()" class="prod card shadow-sm"
                             :class="{'selected': actual.carro > 0}">

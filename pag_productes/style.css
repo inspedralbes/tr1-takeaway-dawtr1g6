@@ -238,7 +238,15 @@ button:not(:disabled) {
     align-items: center;
 }
 
-#filtreCategories{
+#filtres{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+}
+
+.filtre{
     width: 80%;
     margin-top: 20px;
     margin-left: auto;
@@ -247,6 +255,10 @@ button:not(:disabled) {
 }
 
 #categoria{
+    margin-left: 10px;
+}
+
+#orden{
     margin-left: 10px;
 }
 
@@ -473,10 +485,18 @@ ul li a {
         max-width: 30px;
     }
 
-    #filtreCategories{
+    .filtre{
         font-size: .75em;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #categoria{
+        margin: auto;
+    }
+
+    #orden{
+        margin: auto;
     }
 
     .prods1 {
