@@ -10,7 +10,9 @@ createApp({
             amagar: false,
             totalCarret: 0,
             carret: [],
-            productes: []
+            productes: [],
+            categorias: ['todos', 'berlina', 'deportivo', 'suv', 'compacto'],
+            selectedCategoria: 'todos'
         }
     },
 
@@ -124,13 +126,13 @@ createApp({
         },
         
 
-        filterByCategory() {
-            if (!this.selectedCategory) {
-              return this.productos; // Si no hay categoría seleccionada, muestra todos los productos
+        filteredProductes() {
+            if (this.selectedCategoria === 'todos') {
+              return this.productes;
+            } else {
+              return this.productes.filter(producte => producte.categoria.toLowerCase() === this.selectedCategoria.toLowerCase());
             }
-        
-            return this.productes.filter(producto => producto.categoria.toLowerCase() === this.selectedCategory.toLowerCase());
-        },
+          },
     },
     watch: {
         searchTerm: "search"
