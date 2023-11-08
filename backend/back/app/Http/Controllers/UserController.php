@@ -90,7 +90,7 @@ class UserController extends Controller
         //     return response()->json(['message' => 'Login incorrecte, aquest usuari no existeix'], 200);
         // }
 
-        
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
@@ -114,9 +114,12 @@ class UserController extends Controller
 
 
     // LOGOUT USUARI
-    public function logout(Request $request)
+    public function logout()
     {
         // $request->user()->tokens()->delete();
+        //  $user = Auth::user();
+        //  $user->plain_text_token = null;
+        //  $user->save();
         // return response()->json(['message' => 'Logout exitòs'], 200);
 
         $user = Auth::user();
