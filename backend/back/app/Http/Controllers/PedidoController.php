@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
 use App\Models\Producto;
@@ -15,21 +16,21 @@ class PedidoController extends Controller
     //
 
 
-public function ddgetpedidos(Request $request)
-{
-    $data = $request->all(); // Obtener datos de la solicitud
+    public function ddgetpedidos(Request $request)
+    {
+        $data = $request->all(); // Obtener datos de la solicitud
 
-	return (dd($data));
-}
+        return (dd($data));
+    }
 
 
 
-public function getPedidos(Request $request)
+    public function getPedidos(Request $request)
     {
 
         $jsonData = $request->json()->all();
-        
-        
+
+
         DB::beginTransaction();
 
         try {
@@ -41,30 +42,30 @@ public function getPedidos(Request $request)
             $pedidos->ciutat = $comanda['ciutat'];
             $pedidos->pais = $comanda['pais'];
             $pedidos->namecli = $comanda['namecli'];
-            
+
             $pedidos->save();
-        
+
             $pedidoId = $pedidos->id;
-        
+
             foreach ($jsonData['carret'] as $item) {
                 $lp = new LiniaPedido();
                 $producto = Producto::find($item['id']);
                 $lp->unit_price = $producto->price;
-                $lp->quantitat = abs($item['carro']); 
-                $lp->pedido_id = $pedidoId; 
+                $lp->quantitat = abs($item['carro']);
+                $lp->pedido_id = $pedidoId;
                 $lp->name_producto = $producto->name;
                 $lp->producto_id = $item['id'];
-	
+
                 $lp->save();
             }
-        
+
             DB::commit();
-        
+
             $response = [
                 'success' => "true",
                 'message' => 'Ticket y pedidos guardados correctamente.'
             ];
-        
+
         } catch (\Exception $e) {
             DB::rollback();
             $response = [
@@ -72,9 +73,9 @@ public function getPedidos(Request $request)
                 'message' => 'Error al procesar el pedido. Por favor, intentelo de nuevo.'
             ];
         }
-        
+
         return response()->json($response);
-    }  
+    }
 
 
 
@@ -153,7 +154,29 @@ public function getPedidos(Request $request)
         return redirect('showPedidosAdmin');
     }
 
+    public function listaPedidosUser(Request $request)
+    {
+        $user = User::where('plain_text_token', $request->plain_text_token)->first();
+        if($user){
+          
+            $pedidosUser = Pedido::where('user_id', $user->id)->get();
+            $liniaPedidosUserArr=[];
+            foreach ($pedidosUser as $pedido) {
+                $liniaPedidosUser = LiniaPedido::where($pedido->id, 'pedido_id')->get();
+                $liniaPedidosUserArr[]= $liniaPedidosUser;
+             
+            }
+    
+            $response = [
+                'liniaPedidosUser' => $liniaPedidosUserArr,
+                'pedidosUser' => $pedidosUser,
+            ];
+            return response()->json($response);
+        }
+       
+        return response("Error en listaPedidosUser");
 
+    }
 
 
     public function showPedidosAdmin()
@@ -161,5 +184,7 @@ public function getPedidos(Request $request)
         $pedidos = Pedido::all();
         return view('botiga.showPedidosAdmin', compact('pedidos'));
     }
+
+
 
 }

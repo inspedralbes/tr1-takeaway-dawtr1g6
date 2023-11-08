@@ -17,6 +17,7 @@ class QrController extends Controller
     {
     // Pillar la informacion del usuario a enviar sobre su pedido (info checkout)
 	$user = User::find($request->plain_text_token);
+    // $user = User::($request->user()->tokens()); sin uso de Request 
     $userCheckoutData = LiniaPedido::where('user_id', $user->id)->get(); //objeto de LiniaPedido con ($userCheckoutData->unit_price...)
 	$username = $user->name;
 
