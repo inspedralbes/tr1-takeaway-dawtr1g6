@@ -38,7 +38,10 @@ createApp({
             comandes: false,
             tramitarComandes: false,
             prod: false,
-            prodAct: -1
+            prodAct: -1,
+            categorias: ['tots', 'berlina', 'esportiu', 'suv'],
+            selectedCategoria: 'tots',
+            orden: "null"
         }
     },
 
@@ -342,25 +345,45 @@ createApp({
                     }
                 });
         },
-        getComandes() {
-            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.token}`
-                },
-            })
-                .then(response => {
-                    if (response.ok) {
-                    } else {
-                        alert('Error');
-                    }
-                    return response.json();
-                })
-                .then(dades => {
-                    this.comandes = dades.comandes;
-                })
-        }
+        // getComandes() {
+        // fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos', {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Authorization': `Bearer ${this.token}`
+        //     },
+        // })
+        //     .then(response => {
+        //         if (response.ok) {
+        //         } else {
+        //             alert('Error');
+        //         }
+        //         return response.json();
+        //     })
+        //     .then(dades => {
+        //         this.comandes = dades.comandes;
+        //     })
+        // },
+        filteredProductes() {
+            if (this.selectedCategoria === 'tots') {
+                this.ordenarProductos();
+                return this.productes;
+            } else {
+                this.ordenarProductos();
+                return this.productes.filter(producte => producte.categoria.toLowerCase() === this.selectedCategoria.toLowerCase());
+            }
+        },
+        ordenarProductos() {
+            if (this.orden === "asc") {
+                // Ordenar productos de menor a mayor
+                return this.productes.sort((a, b) => a.price - b.price);
+            } else if (this.orden === "desc") {
+                // Ordenar productos de mayor a menor
+                return this.productes.sort((a, b) => b.price - a.price);
+            } else {
+                return this.productes.sort((a, b) => a.id - b.id);
+            }
+        },
     },
     watch: {
         searchTerm: "search"
