@@ -181,7 +181,10 @@
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT ON UPDATE RESTRICT
     );
 
-### 3.4
+### 3.4 Laravel, extensions
+    Per a la generació de Qr's:
+        composer require simplesoftwareio/simple-qrcode
+        composer require barryvdh/laravel-dompdf
 
 ## 4. Instruccions per seguir codificant el projecte
 FALTA POR HACER
