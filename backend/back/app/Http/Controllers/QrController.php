@@ -24,7 +24,7 @@ class QrController extends Controller
         $qr = QrCode::size(300)->generate(json_encode(compact('user','userCheckoutData')));
 
         // convertir qr a pdf
-        $pdf = PDF::loadView('pdf.autoplanetCompra', compact('qr'));
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.autoplanetCompra', compact('qr'));
 
         // enviar email con archivo pdf como attachment
         Mail::send('mail.autoplanet-ticket', [], function($message) use ($pdf,$username) {
