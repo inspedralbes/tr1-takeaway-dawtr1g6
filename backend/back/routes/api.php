@@ -35,7 +35,7 @@ Route::post("/getUsers", [UserController::class, "getUsers"]);
 Route::post("/getLiniaPedidos", [LiniaPedidoController::class, "getLiniaPedidos"]);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    
+    Route::post('/auth-token', [UserController::class,'authUserToken']);
     Route::post("/logout", [UserController::class, "logout"]);
 
 
