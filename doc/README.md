@@ -64,6 +64,9 @@
     Route::get("/getJsonUsers", [UserController::class, "giveJsonUsersData"]);
     // retorna un json de todos los linia de pedidos de la bd en phpmyadmin
     Route::get("/getJsonLiniaPedidos", [LiniaPedidoController::class, "giveJsonLiniaPedidoData"]);
+
+### 3.1.4 Laravel, per a la creació de tokens (exemple de clau secret)
+    PLAIN_TEXT_TOKEN_SECRET=abcdaabbccddddccbbaa
     
 
 ### 3.2 API / ENDPOINTS
