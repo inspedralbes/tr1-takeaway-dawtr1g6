@@ -20,7 +20,7 @@
 
     <div id="app">
         <nav class="nav">
-            <button @click="setMostrar('all', 'landing')" class="btn-carret">
+            <button @click="setMostrar('all', 'landing')" class="btn-carret" width="40">
                 <img id="logo" src="img/logo/logo.png" alt="logo" width="40" height="40">
             </button>
             <form class="buscar-form" role="search">
@@ -31,7 +31,10 @@
                 </button>
             </form>
             <div class="nav__botones">
-                <button @click="setMostrar('all', 'login')" class="btn-carret">
+                <button v-if="tokenT" @click="logout" class="btn-carret">
+                    <img class="barraSuperior" src="img/iconos/logout.png" width="40" height="40">
+                </button>
+                <button @click="setMostrar('all', 'logi')" class="btn-carret">
                     <img class="barraSuperior" src="img/iconos/volante.png" width="40" height="40">
                 </button>
                 <button @click="setMostrar('all', 'comandes')" class="btn-carret">
@@ -145,18 +148,40 @@
             </div>
         </div>
 
-        <div class="login" :class="{'amagatD':!login}">
+        <div class="login" :class="{'amagatD':!logi}">
 
             <div class="login-container">
                 <h2>Iniciar Sessió</h2>
-                <form action="/tu-ruta-de-autenticacion" method="post">
-                    <label for="username">Usuari:</label>
-                    <input type="text" id="username" name="username" required>
+                <form @submit.prevent="login()">
+                    <label for="email">Email:</label>
+                    <input v-model="loginA.email" type="email" id="email" name="email" required>
 
                     <label for="password">Contrassenya:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input v-model="loginA.password" type="password" id="password" name="password" required>
 
-                    <button id="login-container__button" type="submit">Iniciar Sesión</button>
+                    <a class="lnkRegis" @click="setMostrar('logi', 'regis');" href="#">Registrat aquí</a>
+
+                    <button id="login-container__button" type="submit">Iniciar Sesió</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="login" :class="{'amagatD':!regis}">
+
+            <div class="login-container">
+                <h2>Registrat</h2>
+                <form @submit.prevent="registre()">
+                    <label for="username">Usuari:</label>
+                    <input v-model="registreA.name" type="text" id="username" name="username" required>
+
+                    <label for="email">Email:</label>
+                    <input v-model="registreA.email" type="email" id="email" name="email" required>
+
+                    <label for="password">Contrassenya:</label>
+                    <input v-model="registreA.password" type="password" id="password" name="password" required>
+
+                    <button id="login-container__button" type="submit">Registrar</button>
                 </form>
             </div>
         </div>
@@ -271,56 +296,13 @@
             <div class="comandes">
                 <a href=""></a>
                 <div class="comanda">
-                    <div class="info_comanda">
+                    <div v-for="(actual,index) in comandes" :key="index" class="info_comanda">
                         <h1>ID COMANDA: 01</h1>
+                        <h1>{{actual.id}}</h1>
                         <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h1 id="info_comanda__total">{{actual.sumatory}}</h1>
                         <h4>Data: 23/10/2023</h4>
-                    </div>
-
-                    <div class="estat_actual">
-                        <h2>Comanda Rebuda</h2>
-                    </div>
-                </div>
-
-                <div class="comanda">
-                    <div class="info_comanda">
-                        <h1>ID COMANDA: 02</h1>
-                        <h1 id="info_comanda__total">TOTAL €</h1>
-                        <h4>Data: 23/10/2023</h4>
-                    </div>
-
-                    <div class="estat_actual">
-                        <h2>Comanda Rebuda</h2>
-                    </div>
-                </div>
-
-                <div class="comanda">
-                    <div class="info_comanda">
-                        <h1>ID COMANDA: 02</h1>
-                        <h1 id="info_comanda__total">TOTAL €</h1>
-                        <h4>Data: 23/10/2023</h4>
-                    </div>
-                    <div class="estat_actual">
-                        <h2>Comanda Rebuda</h2>
-                    </div>
-                </div>
-
-                <div class="comanda">
-                    <div class="info_comanda">
-                        <h1>ID COMANDA: 02</h1>
-                        <h1 id="info_comanda__total">TOTAL €</h1>
-                        <h4>Data: 23/10/2023</h4>
-                    </div>
-
-                    <div class="estat_actual">
-                        <h2>Comanda Rebuda</h2>
-                    </div>
-                </div>
-                <div class="comanda">
-                    <div class="info_comanda">
-                        <h1>ID COMANDA: 02</h1>
-                        <h1 id="info_comanda__total">TOTAL €</h1>
-                        <h4>Data: 23/10/2023</h4>
+                        <h4>{{actual.data}}</h4>
                     </div>
 
                     <div class="estat_actual">

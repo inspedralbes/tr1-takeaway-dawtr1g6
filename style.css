@@ -314,7 +314,7 @@ button:not(:disabled) {
 .nav__botones {
     margin-right: 5%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #logo {

@@ -50,7 +50,7 @@ nav {
 .nav__botones {
     padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .landing {
@@ -271,7 +271,7 @@ ul li a {
 
     nav {
         display: grid;
-        grid-template-columns: 0fr 2.5fr 1fr;
+        grid-template-columns: 0fr 2fr 1fr;
         background-color: var(--rojo);
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
@@ -284,7 +284,7 @@ ul li a {
     .nav__botones {
         padding: 10px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     #banner {
@@ -1016,4 +1016,9 @@ button:hover {
     border: 1px solid black;
     padding: 5px;
     border-radius: 5px;
+}
+
+.lnkRegis{
+    text-decoration: none;
+    color: #474747;
 }

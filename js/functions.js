@@ -4,12 +4,23 @@ import { getDades } from './modules.js'
 createApp({
     data() {
         return {
+            token: "",
+            tokenT: false,
             comanda: {
                 namecli: "",
                 direccio: "",
                 ciutat: "",
                 codi_postal: "",
                 pais: "",
+            },
+            loginA: {
+                email: "",
+                password: "",
+            },
+            registreA: {
+                name: "",
+                email: "",
+                password: "",
             },
             carrEstat: false,
             searchTerm: "",
@@ -18,10 +29,12 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
+            comandes: [],
             main: false,
             landing: true,
             cart: false,
-            login: false,
+            logi: false,
+            regis: false,
             comandes: false,
             tramitarComandes: false,
             prod: false,
@@ -36,11 +49,12 @@ createApp({
                 case "all":
                     this.tramitarComandes = false;
                     this.comandes = false;
-                    this.login = false;
+                    this.logi = false;
                     this.cart = false;
                     this.landing = false;
                     this.main = false;
                     this.prod = false;
+                    this.regis = false;
                     break;
                 case "main":
                     this.main = false;
@@ -51,8 +65,8 @@ createApp({
                 case "cart":
                     this.cart = false;
                     break;
-                case "login":
-                    this.login = false;
+                case "logi":
+                    this.logi = false;
                     break;
                 case "comandes":
                     this.comandes = false;
@@ -62,6 +76,9 @@ createApp({
                     break;
                 case "prod":
                     this.prod = false;
+                    break;
+                case "regis":
+                    this.regis = false;
                     break;
                 default:
                     break;
@@ -78,17 +95,21 @@ createApp({
                 case "cart":
                     this.cart = true;
                     break;
-                case "login":
-                    this.login = true;
+                case "logi":
+                    this.logi = true;
                     break;
                 case "comandes":
                     this.comandes = true;
+
                     break;
                 case "tramitarComandes":
                     this.tramitarComandes = true;
                     break;
                 case "prod":
                     this.prod = true;
+                    break;
+                case "regis":
+                    this.regis = true;
                     break;
                 default:
                     break;
@@ -224,9 +245,9 @@ createApp({
             }
         },
         enviarComanda() {
-            let dades=JSON.stringify({'comanda': this.comanda, 'carret' : this.carret});
+            let dades = JSON.stringify({ 'comanda': this.comanda, 'carret': this.carret });
             console.log(dades);
-            fetch('http://dawtr1g6.daw.inspedralbes.cat/public/api/getPedidos', {
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getPedidos', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -250,6 +271,95 @@ createApp({
                 codi_postal: '',
                 pais: '',
             };
+        },
+        login() {
+            let dades = JSON.stringify(this.loginA);
+            console.log(dades);
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: dades,
+            })
+                .then(response => {
+                    if (response.ok) {
+                    } else {
+                        alert('Email o contrasenya incorrecte');
+                        this.loginA.password = {
+                            password: '',
+                        };
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data.token);
+                    this.token = data.token;
+                    this.tokenT = true;
+                });
+        },
+        registre() {
+            let dades = JSON.stringify(this.registreA);
+            console.log(dades);
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: dades,
+            })
+                .then(response => {
+                    if (response.ok) {
+                        this.token = data.token;
+                        this.tokenT = true;
+                    } else {
+                        alert('Email o contrasenya incorrecte');
+                        this.registreA = {
+                            password: '',
+                        };
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data.token);
+                    this.token = data.token;
+                    this.tokenT = true;
+                });
+        },
+        logout() {
+
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`
+                },
+            })
+                .then(response => {
+                    if (response.ok) {
+                    } else {
+                        alert('Error');
+                    }
+                });
+        },
+        getComandes() {
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`
+                },
+            })
+                .then(response => {
+                    if (response.ok) {
+                    } else {
+                        alert('Error');
+                    }
+                    return response.json();
+                })
+                .then(dades => {
+                    this.comandes = dades.comandes;
+                })
         }
     },
     watch: {
