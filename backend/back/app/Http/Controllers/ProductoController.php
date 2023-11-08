@@ -18,7 +18,7 @@ class ProductoController extends Controller
             $producto = new Producto();
             $producto->name = $item['name'];
             $producto->price = $item['price'];
-           // $producto->desc = $item['desc'];
+            // $producto->desc = $item['desc'];
             $producto->image_url = $item['image_url'];
             $producto->stock = $item['stock'];
             $producto->save();

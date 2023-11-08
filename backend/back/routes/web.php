@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\QrController;
 use App\Mail\autoplanetMail;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,8 @@ Route::get('/showProductosAdmin', [ProductoController::class, 'showProductosAdmi
 
 // ruta email
 Route::get("/showTicket/{id}", [EmailController::class,"email_after_buying"]);
-
+// ruta qr + enviarlo a un email
+Route::post('/post-checkout', [QrController::class,"generarQrEnviarEmail"]);
 
 
 // CRUD PRODUCTO (ADMIN)
