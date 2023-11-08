@@ -15,9 +15,10 @@ class QrController extends Controller
 
     public function generarQrEnviarEmail(Request $request)
     {
+    
     // Pillar la informacion del usuario a enviar sobre su pedido (info checkout)
-	$user = User::find($request->plain_text_token);
-    // $user = User::($request->user()->tokens()); sin uso de Request 
+    $user = User::find($request->token);
+    // $user = User::($request->user()->tokens()) sin uso de Request 
     $userCheckoutData = LiniaPedido::where('user_id', $user->id)->get(); //objeto de LiniaPedido con ($userCheckoutData->unit_price...)
 	$username = $user->name;
 
@@ -36,5 +37,7 @@ class QrController extends Controller
 
         return "Qr enviat de forma exitosa!";
     }
+
+    
 
 }
