@@ -66,6 +66,49 @@
     Per agafar tots els usuaris de la BD
         http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonUsers
 
+### 3.3 Model de EXEMPLE de BBDD (phpmyadmin)
+
+    CREATE TABLE productos (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        name VARCHAR(255) NOT NULL,
+        stock INT (100) NOT NULL,
+        price INT NOT NULL,
+        imatge_url VARCHAR(255) NOT NULL
+    );
+    
+    CREATE TABLE users (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        remember_token VARCHAR(100)
+    );
+    
+    CREATE TABLE pedidos (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        status VARCHAR(255) NOT NULL,
+        sumatori INT NOT NULL,
+    );
+    
+    CREATE TABLE linia_de_pedidos (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        unit_price DECIMAL(10,2) NOT NULL,
+        quantitat INT(11) NOT NULL,
+        sumatori DECIMAL(10,2) NOT NULL,
+        pedido_id INT,
+        user_id INT,
+        FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE RESTRICT ON UPDATE RESTRICT,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT ON UPDATE RESTRICT
+    );
+
 
 ## 4. Instruccions per seguir codificant el projecte
 FALTA POR HACER
