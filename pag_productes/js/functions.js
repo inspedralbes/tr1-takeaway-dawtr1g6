@@ -11,7 +11,7 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
-            categorias: ['todos', 'berlina', 'deportivo', 'suv', 'compacto'],
+            categorias: ['todos', 'berlina', 'deportivo', 'suv'],
             selectedCategoria: 'todos',
             orden: "null"
         }
