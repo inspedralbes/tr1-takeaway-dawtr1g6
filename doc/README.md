@@ -67,7 +67,65 @@
 
 ### 3.1.4 Laravel, per a la creació de tokens (exemple de clau secret)
     PLAIN_TEXT_TOKEN_SECRET=abcdaabbccddddccbbaa
+### 3.1.5 Laravel, capacitat CRUD per Admins
+#### 3.1.5.1 Rutes
+    // CRUD PRODUCTO (ADMIN)
+    Route::post("/update_producto/{id}", [ProductoController::class, "update_producto"]);
+    Route::post("/destroy_producto/{id}", [ProductoController::class, "destroy_producto"]);
+    Route::get("/create-producto", [ProductoController::class, "show_create_producto"]);
+    Route::post("/save-producto", [ProductoController::class, "save_producto"]);
+    // CRUD PEDIDO (ADMIN)
+    Route::post("/update_pedido/{id}", [PedidoController::class, "update_pedido"]);
+    Route::post("/destroy_pedido/{id}", [PedidoController::class, "destroy_pedido"]);
+    Route::get("/create-pedido", [PedidoController::class, "show_create_pedido"]);
+    Route::post("/save-pedido", [PedidoController::class, "save_pedido"]);
     
+#### 3.1.5.1 Funcions CRUD (de productes)  
+
+    public function show_create_producto()
+    {
+        return view('botiga.create-producto');
+    }
+    
+    public function save_producto(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'image_url' => 'required',
+            //'desc' => 'required',
+        ]);
+        Producto::create($request->all());
+        return view('botiga.create-producto');
+    }
+
+    public function store_producto(Request $request)
+    {
+        Producto::create($request->all());
+        return redirect('botiga.showProductosAdmin');
+    }
+
+    public function update_producto(Request $request, $id)   
+    {
+        $producto = Producto::find($id);
+            $request->validate([
+                'name' => 'required',
+                'price' => 'required',
+                'stock' => 'required',
+                'image_url' => 'required',
+                //'desc' => 'required',
+            ]);
+            $producto->update($request->all());
+            return redirect('showProductosAdmin');
+    }
+
+    public function destroy_producto($id)
+    {
+        Producto::find($id)->delete();
+        return redirect('showProductosAdmin');
+    }
+
 
 ### 3.2 API / ENDPOINTS
 
