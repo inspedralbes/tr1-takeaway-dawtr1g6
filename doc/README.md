@@ -17,13 +17,30 @@
     Configurar el fitxer .env:
     Dupliqueu l'arxiu .env.example i canvieu el nom a .env. Configureu la vostra connexió a la base de dades, entre d'altres configuracions, dins d'aquest fitxer. Podeu executar la comanda php artisan key:generate per       generar una clau d'aplicació aleatòria.
 
-    Realitzar la creació de taules a la Bd vinculada al fitxer .env amb l'ús de migracions del laravel:
-        php artisan make:migration create_users_productos
-         php artisan make:migration create_users_users
-          php artisan make:migration create_users_pedidos
-           php artisan make:migration create_users_altres
+    Realitzar la creació de taules a la BBDD vinculada al fitxer .env amb l'ús de migracions del laravel:
+        EXEMPLE: 
+        a cmd o altres terminals: php artisan make:migration create_users_productos
+        Anar a nom_projecte_laravel/database/migrations:
+        Dins de function up
+        Schema::create('productos', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->decimal('price', 10, 2);
+            $table->integer('stock');
+            $table->string('image_url');
+            $table->timestamps();
+        });
+        Dins de function down (en fer php artisan migrate:rollback, allò posat aquí es desfarà)
+        Schema::dropIfExists('productos');
+        Altres exemples:
+        php artisan make:migration create_users_users
+        php artisan make:migration create_users_pedidos
+        php artisan make:migration create_users_altres
+           
+        (DESPRÉS DE realitzar les modificacions de TOTS els nous fitxers de (nom_projecte_laravel/database/migrations)
 
-
+        a cmd o altres terminals : php artisan migrate
+        
 ## 2. Misc
 
 ### 2.1 Eines
