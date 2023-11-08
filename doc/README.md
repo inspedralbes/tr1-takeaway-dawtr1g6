@@ -2,22 +2,22 @@
 
 ## 1. Instruccions per crear un entorn de desenvolupament
 
-    PHP: Assegureu-vos de tenir PHP instal·lat al vostre sistema. Podeu descarregar PHP des del seu lloc web oficial: PHP Downloads.
+    ### PHP: Assegureu-vos de tenir PHP instal·lat al vostre sistema. Podeu descarregar PHP des del seu lloc web oficial: PHP Downloads.
 
-    Composer: Composer és una eina de gestió de dependències per a PHP. Podeu instal·lar-lo seguint les instruccions del seu lloc web oficial: Composer Installation.
+    ### Composer: Composer és una eina de gestió de dependències per a PHP. Podeu instal·lar-lo seguint les instruccions del seu lloc web oficial: Composer Installation.
 
-    Servidor de bases de dades: Podeu utilitzar un servidor de bases de dades com MySQL o PostgreSQL. Assegureu-vos que el servidor de bases de dades estigui instal·lat i en funcionament al vostre sistema.
+    ### Servidor de bases de dades: Podeu utilitzar un servidor de bases de dades com MySQL o PostgreSQL. Assegureu-vos que el servidor de bases de dades estigui instal·lat i en funcionament al vostre sistema.
 
-    Instal·lar Laravel:
+    ### Instal·lar Laravel:
     Utilitzeu Composer per crear un nou projecte de Laravel. Executeu aquesta comanda al vostre terminal o línia de comandes:
     composer create-project --prefer-dist laravel/laravel nom_del_projecte
     
     Això crearà un nou projecte Laravel amb el nom especificat a la carpeta nom_del_projecte.
     
-    Configurar el fitxer .env:
+    ### Configurar el fitxer .env:
     Dupliqueu l'arxiu .env.example i canvieu el nom a .env. Configureu la vostra connexió a la base de dades, entre d'altres configuracions, dins d'aquest fitxer. Podeu executar la comanda php artisan key:generate per       generar una clau d'aplicació aleatòria.
 
-    Realitzar la creació de taules a la BBDD vinculada al fitxer .env amb l'ús de migracions del laravel:
+    ### Realitzar la creació de taules a la BBDD vinculada al fitxer .env amb l'ús de migracions del laravel:
         EXEMPLE: 
         a cmd o altres terminals: php artisan make:migration create_users_productos
         Anar a nom_projecte_laravel/database/migrations:
