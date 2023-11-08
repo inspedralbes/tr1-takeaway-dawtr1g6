@@ -37,12 +37,12 @@ class UserController extends Controller
     public function register(Request $request)
     {
 
-        
+
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
-          
+
         ]);
 
         $rol = $request->input('rol', 'user');
@@ -69,7 +69,7 @@ class UserController extends Controller
     // LOGIN USUARI
     public function login(Request $request)
     {
-       
+
 
         $request->validate([
             'email' => 'required|email',
@@ -81,7 +81,7 @@ class UserController extends Controller
             // el auth simplemente checkea las cookies y otras cosas que se guardan para ver si te has registrado
             $user = Auth::user();
             // se te genera un nuevo token, hay que updatear la bbdd...
-            
+
             $user->plain_text_token = $this->generarUserToken($user);
             $user->save(); // guardar en la bbdd el cambio de token
 
@@ -144,23 +144,50 @@ class UserController extends Controller
         return json_encode($user, JSON_PRETTY_PRINT);
     }
 
-// login
- // $request->validate([
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
+    public function show_create_user(Request $request)
+    {
+        return view('user.create-user');
+    }
+    public function store_user(Request $request)
+    {
 
-        // $credenciales = $request->only('email', 'password', 'name');
+        User::create($request->all());
+        return redirect('user.showUsersAdmin');
 
-        // $user = User::find($request->email);
+    }
+
+    public function update_user(Request $request, $id)
+    {
 
 
+        $user = User::find($id);
 
-        // if (Auth::attempt($credenciales)) {
-        //     $token = User::find($request)->createToken('auth_token')->plainTextToken;
-        //     return response()->json(['token' => $token], 201);
-        // } else {
-        //     return response()->json(['message' => 'Login incorrecte, aquest usuari no existeix'], 200);
-        // }
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string'
+        ]);
+
+        $user->update($request->all());
+
+        return redirect('showUsersAdmin');
+    }
+
+    public function destroy_user($id)
+    {
+        User::find($id)->delete();
+        return redirect('showUsersAdmin');
+    }
+    public function showUsersAdmin()
+    {
+        $users = User::all();
+        return view('user.showUsersAdmin', compact('users'));
+    }
+
+    public function showUser_item(Request $request)
+    {
+        $users = User::find($request->id);
+        return view('user.showUser-item', compact('users'));
+    }
 
 }
