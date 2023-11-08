@@ -53,6 +53,17 @@
 
     LINIA DE COMANDES: (json dins d'array "liniaPedido"):
     Route::post("/getLiniaPedidos", [LiniaPedidoController::class,"getLiniaPedidos"])
+
+### 3.1.3 Laravel, rebre informació de la BD
+
+    // retorna un json de todos los productos de la bd en phpmyadmin
+    Route::get('/getJsonProductos', [ProductoController::class, 'giveJsonProductosData']);
+    // retorna un json de todos los pedidos de la bd en phpmyadmin
+    Route::get('/getJsonPedidos', [PedidoController::class, 'giveJsonPedidosData']);
+    // retorna u njson de todos los usuaris de la bd en phpmyadmin
+    Route::get("/getJsonUsers", [UserController::class, "giveJsonUsersData"]);
+    // retorna un json de todos los linia de pedidos de la bd en phpmyadmin
+    Route::get("/getJsonLiniaPedidos", [LiniaPedidoController::class, "giveJsonLiniaPedidoData"]);
     
 
 ### 3.2 API / ENDPOINTS
@@ -109,6 +120,7 @@
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT ON UPDATE RESTRICT
     );
 
+### 3.4
 
 ## 4. Instruccions per seguir codificant el projecte
 FALTA POR HACER
