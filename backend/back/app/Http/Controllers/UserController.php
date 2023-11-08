@@ -90,6 +90,7 @@ class UserController extends Controller
         //     return response()->json(['message' => 'Login incorrecte, aquest usuari no existeix'], 200);
         // }
 
+        
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
