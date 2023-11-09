@@ -42,22 +42,20 @@
 
     A través de PostMan + un json, les funcions agafen el json y els seus atributs, i, per cada item, genera una nova instància adequada.
 
-    Per a crear productes (json dins d'array "productos"):
+    PRODUCTES (json dins d'array "productos"):
     Route::post("/getProductos" , [ProductoController::class,"getProductos"]);
 
-    Per a crear comandes (json dins d'array "pedidos"):
+    COMANDES (json dins d'array "pedidos"):
     Route::post("/getPedidos" , [PedidoController::class,"getPedidos"]);
-
-
-    Per a crear usuaris: (json dins d'array "users"):
+    
+    USUARIS (json dins d'array "users"):
     Route::post("/getUsers", [UserController::class, "getUsers"]);
 
-    Per a crear linias de comandes: (json dins d'array "liniaPedido"):
+    LINIA DE COMANDES: (json dins d'array "liniaPedido"):
     Route::post("/getLiniaPedidos", [LiniaPedidoController::class,"getLiniaPedidos"])
     
 
-### 3.2 Vue Fetchs's
-
+### 3.2 Vue, fetchs
 
     Per agafar tots els productes de la BD:
         http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonProductos
@@ -73,13 +71,13 @@
         
 
     
-      
-
 
 ## 4. Instruccions per seguir codificant el projecte
-    ### A partir d'ISSUES al nostre repository de github: 
+    ### A partir d'ISSUES al nostre repository de github: https://github.com/inspedralbes/tr1-takeaway-dawtr1g6
+       
 
-## 5. API / Endpoints / punts de comunicació
-FALTA POR HACER
 
-Heu d'indicar quins són els punts d'entrada de la API i quins són els JSON que s'envien i es reben a cada endpoint
+
+
+
+

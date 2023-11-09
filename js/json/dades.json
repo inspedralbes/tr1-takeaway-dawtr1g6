@@ -1,0 +1,437 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "name": "Toyota Camry",
+            "price": 1099.00,
+            "image_url": "./js/img/1.png",
+            "stock": 15,
+            "categoria": "berlina"
+        },
+        {
+            "id": 2,
+            "name": "Honda Civic",
+            "price": 899.99,
+            "image_url": "./js/img/2.png",
+            "stock": 20,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 3,
+            "name": "Ford Mustang",
+            "price": 999.00,
+            "image_url": "./js/img/3.png",
+            "stock": 10,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 4,
+            "name": "Chevrolet Corvette",
+            "price": 499.99,
+            "image_url": "./js/img/4.png",
+            "stock": 5,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 5,
+            "name": "BMW X5",
+            "price": 699.99,
+            "image_url": "./js/img/5.png",
+            "stock": 8,
+            "categoria": "suv"
+        },
+        {
+            "id": 6,
+            "name": "Audi A4",
+            "price": 299.00,
+            "image_url": "./js/img/6.png",
+            "stock": 12,
+            "categoria": "berlina"
+        },
+        {
+            "id": 7,
+            "name": "Mercedes-Benz S-Class",
+            "price": 399.00,
+            "image_url": "./js/img/7.png",
+            "stock": 18,
+            "categoria": "berlina"
+        },
+        {
+            "id": 8,
+            "name": "Nissan Altima",
+            "price": 799.00,
+            "image_url": "./js/img/8.png",
+            "stock": 7,
+            "categoria": "berlina"
+        },
+        {
+            "id": 9,
+            "name": "Volkswagen Golf",
+            "price": 1499.00,
+            "image_url": "./js/img/9.png",
+            "stock": 9,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 10,
+            "name": "Subaru Outback",
+            "price": 99.99,
+            "image_url": "./js/img/10.png",
+            "stock": 25,
+            "categoria": "suv"
+        },
+        {
+            "id": 11,
+            "name": "Tesla Model 3",
+            "price": 899.00,
+            "image_url": "./js/img/11.png",
+            "stock": 15,
+            "categoria": "berlina"
+        },
+        {
+            "id": 12,
+            "name": "Porsche 911",
+            "price": 1299.99,
+            "image_url": "./js/img/12.png",
+            "stock": 10,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 13,
+            "name": "Jaguar F-PACE",
+            "price": 1099.00,
+            "image_url": "./js/img/13.png",
+            "stock": 12,
+            "categoria": "suv"
+        },
+        {
+            "id": 14,
+            "name": "Lamborghini Huracan",
+            "price": 299.99,
+            "image_url": "./js/img/14.png",
+            "stock": 20,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 15,
+            "name": "Ferrari 488 GTB",
+            "price": 349.00,
+            "image_url": "./js/img/15.png",
+            "stock": 10,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 16,
+            "name": "Aston Martin Vantage",
+            "price": 2499.00,
+            "image_url": "./js/img/16.png",
+            "stock": 5,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 17,
+            "name": "Lexus ES",
+            "price": 249.99,
+            "image_url": "./js/img/17.png",
+            "stock": 15,
+            "categoria": "berlina"
+        },
+        {
+            "id": 18,
+            "name": "Kia Optima",
+            "price": 399.00,
+            "image_url": "./js/img/18.png",
+            "stock": 8,
+            "categoria": "berlina"
+        },
+        {
+            "id": 19,
+            "name": "Hyundai Elantra",
+            "price": 499.00,
+            "image_url": "./js/img/19.png",
+            "stock": 10,
+            "categoria": "berlina"
+        },
+        {
+            "id": 20,
+            "name": "Jeep Grand Cherokee",
+            "price": 1699.99,
+            "image_url": "./js/img/20.png",
+            "stock": 7,
+            "categoria": "suv"
+        },
+        {
+            "id": 21,
+            "name": "Dodge Charger",
+            "price": 399.00,
+            "image_url": "./js/img/21.png",
+            "stock": 15,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 22,
+            "name": "Chrysler 300",
+            "price": 3499.00,
+            "image_url": "./js/img/22.png",
+            "stock": 3,
+            "categoria": "berlina"
+        },
+        {
+            "id": 23,
+            "name": "Cadillac Escalade",
+            "price": 1199.00,
+            "image_url": "./js/img/23.png",
+            "stock": 8,
+            "categoria": "suv"
+        },
+        {
+            "id": 24,
+            "name": "Buick Encore",
+            "price": 199.00,
+            "image_url": "./js/img/24.png",
+            "stock": 15,
+            "categoria": "suv"
+        },
+        {
+            "id": 25,
+            "name": "Acura MDX",
+            "price": 3499.99,
+            "image_url": "./js/img/25.png",
+            "stock": 5,
+            "categoria": "berlina"
+        },
+        {
+            "id": 26,
+            "name": "Alfa Romeo Giulia",
+            "price": 249.00,
+            "image_url": "./js/img/26.png",
+            "stock": 20,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 27,
+            "name": "Maserati Levante",
+            "price": 1299.00,
+            "image_url": "./js/img/27.png",
+            "stock": 9,
+            "categoria": "berlina"
+        },
+        {
+            "id": 28,
+            "name": "McLaren 720S",
+            "price": 49.99,
+            "image_url": "./js/img/28.png",
+            "stock": 20,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 29,
+            "name": "Rolls-Royce Phantom",
+            "price": 1199.00,
+            "image_url": "./js/img/29.png",
+            "stock": 6,
+            "categoria": "berlina"
+        },
+        {
+            "id": 30,
+            "name": "Land Rover Range Rover",
+            "price": 1499.00,
+            "image_url": "./js/img/30.png",
+            "stock": 4,
+            "categoria": "suv"
+        },
+        {
+            "id": 31,
+            "name": "Bentley Continental GT",
+            "price": 599.99,
+            "image_url": "./js/img/31.png",
+            "stock": 10,
+            "categoria": "berlina"
+        },
+        {
+            "id": 32,
+            "name": "Audi RS 7",
+            "price": 449.99,
+            "image_url": "./js/img/32.png",
+            "stock": 15,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 33,
+            "name": "Infiniti Q50",
+            "price": 249.00,
+            "image_url": "./js/img/33.png",
+            "stock": 20,
+            "categoria": "berlina"
+        },
+        {
+            "id": 34,
+            "name": "Porsche Cayenne",
+            "price": 1299.00,
+            "image_url": "./js/img/34.png",
+            "stock": 8,
+            "categoria": "suv"
+        },
+        {
+            "id": 35,
+            "name": "Jaguar XJ",
+            "price": 149.99,
+            "image_url": "./js/img/35.png",
+            "stock": 12,
+            "categoria": "berlina"
+        },
+        {
+            "id": 36,
+            "name": "Mini Cooper",
+            "price": 199.00,
+            "image_url": "./js/img/36.png",
+            "stock": 15,
+            "categoria": "berlina"
+        },
+        {
+            "id": 37,
+            "name": "Volvo XC90",
+            "price": 2999.00,
+            "image_url": "./js/img/37.png",
+            "stock": 5,
+            "categoria": "suv"
+        },
+        {
+            "id": 38,
+            "name": "Mazda CX-5",
+            "price": 99.99,
+            "image_url": "./js/img/38.png",
+            "stock": 10,
+            "categoria": "suv"
+        },
+        {
+            "id": 39,
+            "name": "Lexus RX",
+            "price": 599.00,
+            "image_url": "./js/img/39.png",
+            "stock": 8,
+            "categoria": "suv"
+        },
+        {
+            "id": 40,
+            "name": "Subaru Impreza",
+            "price": 79.99,
+            "image_url": "./js/img/40.png",
+            "stock": 7,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 41,
+            "name": "Hyundai Sonata",
+            "price": 499.00,
+            "image_url": "./js/img/41.png",
+            "stock": 12,
+            "categoria": "berlina"
+        },
+        {
+            "id": 42,
+            "name": "Kia Sorento",
+            "price": 49.99,
+            "image_url": "./js/img/42.png",
+            "stock": 6,
+            "categoria": "suv"
+        },
+        {
+            "id": 43,
+            "name": "Mazda RX7",
+            "price": 999.00,
+            "image_url": "./js/img/43.png",
+            "stock": 10,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 44,
+            "name": "Toyota Supra MK4",
+            "price": 1299.99,
+            "image_url": "./js/img/44.png",
+            "stock": 5,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 45,
+            "name": "Silvia 14",
+            "price": 399.00,
+            "image_url": "./js/img/45.png",
+            "stock": 15,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 46,
+            "name": "Toyota Celica",
+            "price": 599.99,
+            "image_url": "./js/img/46.png",
+            "stock": 10,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 47,
+            "name": "Mazda MX5",
+            "price": 299.00,
+            "image_url": "./js/img/47.png",
+            "stock": 12,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 48,
+            "name": "Nissan 240SX",
+            "price": 799.00,
+            "image_url": "./js/img/48.png",
+            "stock": 8,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 49,
+            "name": "Subaru WRX STI",
+            "price": 1499.00,
+            "image_url": "./js/img/49.png",
+            "stock": 6,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 50,
+            "name": "Mitsubishi Lancer Evolution",
+            "price": 1299.00,
+            "image_url": "./js/img/50.png",
+            "stock": 8,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 51,
+            "name": "Honda S2000",
+            "price": 1999.99,
+            "image_url": "./js/img/51.png",
+            "stock": 5,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 52,
+            "name": "Mazda RX-8",
+            "price": 899.00,
+            "image_url": "./js/img/52.png",
+            "stock": 10,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 53,
+            "name": "Nissan Skyline GT-R",
+            "price": 2599.00,
+            "image_url": "./js/img/53.png",
+            "stock": 7,
+            "categoria": "esportiu"
+        },
+        {
+            "id": 54,
+            "name": "Toyota MR2",
+            "price": 999.99,
+            "image_url": "./js/img/54.png",
+            "stock": 12,
+            "categoria": "esportiu"
+        }
+    ]
+}
+
