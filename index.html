@@ -118,8 +118,13 @@
                     <div :class="{'prods':visible, 'prods1':!visible}">
                         <div v-for="(actual,index) in filteredProductes()" class="prod card shadow-sm"
                             :class="{'selected': actual.carro > 0}">
-                            <img @click="setMostrar('main', 'prod');trobarProdID(actual.id)" :src="actual.image_url">
+                            <div class="imatgeProducte">
+                                <img :src="actual.image_url">
 
+                                <span class="ultimesU">
+                                    <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
+                                </span>
+                            </div>
                             <h1 @click="setMostrar('main', 'prod');trobarProdID(actual.id)" class="card-text">
                                 {{actual.name}}
                             </h1>
@@ -138,9 +143,7 @@
                                 </div>
 
                             </div>
-                            <span @click="setMostrar('main', 'prod');trobarProdID(actual.id)" class="ultimesU">
-                                <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
-                            </span>
+                            
 
                         </div>
                     </div>

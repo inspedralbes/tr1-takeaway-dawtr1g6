@@ -43,7 +43,7 @@ button:not(:disabled) {
 
 .prods {
     grid-area: prods;
-    display: g-rid;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 5%;
     width: 85%;
@@ -64,6 +64,7 @@ button:not(:disabled) {
 .checkout {
     /* visibility: visible; */
     position: sticky;
+    z-index: 1;
     top: 80px;
     width: 30%;
     grid-area: checkout;
@@ -206,7 +207,7 @@ button:not(:disabled) {
     background-color: rgb(255, 237, 77);
     padding-left: 5px;
     padding-right: 5px;
-    border-radius: 5px;
+    margin: 0;
 }
 
 .nav {
@@ -232,8 +233,17 @@ button:not(:disabled) {
     display: flex;
     align-items: center;
 }
+.imatgeProducte{
+    position: relative;
+}
 
-
+.ultimesU{
+    position: absolute;
+    bottom: -10px;
+    right: 0%;
+    width: 100%;
+    margin: 0;
+}
 
 .buscar {
     border: 0.5px solid rgb(182, 182, 182);
@@ -512,10 +522,16 @@ ul li a {
         padding-left: 6px;
     }
 
+    .imatgeProducte{
+        position: relative;
+    }
 
-
-    .ultimesU {
-        display: none;
+    .ultimesU{
+        position: absolute;
+        bottom: 0px;
+        right: .5%;
+        width: 100%;
+        margin: 0;
     }
 
     .total {
