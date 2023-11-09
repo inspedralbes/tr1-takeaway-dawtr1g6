@@ -21,6 +21,7 @@ class ProductoController extends Controller
             // $producto->desc = $item['desc'];
             $producto->image_url = $item['image_url'];
             $producto->stock = $item['stock'];
+            $producto->categoria = $item['categoria'];
             $producto->save();
         }
 

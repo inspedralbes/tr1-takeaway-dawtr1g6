@@ -30,10 +30,14 @@ class PedidoController extends Controller
 
         $jsonData = $request->json()->all();
 
-
+       
         DB::beginTransaction();
 
+        
         try {
+           
+            $token = $jsonData['token'];
+            $user = User::where('plain_text_token', $token)->first(); 
             $comanda = $jsonData['comanda'];
             $pedidos = new Pedido();
             $pedidos->status = "En preparacion";
@@ -42,7 +46,7 @@ class PedidoController extends Controller
             $pedidos->ciutat = $comanda['ciutat'];
             $pedidos->pais = $comanda['pais'];
             $pedidos->namecli = $comanda['namecli'];
-
+            $pedidos->user_id = $user->id;
             $pedidos->save();
 
             $pedidoId = $pedidos->id;
@@ -56,8 +60,12 @@ class PedidoController extends Controller
                 $lp->name_producto = $producto->name;
                 $lp->producto_id = $item['id'];
 
+
                 $lp->save();
             }
+           
+
+          
 
             DB::commit();
 
@@ -76,6 +84,8 @@ class PedidoController extends Controller
 
         return response()->json($response);
     }
+
+
 
 
 
@@ -156,28 +166,27 @@ class PedidoController extends Controller
 
     public function listaPedidosUser(Request $request)
     {
-        $user = User::where('plain_text_token', $request->plain_text_token)->first();
-        if($user){
-          
-            $pedidosUser = Pedido::where('user_id', $user->id)->get();
-            $liniaPedidosUserArr=[];
-            foreach ($pedidosUser as $pedido) {
-                $liniaPedidosUser = LiniaPedido::where($pedido->id, 'pedido_id')->get();
-                $liniaPedidosUserArr[]= $liniaPedidosUser;
-             
-            }
     
+       
+        $user = User::where('plain_text_token', $request->token)->first();
+        
+        if($user){
+            $pedidosUser = Pedido::where('user_id', $user->id)->get();
+    
+            foreach ($pedidosUser as $pedido) {
+                $liniaPedidosUser = LiniaPedido::where('pedido_id', $pedido->id)->get();
+                $pedido->liniaPedidos = $liniaPedidosUser;
+            }
+        
             $response = [
-                'liniaPedidosUser' => $liniaPedidosUserArr,
                 'pedidosUser' => $pedidosUser,
             ];
+    
             return response()->json($response);
         }
-       
-        return response("Error en listaPedidosUser");
-
+            
     }
-
+    
 
     public function showPedidosAdmin()
     {

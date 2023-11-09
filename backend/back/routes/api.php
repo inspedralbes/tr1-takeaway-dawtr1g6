@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post("/listaPedidosUser", [PedidoController::class,"listaPedidosUser"]);
 
 
 
@@ -28,6 +29,7 @@ Route::post("/login", [UserController::class, "login"]);
 Route::post("/getProductos", [ProductoController::class, "getProductos"]);
 
 Route::post("/getPedidos", [PedidoController::class, "getPedidos"]);
+
 Route::post("/ddgetpedidos", [PedidoController::class, "ddgetpedidos"]);
 
 Route::post("/getUsers", [UserController::class, "getUsers"]);

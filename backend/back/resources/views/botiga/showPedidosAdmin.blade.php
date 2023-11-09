@@ -13,11 +13,19 @@
 <body>
 <div class="container mt-5">
     <table class="table is-fullwidth is-hoverable">
+        <a href="{{ url('create-pedido') }}"><button>Crear Pedido</button></a>
+
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Estado del Pedido</th>
+                <th>ID Pedido</th>
+                <th>Client</th>
+                <th>Idclient</th>
+                <th>Estado</th>
                 <th>Total</th>
+                <th>Codi Postal</th>
+                <th>Direcció</th>
+                <th>Ciutat</th>
+                <th>Pais</th>
                 <th>Detalles</th>
             </tr>
         </thead>
@@ -25,8 +33,16 @@
             @foreach ($pedidos as $pedido)
                 <tr>
                     <td>{{ $pedido->id }}</td>
+                    <td>{{$pedido->namecli}}</td>
+                    <td>{{$pedido->user_id}}</td>
                     <td>{{ $pedido->status }}</td>
                     <td>${{ $pedido->sumatori }}</td>
+                    <td>{{$pedido->codi_postal}}</td>
+                    <td>{{$pedido->direccio}}</td>
+                    <td>{{$pedido->ciutat}}</td>
+                    <td>{{$pedido->pais}}</td>
+                   
+                    
                     <td><a class="button is-primary" href="{{ url('showPedido-item/' . $pedido->id) }}">Ver detalles</a></td>
                 </tr>
             @endforeach
