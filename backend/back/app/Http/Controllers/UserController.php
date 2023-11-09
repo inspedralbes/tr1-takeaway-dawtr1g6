@@ -161,19 +161,19 @@ class UserController extends Controller
 
 
         User::create($request->all());
-        return redirect('user.showUsersAdmin');
+        return redirect('showUsersAdmin');
 
     }
 
     public function update_user(Request $request, $id)
     {
 
-
         $user = User::find($id);
 
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
+            'rol' => 'required',
         ]);
 
         $user->update($request->all());

@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <form action="/store-user" method="POST" enctype="multipart/form-data">
+        <form action="/store_user" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="field">
                 <label class="label">Name</label>
@@ -33,17 +33,7 @@
                 </div>
             </div>
 
-            <div class="field">
-                <label class="label">Role</label>
-                <div class="control">
-                    <div class="select">
-                        <select name="role">
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <input type="hidden" name="rol" value="user">
 
             <div class="field">
                 <div class="control">

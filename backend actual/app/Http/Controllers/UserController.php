@@ -155,7 +155,9 @@ class UserController extends Controller
     {
 
         User::create($request->all());
-        return redirect('user.showUsersAdmin');
+
+
+        return redirect('showUsersAdmin');
 
     }
 
@@ -168,17 +170,18 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
+            'rol' => 'required',
         ]);
 
         $user->update($request->all());
 
-        return redirect('user.showUsersAdmin');
+        return redirect('showUsersAdmin');
     }
 
     public function destroy_user($id)
     {
         User::find($id)->delete();
-        return redirect('user.showUsersAdmin');
+        return redirect('showUsersAdmin');
     }
     public function showUsersAdmin()
     {

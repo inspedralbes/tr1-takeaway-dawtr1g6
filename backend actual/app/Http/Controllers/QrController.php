@@ -19,13 +19,13 @@ class QrController extends Controller
 
         // Pillar la informacion del usuario a enviar sobre su pedido (info checkout)
         $user = User::where('plain_text_token', $request->token)->first();
-
+       
         if ($user) {
             // buscar el ultimo pedido con el id del usuario
             $pedidoUser = Pedido::latest('user_id', $user->id)->first();
             $username=$user->name;
             $userCheckoutData = LiniaPedido::latest('pedido_id', $pedidoUser->id)->get();
-
+            dd($userCheckoutData);
             // generar el Qr con la info de las variables anteriores
             $qr = QrCode::size(300)->generate(json_encode(compact('user', 'userCheckoutData')));
 

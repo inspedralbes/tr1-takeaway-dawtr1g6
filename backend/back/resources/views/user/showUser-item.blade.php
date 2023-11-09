@@ -15,7 +15,8 @@
     <form action="/update_user/{{$users->id}}" method="POST" enctype="multipart/form-data">
         @csrf <!-- Agrega el token CSRF para proteger el formulario -->
     
-        
+        <input type="hidden" name="id" value="{{ $users->id }}">
+
     
         <div class="field">
             <label class="label">Nombre</label>

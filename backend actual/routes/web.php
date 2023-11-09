@@ -53,12 +53,10 @@ Route::post("/save-producto", [ProductoController::class, "save_producto"]);
 // CRUD USERS (ADMIN)
 Route::get("/showUsersAdmin", [UserController::class,"showUsersAdmin"]);
 Route::get("/showUser-item/{id}", [UserController::class, "showUser_item"]);
-Route::get("/create-user", [UserController::class,"show_create_user"]);
-
-
+Route::get("/create_user", [UserController::class,"show_create_user"]);
 Route::post("/update_user/{id}", [UserController::class,"update_user"]);
 Route::post("/destroy_user/{id}", [UserController::class,"destroy_user"]);
-Route::post("/store-user", [UserController::class,"store_user"]);
+Route::post("/store_user", [UserController::class,"store_user"]);
 
 
 // CRUD PEDIDO (ADMIN)
