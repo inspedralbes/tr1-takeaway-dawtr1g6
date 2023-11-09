@@ -335,7 +335,6 @@ createApp({
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.token}`
                 },
             })
                 .then(response => {
@@ -346,12 +345,13 @@ createApp({
                 });
         },
         getComandes() {
-            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
-                method: 'GET',
+            let dades = JSON.stringify({ 'token': this.token });
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/listaPedidosUser', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.token}`
                 },
+                body: dades
             })
                 .then(response => {
                     return response.json();
