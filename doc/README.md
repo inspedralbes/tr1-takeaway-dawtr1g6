@@ -60,21 +60,24 @@
 
 
     Per agafar tots els productes de la BD:
-        hhtp://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonProductos
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonProductos
+        Exemple a doc/getPedidos.json
 
     Per agafar totes les comandes de la BD
-        hhtp://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonPedidos
-      
-    Per agafar tots els usuaris de la BD
-        hhtp://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonUsers
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos
+        Exemple a doc/getProductos.json
+
+    Per agafar les comandes d'un usuari determinat
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/listaPedidosUser
+        -> a partir d'un token
+        
+
+    
       
 
 
-Fitcher .htpasswd -> xampp htdocs josu .htpasswd + Apache vhost.conf + autoplanet.local
 ## 4. Instruccions per seguir codificant el projecte
-FALTA POR HACER
-
-eines necessaries i com es crea l'entorn per que algú us ajudi en el vostre projecte.
+    ### A partir d'ISSUES al nostre repository de github: 
 
 ## 5. API / Endpoints / punts de comunicació
 FALTA POR HACER
