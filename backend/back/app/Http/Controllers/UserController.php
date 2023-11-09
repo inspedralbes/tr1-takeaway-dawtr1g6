@@ -95,23 +95,23 @@ class UserController extends Controller
 
 
     // LOGOUT USUARI
-    public function logout()
+    public function logout(Request $request)
     {
-        // $request->user()->tokens()->delete();
+        //  $request->user()->tokens()->delete();
         //  $user = Auth::user();
         //  $user->plain_text_token = null;
         //  $user->save();
-        // return response()->json(['message' => 'Logout exitòs'], 200);
+        //  return response()->json(['message' => 'Logout exitòs'], 200);
 
-        $user = Auth::user();
+        $user = User::find('plain_text_token', $request->token);
+        if($user){
+            $user->plain_text_token = null;
+            $user->save();
+            return response()->json(['message' => 'Logout exitos']);
 
-        $user->plain_text_token = null;
-
-        $user->save();
-
-        Auth::logout();
-
-        return response()->json(['message' => 'Logout exitos']);
+        }
+        return ("ERROR");
+        
     }
 
 

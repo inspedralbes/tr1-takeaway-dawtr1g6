@@ -87,6 +87,8 @@ class PedidoController extends Controller
 
 
 
+
+
     public function showPedidos()
     {
         $pedidos = Pedido::all();
@@ -164,28 +166,29 @@ class PedidoController extends Controller
 
     public function listaPedidosUser(Request $request)
     {
-        $user = User::where('plain_text_token', $request->plain_text_token)->first();
+    
+       
+        $user = User::where('plain_text_token', $request->token)->first();
+        
         if($user){
-          
             $pedidosUser = Pedido::where('user_id', $user->id)->get();
-            $liniaPedidosUserArr=[];
+            $liniaPedidosUserArr = [];
+    
             foreach ($pedidosUser as $pedido) {
-                $liniaPedidosUser = LiniaPedido::where($pedido->id, 'pedido_id')->get();
-                $liniaPedidosUserArr[]= $liniaPedidosUser;
-             
+                $liniaPedidosUser = LiniaPedido::where('pedido_id', $pedido->id)->get();
+                $liniaPedidosUserArr[] = $liniaPedidosUser;
             }
     
             $response = [
                 'liniaPedidosUser' => $liniaPedidosUserArr,
                 'pedidosUser' => $pedidosUser,
             ];
+    
             return response()->json($response);
         }
-       
-        return response("Error en listaPedidosUser");
-
+            
     }
-
+    
 
     public function showPedidosAdmin()
     {

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post("/listaPedidosUser", [PedidoController::class,"listaPedidosUser"]);
 
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\LiniaPedidoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\QrController;
@@ -40,6 +41,9 @@ Route::get("/showProductos", [ProductoController::class, "showProductos"]);
 Route::get("/showProducto-item/{id}", [ProductoController::class, "showProducto_item"]);
 Route::get("/showProducto-itemNA/{id}", [ProductoController::class, "showProducto_itemNA"]);
 Route::get('/showProductosAdmin', [ProductoController::class, 'showProductosAdmin']);
+
+
+//rutas lista de pedidos
 
 
 // ruta email
