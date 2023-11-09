@@ -50,44 +50,47 @@
                 </button>
             </div>
         </nav>
-
-        <div id="main" :class="{'amagatD':!main}">
-            <div class="checkout" :class="{amagat:!visible}">
-                <div class="card shadow-sm">
-                    <div class="over">
-                        <transition-group name="slide-carro">
-                            <div v-for="(actual,index) in carret" :key="index" class="carro">
+        <div class="checkout" :class="{amagat:!visible}">
+            <div class="card shadow-sm">
+                <div class="over">
+                    <transition-group name="slide-carro">
+                        <div v-for="(actual,index) in carret" :key="index" class="carro">
 
 
-                                <span>
-                                    <p>{{actual.name}}</p>
-                                </span>
-                                <div class="btn-group">
-                                    <button id="restar_carret" class="btn  " @click="restarC(index)">
-                                        -
-                                    </button>
+                            <span>
+                                <p>{{actual.name}}</p>
+                            </span>
+                            <div class="btn-group">
+                                <button id="restar_carret" class="btn  " @click="restarC(index)">
+                                    -
+                                </button>
 
-                                    <button id="sumar_carret" class="btn  " @click="sumarC(index)">
-                                        +
-                                    </button>
-                                </div>
-                                <span class="centrat">
-                                    <p>x{{actual.carro}}</p>
-                                </span>
-                                <span>
-                                    <h4>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
-                                </span>
+                                <button id="sumar_carret" class="btn  " @click="sumarC(index)">
+                                    +
+                                </button>
                             </div>
-                        </transition-group>
-                    </div>
-                    <div class="total">
-                        <h2>Total: {{parseFloat((totalCarret).toFixed(2))}}€</h4>
-                            <button @click="setMostrar('main', 'tramitarComandes')" class="btn ">
-                                Veure carret
-                            </button>
-                    </div>
+                            <span class="centrat">
+                                <p>x{{actual.carro}}</p>
+                            </span>
+                            <span>
+                                <h4>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
+                            </span>
+                        </div>
+                    </transition-group>
+                </div>
+                <div class="total">
+                    <h2>Total: {{parseFloat((totalCarret).toFixed(2))}}€</h4>
+                        <button @click="setMostrar('main', 'tramitarComandes')" class="btn ">
+                            Veure carret
+                        </button>
                 </div>
             </div>
+        </div>
+
+        
+
+        <div id="main" :class="{'amagatD':!main}">
+            
 
 
             <div id="filtres">
@@ -149,6 +152,7 @@
                     </div>
                     
                 </div>
+                
             </div>
         </div>
 

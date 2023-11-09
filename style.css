@@ -45,11 +45,11 @@ button:not(:disabled) {
     grid-area: prods;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 5%;
     width: 85%;
     font-size: 1em;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5%;
 }
 
 .prods1 {
@@ -62,17 +62,14 @@ button:not(:disabled) {
 }
 
 .checkout {
-    /* visibility: visible; */
-    position: sticky;
+    position: fixed;
     z-index: 1;
     top: 80px;
-    width: 30%;
+    z-index: 1000;
+    width: 60%;
+    margin-left: 34%;
     grid-area: checkout;
-    align-self: start;
     margin-top: 10px;
-    margin-right: 5px;
-    margin-left: auto;
-    margin-bottom: 5px;
     transition: transform 0.5s;
     transform-origin: right;
     transform: scaleX(1);
@@ -84,6 +81,7 @@ button:not(:disabled) {
     padding: 20px;
 
 }
+
 
 #restar_carret {
     border: none;
@@ -445,12 +443,7 @@ ul li a {
         padding: 0;
     }
 
-    /* .cont {
-        display: grid;
-        position: relative;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-    } */
+    
 
     .filtre{
         font-size: .75em;
@@ -462,10 +455,11 @@ ul li a {
         grid-area: prods;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        margin-top: 10px;
         width: 80%;
         font-size: .6em;
         margin: auto;
+        margin-top: 5%;
+
 
     }
 
@@ -493,18 +487,28 @@ ul li a {
         max-height: min-content;
     }
 
-    .checkout {
-        border-radius: 10px;
-        padding: 20px;
-        position: sticky;
-        top: 10%;
-        width: 70%;
-        background-color: #fff;
-        font-size: .6em;
-        margin-right: 5px;
-        margin-left: auto;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
 
+    .checkout {
+        position: fixed;
+        z-index: 1;
+        top: 80px;
+        z-index: 1000;
+        width: 60%;
+        margin-left: 25%;
+        grid-area: checkout;
+        font-size: .6em;
+        margin-top: 10px;
+        transition: transform 0.5s;
+        transform-origin: right;
+        transform: scaleX(1);
+        visibility: visible;
+        pointer-events: auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 20px;
+    
     }
 
     #restar_carret {
