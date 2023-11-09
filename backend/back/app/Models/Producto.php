@@ -15,7 +15,8 @@ class Producto extends Model
         "price",
         "stock",
          // "desc",
-        "image_url"
+        "image_url",
+        "categoria",
        
     ];
 

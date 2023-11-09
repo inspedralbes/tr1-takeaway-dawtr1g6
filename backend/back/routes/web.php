@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\LiniaPedidoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\QrController;
+use App\Http\Controllers\UserController;
 use App\Mail\autoplanetMail;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +43,9 @@ Route::get("/showProducto-itemNA/{id}", [ProductoController::class, "showProduct
 Route::get('/showProductosAdmin', [ProductoController::class, 'showProductosAdmin']);
 
 
+//rutas lista de pedidos
+
+
 // ruta email
 Route::get("/showTicket/{id}", [EmailController::class,"email_after_buying"]);
 // ruta qr + enviarlo a un email
@@ -53,6 +58,14 @@ Route::post("/destroy_producto/{id}", [ProductoController::class, "destroy_produ
 Route::get("/create-producto", [ProductoController::class, "show_create_producto"]);
 Route::post("/save-producto", [ProductoController::class, "save_producto"]);
 
+// CRUD USERS (ADMIN)
+Route::get("/showUsersAdmin", [UserController::class,"showUsersAdmin"]);
+Route::get("/showUser-item/{id}", [UserController::class, "showUser_item"]);
+
+Route::post("/update_user/{id}", [UserController::class,"update_user"]);
+Route::post("/destroy_user/{id}", [UserController::class,"destroy_user"]);
+Route::get("/create-user/{id}", [UserController::class,"create_user"]);
+Route::post("/save-user/{id}", [UserController::class,"save_user"]);
 
 
 // CRUD PEDIDO (ADMIN)
