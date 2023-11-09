@@ -172,15 +172,13 @@ class PedidoController extends Controller
         
         if($user){
             $pedidosUser = Pedido::where('user_id', $user->id)->get();
-            $liniaPedidosUserArr = [];
     
             foreach ($pedidosUser as $pedido) {
                 $liniaPedidosUser = LiniaPedido::where('pedido_id', $pedido->id)->get();
-                $liniaPedidosUserArr[] = $liniaPedidosUser;
+                $pedido->liniaPedidos = $liniaPedidosUser;
             }
-    
+        
             $response = [
-                'liniaPedidosUser' => $liniaPedidosUserArr,
                 'pedidosUser' => $pedidosUser,
             ];
     
