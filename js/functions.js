@@ -29,7 +29,7 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
-            comandes: [],
+            comandesA: [],
             main: false,
             landing: true,
             cart: false,
@@ -248,7 +248,7 @@ createApp({
             }
         },
         enviarComanda() {
-            let dades = JSON.stringify({ 'comanda': this.comanda, 'carret': this.carret });
+            let dades = JSON.stringify({ 'comanda': this.comanda, 'carret': this.carret, 'token': this.token });
             console.log(dades);
             fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getPedidos', {
                 method: 'POST',
@@ -287,6 +287,7 @@ createApp({
             })
                 .then(response => {
                     if (response.ok) {
+                        this.setMostrar("all", "landing");
                     } else {
                         alert('Email o contrasenya incorrecte');
                         this.loginA.password = {
@@ -313,8 +314,7 @@ createApp({
             })
                 .then(response => {
                     if (response.ok) {
-                        this.token = data.token;
-                        this.tokenT = true;
+                        this.setMostrar("all", "landing");
                     } else {
                         alert('Email o contrasenya incorrecte');
                         this.registreA = {
@@ -345,45 +345,21 @@ createApp({
                     }
                 });
         },
-        // getComandes() {
-        // fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos', {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Authorization': `Bearer ${this.token}`
-        //     },
-        // })
-        //     .then(response => {
-        //         if (response.ok) {
-        //         } else {
-        //             alert('Error');
-        //         }
-        //         return response.json();
-        //     })
-        //     .then(dades => {
-        //         this.comandes = dades.comandes;
-        //     })
-        // },
-        filteredProductes() {
-            if (this.selectedCategoria === 'tots') {
-                this.ordenarProductos();
-                return this.productes;
-            } else {
-                this.ordenarProductos();
-                return this.productes.filter(producte => producte.categoria.toLowerCase() === this.selectedCategoria.toLowerCase());
-            }
-        },
-        ordenarProductos() {
-            if (this.orden === "asc") {
-                // Ordenar productos de menor a mayor
-                return this.productes.sort((a, b) => a.price - b.price);
-            } else if (this.orden === "desc") {
-                // Ordenar productos de mayor a menor
-                return this.productes.sort((a, b) => b.price - a.price);
-            } else {
-                return this.productes.sort((a, b) => a.id - b.id);
-            }
-        },
+        getComandes() {
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`
+                },
+            })
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    this.comandesA = data.comandes;
+                });
+        }
     },
     watch: {
         searchTerm: "search"
@@ -394,6 +370,11 @@ createApp({
             console.log(this.productes);
             this.search();
         });
+
+        if (this.tokenT) {
+            setInterval(this.getComandes, 5000);
+        }
+        this.getComandes();
     },
     computed: {
         productesMesVenuts() {

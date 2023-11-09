@@ -407,6 +407,29 @@ ul li a {
     border-radius: 50%;
 }
 
+#filtres{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+}
+
+.filtre{
+    width: 80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: lighter;
+}
+
+#categoria{
+    margin-left: 10px;
+}
+
+#orden{
+    margin-left: 10px;
+}
 
 @media screen and (max-width: 600px) {
 

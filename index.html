@@ -51,22 +51,6 @@
             </div>
         </nav>
         <div id="main" :class="{'amagatD':!main}">
-            <div id="filtres">
-                <div class="filtre">
-                    <label for="categoria">Filtrar per categoria:</label>
-                    <select id="categoria" v-model="selectedCategoria">
-                        <option v-for="categoria in categorias" :value="categoria">{{ categoria }}</option>
-                    </select>
-                </div>
-                <div class="filtre">
-                    <label for="orden">Ordenar per preu:</label>
-                    <select id="orden" v-model="orden">
-                        <option value="null">Ordre per defecte</option>
-                        <option value="asc">Menor a Major</option>
-                        <option value="desc">Major a Menor</option>
-                    </select>
-                </div>
-            </div>
             <div id="productes">
                 <div :class="{'cont':visible}">
                     <div :class="{'prods':visible, 'prods1':!visible}">
@@ -164,7 +148,6 @@
         </div>
 
         <div class="login" :class="{'amagatD':!logi}">
-
             <div class="login-container">
                 <h2>Iniciar Sessió</h2>
                 <form @submit.prevent="login()">
@@ -311,7 +294,7 @@
             <div class="comandes">
                 <a href=""></a>
                 <div class="comanda">
-                    <div v-for="(actual,index) in comandes" :key="index" class="info_comanda">
+                    <div v-for="(actual,index) in comandesA" :key="index" class="info_comanda">
                         <h1>ID COMANDA: 01</h1>
                         <h1>{{actual.id}}</h1>
                         <h1 id="info_comanda__total">TOTAL €</h1>
