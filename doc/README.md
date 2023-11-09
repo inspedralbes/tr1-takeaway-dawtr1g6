@@ -2,18 +2,14 @@
 
 ## 1. Instruccions per crear un entorn de desenvolupament
 
-### (FALTA POR HACER)
-
-## 2. Misc
-
-### 2.1 Eines
+### 2. Eines
 
     Visual Studio Code
     Laravel
     Xammp
     Phpmyadmin
 
-### 2.2 Plugins (VSC)
+### 2.1 Plugins (VSC)
 
     Miscrosoft Preview
     Postman
@@ -70,9 +66,8 @@
         -> a partir d'un token
         
 
-    
 
-## 4. Instruccions per seguir codificant el projecte
+## 4. Instruccions per ajudar amb el projecte
     ### A partir d'ISSUES al nostre repository de github: https://github.com/inspedralbes/tr1-takeaway-dawtr1g6
        
 
