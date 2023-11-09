@@ -144,6 +144,9 @@ class UserController extends Controller
         return json_encode($user, JSON_PRETTY_PRINT);
     }
 
+
+
+
     public function show_create_user(Request $request)
     {
         return view('user.create-user');
@@ -169,13 +172,13 @@ class UserController extends Controller
 
         $user->update($request->all());
 
-        return redirect('showUsersAdmin');
+        return redirect('user.showUsersAdmin');
     }
 
     public function destroy_user($id)
     {
         User::find($id)->delete();
-        return redirect('showUsersAdmin');
+        return redirect('user.showUsersAdmin');
     }
     public function showUsersAdmin()
     {

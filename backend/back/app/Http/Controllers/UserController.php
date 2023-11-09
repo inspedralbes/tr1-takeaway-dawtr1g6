@@ -151,6 +151,15 @@ class UserController extends Controller
     public function store_user(Request $request)
     {
 
+        $request->validate([
+            'name' => 'required',
+            'password' => 'required|string',
+            'email' => 'required|email',
+            'rol' => 'required',
+            //'desc' => 'required',
+        ]);
+
+
         User::create($request->all());
         return redirect('user.showUsersAdmin');
 
