@@ -30,10 +30,14 @@ class PedidoController extends Controller
 
         $jsonData = $request->json()->all();
 
-
+       
         DB::beginTransaction();
 
+        
         try {
+           
+            $token = $jsonData['token'];
+            $user = User::where('plain_text_token', $token)->first(); 
             $comanda = $jsonData['comanda'];
             $pedidos = new Pedido();
             $pedidos->status = "En preparacion";
@@ -42,7 +46,7 @@ class PedidoController extends Controller
             $pedidos->ciutat = $comanda['ciutat'];
             $pedidos->pais = $comanda['pais'];
             $pedidos->namecli = $comanda['namecli'];
-
+            $pedidos->user_id = $user->id;
             $pedidos->save();
 
             $pedidoId = $pedidos->id;
@@ -56,8 +60,12 @@ class PedidoController extends Controller
                 $lp->name_producto = $producto->name;
                 $lp->producto_id = $item['id'];
 
+
                 $lp->save();
             }
+           
+
+          
 
             DB::commit();
 

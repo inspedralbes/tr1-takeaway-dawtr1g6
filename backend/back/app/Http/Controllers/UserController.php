@@ -165,7 +165,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string'
         ]);
 
         $user->update($request->all());
