@@ -86,8 +86,6 @@ createApp({
                 default:
                     break;
             }
-
-
             switch (claseGo) {
                 case "main":
                     this.main = true;
@@ -330,19 +328,21 @@ createApp({
                 });
         },
         logout() {
+            this.token = '';
+            this.tokenT = false;
 
-            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-                .then(response => {
-                    if (response.ok) {
-                    } else {
-                        alert('Error');
-                    }
-                });
+            // fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            // })
+            //     .then(response => {
+            //         if (response.ok) {
+            //         } else {
+            //             alert('Error');
+            //         }
+            //     });
         },
         getComandes() {
             let dades = JSON.stringify({ 'token': this.token });
@@ -357,12 +357,31 @@ createApp({
                     return response.json();
                 })
                 .then(data => {
-                    this.comandesA = data.comandes;
+                    data.pedidosUser.forEach(pedido => {
+                        pedido.liniaPedidos.forEach(item => {
+                            item.created_at = this.formatearFecha(item.created_at);
+                            item.updated_at = this.formatearFecha(item.updated_at);
+                        });
+                    });
+                    this.comandesA = data;
                 });
-        }
+        },
+        formatearFecha(fecha) {
+            const fechaObj = new Date(fecha);
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+            return fechaObj.toLocaleDateString('es-ES', options);
+        },
+        checkToken() {
+            if (this.tokenT) {
+                this.getComandes();
+            }
+        },
     },
     watch: {
-        searchTerm: "search"
+        searchTerm: "search",
+        token: function (newToken) {
+            this.tokenT = Boolean(newToken);
+        }
     },
     created() {
         getDades().then(data => {
@@ -371,10 +390,9 @@ createApp({
             this.search();
         });
 
-        if (this.tokenT) {
-            setInterval(this.getComandes, 5000);
-        }
-        this.getComandes();
+
+        setInterval(this.checkToken, 5000);
+
     },
     computed: {
         productesMesVenuts() {

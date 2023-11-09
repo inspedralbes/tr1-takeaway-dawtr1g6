@@ -788,11 +788,12 @@ input {
 
 
 
-.info_comanda {
+/* .info_comanda {
     text-align: left;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+} */
 
 .info_comanda h4 {
     margin-top: 0;

@@ -294,10 +294,10 @@
             <div class="comandes">
                 <a href=""></a>
                 <div class="comanda">
-                    <div v-for="(actual,index) in comandesA" :key="index" class="info_comanda">
+                    <div v-for="(actual,index) in comandesA.pedidosUser" :key="index" class="info_comanda">
                         <h1>{{actual.id}}</h1>
-                        <h1 id="info_comanda__total">{{actual.sumatory}}</h1>
-                        <h4>{{actual.data}}</h4>
+                        <h1 id="info_comanda__total">{{actual.sumatori}}€</h1>
+                        <h4>{{actual.created_at}}</h4>
                     </div>
 
                     <div class="estat_actual">
