@@ -2,7 +2,7 @@
 
 ## 1. Instruccions per crear un entorn de desenvolupament
 
-### PHP: Assegureu-vos de tenir PHP instal·lat al vostre sistema. Podeu descarregar PHP des del seu lloc web oficial: PHP Downloads.
+### PHP: Assegureu-vos de tenir PHP instal·lat al vostre sistema. Podeu descarregar PHP des del seu lloc web oficial..
 
 ### Composer: Composer és una eina de gestió de dependències per a PHP. Podeu instal·lar-lo seguint les instruccions del seu lloc web oficial: Composer Installation.
 
@@ -51,21 +51,21 @@
 ### Realitzar la creació de Models 
         En Laravel, els models són classes que representen las taules de la teva BBDD. S'utilitzen per a interactuar amb la BBDD i realitzar operacions com insertar, actualitzar i per a la eliminació de dades
         
-### 2.1 Eines
+### 1.1 Eines
 
     Visual Studio Code
     Laravel
     Xammp
     Phpmyadmin
 
-### 2.2 Plugins (VSC)
+### 1.2 Plugins (VSC)
 
     Miscrosoft Preview
     Postman
 
-## 3. Instruccions per desplegar el projecte a producció
+## 2. Instruccions per desplegar el projecte a producció
 
-### 3.1 Laravel, conexions
+### 2.1 Laravel, conexions
 
     .env (Conexió amb el labs)
 
@@ -83,7 +83,7 @@
     DB_USERNAME=root
     DB_PASSWORD=
 
-### 3.1.2 Laravel, enviar informació a la DB
+### 2.1.2 Laravel, enviar informació a la DB
 
     A través de PostMan + un json, les funcions agafen el json y els seus atributs, i, per cada item, genera una nova instància adequada.
 
@@ -99,7 +99,7 @@
     LINIA DE COMANDES: (json dins d'array "liniaPedido"):
     Route::post("/getLiniaPedidos", [LiniaPedidoController::class,"getLiniaPedidos"])
 
-### 3.1.3 Laravel, rebre informació de la BD
+### 2.1.3 Laravel, rebre informació de la BD
 
     // retorna un json de todos los productos de la bd en phpmyadmin
     Route::get('/getJsonProductos', [ProductoController::class, 'giveJsonProductosData']);
@@ -110,10 +110,10 @@
     // retorna un json de todos los linia de pedidos de la bd en phpmyadmin
     Route::get("/getJsonLiniaPedidos", [LiniaPedidoController::class, "giveJsonLiniaPedidoData"]);
 
-### 3.1.4 Laravel, per a la creació de tokens (exemple de clau secret)
+### 2.1.4 Laravel, per a la creació de tokens (exemple de clau secret)
     PLAIN_TEXT_TOKEN_SECRET=abcdaabbccddddccbbaa
-### 3.1.5 Laravel, capacitat CRUD per Admins
-#### 3.1.5.1 Rutes
+### 2.1.5 Laravel, capacitat CRUD per Admins
+#### 2.1.5.1 Rutes
     // CRUD PRODUCTO (ADMIN)
     Route::post("/update_producto/{id}", [ProductoController::class, "update_producto"]);
     Route::post("/destroy_producto/{id}", [ProductoController::class, "destroy_producto"]);
@@ -125,7 +125,7 @@
     Route::get("/create-pedido", [PedidoController::class, "show_create_pedido"]);
     Route::post("/save-pedido", [PedidoController::class, "save_pedido"]);
     
-#### 3.1.5.1 Funcions CRUD (de productes)  
+#### 2.1.5.1 Funcions CRUD (de productes)  
 
     public function show_create_producto()
     {
@@ -172,7 +172,7 @@
     }
 
 
-### 3.2 API / ENDPOINTS
+### 3 API / ENDPOINTS
 
     Per agafar tots els productes de la BD:
         http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonProductos
