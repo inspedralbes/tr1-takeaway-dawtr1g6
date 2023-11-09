@@ -55,20 +55,26 @@
     Route::post("/getLiniaPedidos", [LiniaPedidoController::class,"getLiniaPedidos"])
     
 
-### 3.2 API / ENDPOINTS
+### 3.2 Vue, fetchs
 
     Per agafar tots els productes de la BD:
-        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonProductos
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonProductos
+        Exemple a doc/getPedidos.json
 
     Per agafar totes les comandes de la BD
-        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonPedidos
-      
-    Per agafar tots els usuaris de la BD
-        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonUsers
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos
+        Exemple a doc/getProductos.json
 
+    Per agafar les comandes d'un usuari determinat
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/listaPedidosUser
+        -> a partir d'un token
+        
+
+    
 
 ## 4. Instruccions per seguir codificant el projecte
-FALTA POR HACER
+    ### A partir d'ISSUES al nostre repository de github: https://github.com/inspedralbes/tr1-takeaway-dawtr1g6
+       
 
 
 
