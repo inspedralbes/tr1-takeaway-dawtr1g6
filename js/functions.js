@@ -29,6 +29,9 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
+            categorias: ['Totes', 'Berlina', 'Esportiu', 'SUV'],
+            selectedCategoria: 'Totes',
+            orden: "null",
             comandes: [],
             main: false,
             landing: true,
@@ -242,6 +245,29 @@ createApp({
                 getDades().then(data => {
                     this.productes = data;
                 });
+            }
+        },
+        //Filtre categories
+        filteredProductes() {
+            if (this.selectedCategoria === 'Totes') {
+                this.ordenarProductos();
+                return this.productes;
+            } else {
+                this.ordenarProductos();
+                return this.productes.filter(producte => producte.categoria.toLowerCase() === this.selectedCategoria.toLowerCase());
+            }
+          },
+
+        //Filtre preu
+        ordenarProductos() {
+            if (this.orden === "asc") {
+              // Ordenar productos de menor a mayor
+              return this.productes.sort((a, b) => a.price - b.price);
+            } else if (this.orden === "desc") {
+              // Ordenar productos de mayor a menor
+              return this.productes.sort((a, b) => b.price - a.price);
+            }else{
+                return this.productes.sort((a, b) => a.id - b.id);
             }
         },
         enviarComanda() {
