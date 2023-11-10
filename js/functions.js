@@ -235,6 +235,7 @@ createApp({
                 producte.carro = 0;
             });
             this.totalCarret = 0;
+            this.visible = false;
             fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getPedidos', {
                 method: 'POST',
                 headers: {
