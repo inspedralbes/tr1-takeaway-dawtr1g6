@@ -33,6 +33,7 @@ createApp({
             selectedCategoria: 'Totes',
             orden: "null",
             comandes: [],
+            comandesA: [],
             main: false,
             landing: true,
             cart: false,
@@ -41,7 +42,9 @@ createApp({
             comandes: false,
             tramitarComandes: false,
             prod: false,
-            prodAct: -1
+            comanProds: false,
+            prodAct: -1,
+            comandaAct: -1
         }
     },
 
@@ -256,17 +259,17 @@ createApp({
                 this.ordenarProductos();
                 return this.productes.filter(producte => producte.categoria.toLowerCase() === this.selectedCategoria.toLowerCase());
             }
-          },
+        },
 
         //Filtre preu
         ordenarProductos() {
             if (this.orden === "asc") {
-              // Ordenar productos de menor a mayor
-              return this.productes.sort((a, b) => a.price - b.price);
+                // Ordenar productos de menor a mayor
+                return this.productes.sort((a, b) => a.price - b.price);
             } else if (this.orden === "desc") {
-              // Ordenar productos de mayor a menor
-              return this.productes.sort((a, b) => b.price - a.price);
-            }else{
+                // Ordenar productos de mayor a menor
+                return this.productes.sort((a, b) => b.price - a.price);
+            } else {
                 return this.productes.sort((a, b) => a.id - b.id);
             }
         },
@@ -369,23 +372,40 @@ createApp({
                 });
         },
         getComandes() {
-            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos', {
-                method: 'GET',
+            let dades = JSON.stringify({ 'token': this.token });
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/listaPedidosUser', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.token}`
                 },
+                body: dades
             })
                 .then(response => {
-                    if (response.ok) {
-                    } else {
-                        alert('Error');
-                    }
                     return response.json();
                 })
-                .then(dades => {
-                    this.comandes = dades.comandes;
-                })
+                .then(data => {
+                    data.pedidosUser.forEach(pedido => {
+                        pedido.liniaPedidos.forEach(item => {
+                            item.created_at = this.formatearFecha(item.created_at);
+                            item.updated_at = this.formatearFecha(item.updated_at);
+                        });
+                    });
+                    this.comandesA = data;
+                });
+        },
+        formatearFecha(fecha) {
+            const fechaObj = new Date(fecha);
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+            return fechaObj.toLocaleDateString('es-ES', options);
+        },
+        checkToken() {
+            if (this.tokenT) {
+                this.getComandes();
+            }
+        },
+        setComandaAct(i) {
+            console.log('Índice recibido:', i);
+            this.comandaAct = i;
         }
     },
     watch: {
