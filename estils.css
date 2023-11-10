@@ -141,7 +141,7 @@ nav {
 }
 
 .landing__producte img {
-    height: 200px;
+    /* height: 200px; */
     background-color: transparent;
 }
 
@@ -319,7 +319,7 @@ ul li a {
         width: 280px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        height: auto;
+        /* height: auto; */
     }
 
 
