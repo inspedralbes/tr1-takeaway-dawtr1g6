@@ -20,7 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post("/listaPedidosUser", [PedidoController::class,"listaPedidosUser"]);
+
+
 Route::post('/post-checkout', [QrController::class,"generarQrEnviarEmail"]);
+
+
+
 Route::post('/post-checkout2/{id}', [QrController::class,"generarQrEnviarEmailwithId"]);
 
 

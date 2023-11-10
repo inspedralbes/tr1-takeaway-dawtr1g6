@@ -14,6 +14,8 @@ return [
     */
 
     'default' => env('MAIL_MAILER', 'smtp'),
+    
+    'mailtrap_email' => env('MAILTRAP_EMAIL', 'mailtrap@example.com'),
 
     /*
     |--------------------------------------------------------------------------
