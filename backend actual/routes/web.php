@@ -28,6 +28,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('/trigger-email', [QrController::class, "generarQrEnviarEmail"]);
 
 
 // rutas de pedidos

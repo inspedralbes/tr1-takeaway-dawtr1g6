@@ -32,12 +32,13 @@ class PedidoController extends Controller
 
        
         DB::beginTransaction();
-        $sumatori = 0;
-      
+       
+       
         try {
             
             $token = $jsonData['token'];
             $user = User::where('plain_text_token', $token)->first();
+
             $comanda = $jsonData['comanda'];
             $pedidos = new Pedido();
             $pedidos->status = "En preparacion";
@@ -46,30 +47,29 @@ class PedidoController extends Controller
             $pedidos->ciutat = $comanda['ciutat'];
             $pedidos->pais = $comanda['pais'];
             $pedidos->namecli = $comanda['namecli'];
-            $pedidos->user_id = $user->id;
-            $pedidoId = $pedidos->id;
             
+           
+            $pedidos->user_id = $user->id;
+           
+            $pedidos->save();
+            
+            $sumatori = 0;
             foreach ($jsonData['carret'] as $item) {
+                
                 $lp = new LiniaPedido();
                 $producto = Producto::find($item['id']);
                 $lp->unit_price = $producto->price;
                 $lp->quantitat = abs($item['carro']);
-                
                 $sumatori += abs($item['carro']) * $producto->price;
-                $lp->pedido_id = $pedidoId;
+                $lp->pedido_id = $pedidos->id;
                 $lp->name_producto = $producto->name;
                 $lp->producto_id = $item['id'];
-                
                 
                 $lp->save();
             }
             
             $pedidos->sumatori = $sumatori;   
             $pedidos->save();
-
-
-
-
 
             DB::commit();
 
@@ -179,9 +179,11 @@ class PedidoController extends Controller
 
             foreach ($pedidosUser as $pedido) {
                 $liniaPedidosUser = LiniaPedido::where('pedido_id', $pedido->id)->get();
+               
                 $pedido->liniaPedidos = $liniaPedidosUser;
+                
             }
-
+           
             $response = [
                 'pedidosUser' => $pedidosUser,
             ];
