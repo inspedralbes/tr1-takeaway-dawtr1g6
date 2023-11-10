@@ -230,6 +230,11 @@ createApp({
         enviarComanda() {
             let dades = JSON.stringify({ 'comanda': this.comanda, 'carret': this.carret, 'token': this.token });
             console.log(dades);
+            this.carret = [];
+            this.productes.forEach(producte => {
+                producte.carro = 0;
+            });
+            this.totalCarret = 0;
             fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getPedidos', {
                 method: 'POST',
                 headers: {
