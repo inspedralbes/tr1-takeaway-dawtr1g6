@@ -29,7 +29,10 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
-            comandesA: [],
+            categorias: ['Totes', 'Berlina', 'Esportiu', 'SUV'],
+            selectedCategoria: 'Totes',
+            orden: "null",
+            comandes: [],
             main: false,
             landing: true,
             cart: false,
@@ -38,12 +41,7 @@ createApp({
             comandes: false,
             tramitarComandes: false,
             prod: false,
-            comanProds: false,
-            prodAct: -1,
-            comandaAct: -1,
-            categorias: ['tots', 'berlina', 'esportiu', 'suv'],
-            selectedCategoria: 'tots',
-            orden: "null"
+            prodAct: -1
         }
     },
 
@@ -60,11 +58,36 @@ createApp({
                     this.main = false;
                     this.prod = false;
                     this.regis = false;
-                    this.comanProds = false;
+                    break;
+                case "main":
+                    this.main = false;
+                    break;
+                case "landing":
+                    this.landing = false;
+                    break;
+                case "cart":
+                    this.cart = false;
+                    break;
+                case "logi":
+                    this.logi = false;
+                    break;
+                case "comandes":
+                    this.comandes = false;
+                    break;
+                case "tramitarComandes":
+                    this.tramitarComandes = false;
+                    break;
+                case "prod":
+                    this.prod = false;
+                    break;
+                case "regis":
+                    this.regis = false;
                     break;
                 default:
                     break;
             }
+
+
             switch (claseGo) {
                 case "main":
                     this.main = true;
@@ -90,9 +113,6 @@ createApp({
                     break;
                 case "regis":
                     this.regis = true;
-                    break;
-                case "comanProds":
-                    this.comanProds = true;
                     break;
                 default:
                     break;
@@ -227,8 +247,31 @@ createApp({
                 });
             }
         },
+        //Filtre categories
+        filteredProductes() {
+            if (this.selectedCategoria === 'Totes') {
+                this.ordenarProductos();
+                return this.productes;
+            } else {
+                this.ordenarProductos();
+                return this.productes.filter(producte => producte.categoria.toLowerCase() === this.selectedCategoria.toLowerCase());
+            }
+          },
+
+        //Filtre preu
+        ordenarProductos() {
+            if (this.orden === "asc") {
+              // Ordenar productos de menor a mayor
+              return this.productes.sort((a, b) => a.price - b.price);
+            } else if (this.orden === "desc") {
+              // Ordenar productos de mayor a menor
+              return this.productes.sort((a, b) => b.price - a.price);
+            }else{
+                return this.productes.sort((a, b) => a.id - b.id);
+            }
+        },
         enviarComanda() {
-            let dades = JSON.stringify({ 'comanda': this.comanda, 'carret': this.carret, 'token': this.token });
+            let dades = JSON.stringify({ 'comanda': this.comanda, 'carret': this.carret });
             console.log(dades);
             fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getPedidos', {
                 method: 'POST',
@@ -267,7 +310,6 @@ createApp({
             })
                 .then(response => {
                     if (response.ok) {
-                        this.setMostrar("all", "landing");
                     } else {
                         alert('Email o contrasenya incorrecte');
                         this.loginA.password = {
@@ -294,7 +336,8 @@ createApp({
             })
                 .then(response => {
                     if (response.ok) {
-                        this.setMostrar("all", "landing");
+                        this.token = data.token;
+                        this.tokenT = true;
                     } else {
                         alert('Email o contrasenya incorrecte');
                         this.registreA = {
@@ -310,65 +353,43 @@ createApp({
                 });
         },
         logout() {
-            this.token = '';
-            this.tokenT = false;
-            this.comandesA = [];
 
-            // fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            // })
-            //     .then(response => {
-            //         if (response.ok) {
-            //         } else {
-            //             alert('Error');
-            //         }
-            //     });
-        },
-        getComandes() {
-            let dades = JSON.stringify({ 'token': this.token });
-            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/listaPedidosUser', {
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`
                 },
-                body: dades
             })
                 .then(response => {
-                    return response.json();
-                })
-                .then(data => {
-                    data.pedidosUser.forEach(pedido => {
-                        pedido.liniaPedidos.forEach(item => {
-                            item.created_at = this.formatearFecha(item.created_at);
-                            item.updated_at = this.formatearFecha(item.updated_at);
-                        });
-                    });
-                    this.comandesA = data;
+                    if (response.ok) {
+                    } else {
+                        alert('Error');
+                    }
                 });
         },
-        formatearFecha(fecha) {
-            const fechaObj = new Date(fecha);
-            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
-            return fechaObj.toLocaleDateString('es-ES', options);
-        },
-        checkToken() {
-            if (this.tokenT) {
-                this.getComandes();
-            }
-        },
-        setComandaAct(i) {
-            console.log('Índice recibido:', i);
-            this.comandaAct = i;
+        getComandes() {
+            fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`
+                },
+            })
+                .then(response => {
+                    if (response.ok) {
+                    } else {
+                        alert('Error');
+                    }
+                    return response.json();
+                })
+                .then(dades => {
+                    this.comandes = dades.comandes;
+                })
         }
     },
     watch: {
-        searchTerm: "search",
-        token: function (newToken) {
-            this.tokenT = Boolean(newToken);
-        }
+        searchTerm: "search"
     },
     created() {
         getDades().then(data => {
@@ -376,10 +397,6 @@ createApp({
             console.log(this.productes);
             this.search();
         });
-
-
-        setInterval(this.checkToken, 5000);
-
     },
     computed: {
         productesMesVenuts() {

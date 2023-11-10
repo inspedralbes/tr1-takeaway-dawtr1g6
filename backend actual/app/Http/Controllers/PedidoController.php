@@ -32,12 +32,13 @@ class PedidoController extends Controller
 
        
         DB::beginTransaction();
-
-        
+       
+       
         try {
-           
+            
             $token = $jsonData['token'];
-            $user = User::where('plain_text_token', $token)->first(); 
+            $user = User::where('plain_text_token', $token)->first();
+
             $comanda = $jsonData['comanda'];
             $pedidos = new Pedido();
             $pedidos->status = "En preparacion";
@@ -46,26 +47,29 @@ class PedidoController extends Controller
             $pedidos->ciutat = $comanda['ciutat'];
             $pedidos->pais = $comanda['pais'];
             $pedidos->namecli = $comanda['namecli'];
+            
+           
             $pedidos->user_id = $user->id;
+           
             $pedidos->save();
-
-            $pedidoId = $pedidos->id;
-
+            
+            $sumatori = 0;
             foreach ($jsonData['carret'] as $item) {
+                
                 $lp = new LiniaPedido();
                 $producto = Producto::find($item['id']);
                 $lp->unit_price = $producto->price;
                 $lp->quantitat = abs($item['carro']);
-                $lp->pedido_id = $pedidoId;
+                $sumatori += abs($item['carro']) * $producto->price;
+                $lp->pedido_id = $pedidos->id;
                 $lp->name_producto = $producto->name;
                 $lp->producto_id = $item['id'];
-
-
+                
                 $lp->save();
             }
-           
-
-          
+            
+            $pedidos->sumatori = $sumatori;   
+            $pedidos->save();
 
             DB::commit();
 
@@ -166,27 +170,29 @@ class PedidoController extends Controller
 
     public function listaPedidosUser(Request $request)
     {
-    
-       
+
+
         $user = User::where('plain_text_token', $request->token)->first();
-        
-        if($user){
+
+        if ($user) {
             $pedidosUser = Pedido::where('user_id', $user->id)->get();
-    
+
             foreach ($pedidosUser as $pedido) {
                 $liniaPedidosUser = LiniaPedido::where('pedido_id', $pedido->id)->get();
+               
                 $pedido->liniaPedidos = $liniaPedidosUser;
+                
             }
-        
+           
             $response = [
                 'pedidosUser' => $pedidosUser,
             ];
-    
+
             return response()->json($response);
         }
-            
+
     }
-    
+
 
     public function showPedidosAdmin()
     {

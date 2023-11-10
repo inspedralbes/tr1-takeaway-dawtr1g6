@@ -28,6 +28,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('/trigger-email', [QrController::class, "triggerEmail"]);
 
 
 // rutas de pedidos
@@ -43,14 +44,6 @@ Route::get("/showProducto-itemNA/{id}", [ProductoController::class, "showProduct
 Route::get('/showProductosAdmin', [ProductoController::class, 'showProductosAdmin']);
 
 
-//rutas lista de pedidos
-
-
-// ruta email
-Route::get("/showTicket/{id}", [EmailController::class,"email_after_buying"]);
-// ruta qr + enviarlo a un email
-Route::post('/post-checkout', [QrController::class,"generarQrEnviarEmail"]);
-
 
 // CRUD PRODUCTO (ADMIN)
 Route::post("/update_producto/{id}", [ProductoController::class, "update_producto"]);
@@ -61,11 +54,10 @@ Route::post("/save-producto", [ProductoController::class, "save_producto"]);
 // CRUD USERS (ADMIN)
 Route::get("/showUsersAdmin", [UserController::class,"showUsersAdmin"]);
 Route::get("/showUser-item/{id}", [UserController::class, "showUser_item"]);
-
+Route::get("/create_user", [UserController::class,"show_create_user"]);
 Route::post("/update_user/{id}", [UserController::class,"update_user"]);
 Route::post("/destroy_user/{id}", [UserController::class,"destroy_user"]);
-Route::get("/create-user/{id}", [UserController::class,"create_user"]);
-Route::post("/save-user/{id}", [UserController::class,"save_user"]);
+Route::post("/store_user", [UserController::class,"store_user"]);
 
 
 // CRUD PEDIDO (ADMIN)

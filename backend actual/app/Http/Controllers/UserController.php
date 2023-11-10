@@ -144,6 +144,9 @@ class UserController extends Controller
         return json_encode($user, JSON_PRETTY_PRINT);
     }
 
+
+
+
     public function show_create_user(Request $request)
     {
         return view('user.create-user');
@@ -152,7 +155,9 @@ class UserController extends Controller
     {
 
         User::create($request->all());
-        return redirect('user.showUsersAdmin');
+
+
+        return redirect('showUsersAdmin');
 
     }
 
@@ -165,6 +170,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
+            'rol' => 'required',
         ]);
 
         $user->update($request->all());

@@ -58,7 +58,11 @@
     Xammp
     Phpmyadmin
 
+<<<<<<< HEAD
 ### 1.2 Plugins (VSC)
+=======
+### 2.1 Plugins (VSC)
+>>>>>>> origin/develop
 
     Miscrosoft Preview
     Postman
@@ -172,16 +176,24 @@
     }
 
 
+<<<<<<< HEAD
 ### 3 API / ENDPOINTS
+=======
+### 3.2 Vue, fetchs
+>>>>>>> origin/develop
 
     Per agafar tots els productes de la BD:
-        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonProductos
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonProductos
+        Exemple a doc/getPedidos.json
 
     Per agafar totes les comandes de la BD
-        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonPedidos
-      
-    Per agafar tots els usuaris de la BD
-        http://autoplanet.daw.inspedralbes.cat/1-dawtr1g6/public/api/getJsonUsers
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/getJsonPedidos
+        Exemple a doc/getProductos.json
+
+    Per agafar les comandes d'un usuari determinat
+        http://dawtr1g6.daw.inspedralbes.cat/back/public/api/listaPedidosUser
+        -> a partir d'un token
+        
 
 ### 3.3 Model de EXEMPLE de BBDD (phpmyadmin)
 
@@ -231,6 +243,7 @@
         composer require simplesoftwareio/simple-qrcode
         composer require barryvdh/laravel-dompdf
 
+<<<<<<< HEAD
 ## 5. Vue, fetchs
     
     Per agafar tots els productes de la BD:
@@ -245,6 +258,11 @@
         http://dawtr1g6.daw.inspedralbes.cat/back/public/api/listaPedidosUser
         -> a partir d'un token
 
+=======
+## 4. Instruccions per ajudar amb el projecte
+    ### A partir d'ISSUES al nostre repository de github: https://github.com/inspedralbes/tr1-takeaway-dawtr1g6
+       
+>>>>>>> origin/develop
 
 
 

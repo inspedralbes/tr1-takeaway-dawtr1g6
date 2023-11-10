@@ -12,7 +12,7 @@
     <div class="container">
         <h1 class="title"></h1>
         <div class="buttons">
-            <a href="{{ url('create-user') }}" class="button is-primary">Crear Usuario</a>
+            <a href="{{ url('create_user') }}" class="button is-primary">Crear Usuario</a>
         </div>
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>

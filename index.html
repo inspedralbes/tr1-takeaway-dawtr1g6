@@ -31,7 +31,7 @@
                 </button>
             </form>
             <div class="nav__botones">
-                <button v-if="tokenT" @click="logout();setMostrar('all', 'landing')" class="btn-carret">
+                <button v-if="tokenT" @click="logout" class="btn-carret">
                     <img class="barraSuperior" src="img/iconos/logout.png" width="40" height="40">
                 </button>
                 <button @click="setMostrar('all', 'logi')" class="btn-carret">
@@ -50,21 +50,88 @@
                 </button>
             </div>
         </nav>
+
         <div id="main" :class="{'amagatD':!main}">
+            <div class="checkout" :class="{amagat:!visible}">
+                <div class="card shadow-sm">
+                    <div class="over">
+                        <transition-group name="slide-carro">
+                            <div v-for="(actual,index) in carret" :key="index" class="carro">
+
+
+                                <span>
+                                    <p>{{actual.name}}</p>
+                                </span>
+                                <div class="btn-group">
+                                    <button id="restar_carret" class="btn  " @click="restarC(index)">
+                                        -
+                                    </button>
+
+                                    <button id="sumar_carret" class="btn  " @click="sumarC(index)">
+                                        +
+                                    </button>
+                                </div>
+                                <span class="centrat">
+                                    <p>x{{actual.carro}}</p>
+                                </span>
+                                <span>
+                                    <h4>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
+                                </span>
+                            </div>
+                        </transition-group>
+                    </div>
+                    <div class="total">
+                        <h2>Total: {{parseFloat((totalCarret).toFixed(2))}}€</h4>
+                            <button @click="setMostrar('main', 'tramitarComandes')" class="btn ">
+                                Veure carret
+                            </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="filtres">
+
+                <div class="filtre">
+                    <label for="categoria">Filtrar per categoria:</label>
+                    <select id="categoria" v-model="selectedCategoria">
+                        <option v-for="categoria in categorias" :value="categoria">{{ categoria }}</option>
+                    </select>
+                </div>
+
+
+                <div class="filtre">
+                    <label for="orden">Ordenar per preu:</label>
+                    <select id="orden" v-model="orden">
+                        <option value="null">Ordre per defecte</option>
+                        <option value="asc">Menor a Major</option>
+                        <option value="desc">Major a Menor</option>
+                    </select>
+                  </div>
+
+
+                  
+
+            </div>
             <div id="productes">
                 <div :class="{'cont':visible}">
                     <div :class="{'prods':visible, 'prods1':!visible}">
-                        <div v-for="(actual,index) in productes" class="prod card shadow-sm"
+                        <div v-for="(actual,index) in filteredProductes()" class="prod card shadow-sm"
                             :class="{'selected': actual.carro > 0}">
-                            <img @click="setMostrar('all', 'prod');trobarProdID(actual.id)" :src="actual.image_url">
+                            <div class="imatgeProducte">
+                                <img :src="actual.image_url">
 
+                                <span class="ultimesU">
+                                    <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
+                                </span>
+                            </div>
                             <h1 @click="setMostrar('main', 'prod');trobarProdID(actual.id)" class="card-text">
                                 {{actual.name}}
                             </h1>
 
                             <div class="stock_prodGrid">
 
-                                <div @click="setMostrar('all', 'prod');trobarProdID(actual.id)" class="preu">
+                                <div @click="setMostrar('main', 'prod');trobarProdID(actual.id)" class="preu">
                                     <h2>
                                         {{actual.price}}€
                                     </h2>
@@ -76,48 +143,11 @@
                                 </div>
 
                             </div>
-                            <span @click="setMostrar('all', 'prod');trobarProdID(actual.id)" class="ultimesU">
-                                <p v-if="actual.stock<=10" class="unitats">Últimes unitats</p>
-                            </span>
+                            
 
                         </div>
                     </div>
-                    <div class="checkout" :class="{amagat:!visible}">
-                        <div class="card shadow-sm">
-                            <div class="over">
-                                <transition-group name="slide-carro">
-                                    <div v-for="(actual,index) in carret" :key="index" class="carro">
-
-
-                                        <span>
-                                            <p>{{actual.name}}</p>
-                                        </span>
-                                        <div class="btn-group">
-                                            <button id="restar_carret" class="btn  " @click="restarC(index)">
-                                                -
-                                            </button>
-
-                                            <button id="sumar_carret" class="btn  " @click="sumarC(index)">
-                                                +
-                                            </button>
-                                        </div>
-                                        <span class="centrat">
-                                            <p>x{{actual.carro}}</p>
-                                        </span>
-                                        <span>
-                                            <h4>{{parseFloat((actual.price*actual.carro).toFixed(2))}}€</p>
-                                        </span>
-                                    </div>
-                                </transition-group>
-                            </div>
-                            <div class="total">
-                                <h2>Total: {{parseFloat((totalCarret).toFixed(2))}}€</h4>
-                                    <button @click="setMostrar('all', 'tramitarComandes')" class="btn ">
-                                        Veure carret
-                                    </button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -125,7 +155,7 @@
 
         <div class="landing" :class="{'amagatD':!landing}">
             <div id="anarCataleg">
-                <button class="boton_interactivo" id="verCatalogo" @click="setMostrar('all', 'main')">
+                <button class="boton_interactivo" id="verCatalogo" @click="setMostrar('landing', 'main')">
                     Veure Catàleg
                 </button>
             </div>
@@ -138,7 +168,7 @@
 
                 <div class="mesVenuts__productes">
                     <div v-for="product in productesMesVenuts" :key="product.id" class="landing__producte"
-                        @click="setMostrar('all', 'prod');trobarProdID(product.id)">
+                        @click="setMostrar('landing', 'prod');trobarProdID(product.id)">
                         <img class="landing__producte__img" :src="product.image_url" alt="">
                         <h2>{{product.name}}</h2>
                         <h4>{{product.price}}€</h4>
@@ -148,6 +178,7 @@
         </div>
 
         <div class="login" :class="{'amagatD':!logi}">
+
             <div class="login-container">
                 <h2>Iniciar Sessió</h2>
                 <form @submit.prevent="login()">
@@ -157,7 +188,7 @@
                     <label for="password">Contrassenya:</label>
                     <input v-model="loginA.password" type="password" id="password" name="password" required>
 
-                    <a class="lnkRegis" @click="setMostrar('all', 'regis');" href="#">Registrat aquí</a>
+                    <a class="lnkRegis" @click="setMostrar('logi', 'regis');" href="#">Registrat aquí</a>
 
                     <button id="login-container__button" type="submit">Iniciar Sesió</button>
                 </form>
@@ -224,9 +255,8 @@
                     <div class="producte__afegir">
                         <h1 v-if="prodAct!=-1">{{productes[prodAct].price}}€</h1>
                         <h1 v-else>error</h1>
-                        <button @click="sumarIn(prodAct);setMostrar('all', 'main')" class="boton_interactivo">
-                            Afegir al carret
-                        </button>
+                        <button @click="sumarIn(prodAct);setMostrar('all', 'main')" class="boton_interactivo">Afegir al
+                            carret</button>
                     </div>
 
                 </div>
@@ -248,34 +278,20 @@
 
         <div class="pantalla_comandes" :class="{'amagatD':!comandes}">
             <div class="comandes">
+                <a href=""></a>
                 <div class="comanda">
-                    <div v-for="(actual,index) in comandesA.pedidosUser" :key="index" class="info_comanda" @click="setComandaAct(index);setMostrar('all', 'comanProds')">
+                    <div v-for="(actual,index) in comandes" :key="index" class="info_comanda">
+                        <h1>ID COMANDA: 01</h1>
                         <h1>{{actual.id}}</h1>
-                        <h1 id="info_comanda__total">{{actual.sumatori}}€</h1>
-                        <h4>{{actual.created_at}}</h4>
+                        <h1 id="info_comanda__total">TOTAL €</h1>
+                        <h1 id="info_comanda__total">{{actual.sumatory}}</h1>
+                        <h4>Data: 23/10/2023</h4>
+                        <h4>{{actual.data}}</h4>
                     </div>
-                    <div class="estat_actual">
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="mostrar_productes_comanda" :class="{'amagat':!comanProds}">
-            <div>
-                <button @click="setMostrar('all', 'comandes')" class="boton_interactivo tornar-ctlg">
-                    Tornar a comandes
-                    <br>
-                </button>
-            </div>
-            <div v-if="comandaAct!=-1" class="comanda">
-                <div v-for="(actual,index) in comandesA.pedidosUser[comandaAct].liniaPedidos" class="info_comanda">
-                    <p>{{actual.name_producto}}</p>
-                    <p>{{actual.quantitat}}</p>
-                    <p>{{actual.unit_price}}€</p>
-                </div>
-                <div class="info_comanda">
-                    <h1>Total:</h1>
-                    <h1>{{comandesA.pedidosUser[comandaAct].sumatori}}€</h1>
+                    <div class="estat_actual">
+                        <h2>Comanda Rebuda</h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -337,7 +353,7 @@
 
         <footer>
             <div class="footer">
-                <div class="footer__contacto">
+                <div class="footer__section">
                     <h3>Contacto</h3>
                     <p>Dirección: Calle Auto, Ciudad</p>
                     <p>Email: info@autoplanet.com</p>

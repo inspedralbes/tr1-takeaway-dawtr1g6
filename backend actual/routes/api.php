@@ -3,6 +3,7 @@
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\LiniaPedidoController;
+use App\Http\Controllers\QrController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post("/listaPedidosUser", [PedidoController::class,"listaPedidosUser"]);
+
+
+Route::post('/post-checkout', [QrController::class,"generarQrEnviarEmail"]);
+
+
+
+Route::post('/post-checkout2/{id}', [QrController::class,"generarQrEnviarEmailwithId"]);
 
 
 
