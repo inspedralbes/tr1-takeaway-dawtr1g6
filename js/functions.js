@@ -38,7 +38,9 @@ createApp({
             comandes: false,
             tramitarComandes: false,
             prod: false,
+            comanProds: false,
             prodAct: -1,
+            comandaAct: -1,
             categorias: ['tots', 'berlina', 'esportiu', 'suv'],
             selectedCategoria: 'tots',
             orden: "null"
@@ -58,30 +60,7 @@ createApp({
                     this.main = false;
                     this.prod = false;
                     this.regis = false;
-                    break;
-                case "main":
-                    this.main = false;
-                    break;
-                case "landing":
-                    this.landing = false;
-                    break;
-                case "cart":
-                    this.cart = false;
-                    break;
-                case "logi":
-                    this.logi = false;
-                    break;
-                case "comandes":
-                    this.comandes = false;
-                    break;
-                case "tramitarComandes":
-                    this.tramitarComandes = false;
-                    break;
-                case "prod":
-                    this.prod = false;
-                    break;
-                case "regis":
-                    this.regis = false;
+                    this.comanProds = false;
                     break;
                 default:
                     break;
@@ -111,6 +90,9 @@ createApp({
                     break;
                 case "regis":
                     this.regis = true;
+                    break;
+                case "comanProds":
+                    this.comanProds = true;
                     break;
                 default:
                     break;
@@ -330,6 +312,7 @@ createApp({
         logout() {
             this.token = '';
             this.tokenT = false;
+            this.comandesA = [];
 
             // fetch('http://dawtr1g6.daw.inspedralbes.cat/back/public/api/logout', {
             //     method: 'POST',
@@ -376,6 +359,10 @@ createApp({
                 this.getComandes();
             }
         },
+        setComandaAct(i) {
+            console.log('Índice recibido:', i);
+            this.comandaAct = i;
+        }
     },
     watch: {
         searchTerm: "search",
