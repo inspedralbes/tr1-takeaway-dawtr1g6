@@ -29,14 +29,7 @@ createApp({
             totalCarret: 0,
             carret: [],
             productes: [],
-<<<<<<< HEAD
-            categorias: ['Totes', 'Berlina', 'Esportiu', 'SUV'],
-            selectedCategoria: 'Totes',
-            orden: "null",
-            comandes: [],
-=======
             comandesA: [],
->>>>>>> llista-de-comandes
             main: false,
             landing: true,
             cart: false,
